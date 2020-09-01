@@ -34,8 +34,10 @@ class FunsdDataset(Dataset):
             features = torch.load(cached_features_file)
         else:
             logger.info("Creating features from dataset file at %s", args.data_dir)
-            examples = read_examples_from_file(args.data_dir, mode)
+            ResNet101 = ResNet()
+            examples = read_examples_from_file(args.data_dir, mode, ResNet101)
             features = convert_examples_to_features(
+                ResNet101,
                 examples,
                 labels,
                 args.max_seq_length,
@@ -173,21 +175,24 @@ def resize_and_pad(bbox_image):
 
     return resized_image
 
+class ResNet():
+    def __init__(self):
+        self.resnet = models.resnet101(pretrained=True)
+        fc_features = self.resnet.fc.in_features
+        self.resnet.fc == nn.Linear(fc_features, 768)
 
-def image_feature(image):
+
+def image_feature(ResNet, image):
     image = transforms.ToTensor()(image)
-    resnet = models.resnet101(pretrained=True)
-    fc_features = resnet.fc.in_features
-    resnet.fc = nn.Linear(fc_features, 768)
     x = Variable(torch.unsqueeze(image, dim=0).float(), requires_grad=False)
-    y = resnet(x)
+    y = ResNet.resnet(x)
     y = y.data.numpy()
     y = np.squeeze(y)
 
     return y
 
 
-def read_examples_from_file(data_dir, mode):
+def read_examples_from_file(data_dir, mode, ResNet101):
     file_path = os.path.join(data_dir, "{}.txt".format(mode))
     box_file_path = os.path.join(data_dir, "{}_box.txt".format(mode))
     image_file_path = os.path.join(data_dir, "{}_image.txt".format(mode))
@@ -261,7 +266,8 @@ def read_examples_from_file(data_dir, mode):
                     bbox_image = np.array(bbox_image)
 
                     resized_image = resize_and_pad(bbox_image)
-                    feature = image_feature(resized_image)
+
+                    feature = image_feature(ResNet101, resized_image)
 
                     bbox_images.append(feature)
                 else:
@@ -285,6 +291,7 @@ def read_examples_from_file(data_dir, mode):
 
 
 def convert_examples_to_features(
+    ResNet101,
     examples,
     label_list,
     max_seq_length,
@@ -388,14 +395,14 @@ def convert_examples_to_features(
             tokens += [cls_token]
             token_boxes += [cls_token_box]
             actual_bboxes += [[0, 0, width, height]]
-            bbox_images += [image_feature(image)]
+            bbox_images += [image_feature(ResNet101, image)]
             label_ids += [pad_token_label_id]
             segment_ids += [cls_token_segment_id]
         else:
             tokens = [cls_token] + tokens
             token_boxes = [cls_token_box] + token_boxes
             actual_bboxes = [[0, 0, width, height]] + actual_bboxes
-            bbox_images = [image_feature(image)] + bbox_images
+            bbox_images = [image_feature(ResNet101, image)] + bbox_images
             label_ids = [pad_token_label_id] + label_ids
             segment_ids = [cls_token_segment_id] + segment_ids
 
@@ -415,14 +422,14 @@ def convert_examples_to_features(
             segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
             label_ids = ([pad_token_label_id] * padding_length) + label_ids
             token_boxes = ([pad_token_box] * padding_length) + token_boxes
-            bbox_images = ([np.ones(768)*(-100)] * padding_length) + bbox_images
+            bbox_images = ([np.ones(768) * pad_token_label_id] * padding_length) + bbox_images
         else:
             input_ids += [pad_token] * padding_length
             input_mask += [0 if mask_padding_with_zero else 1] * padding_length
             segment_ids += [pad_token_segment_id] * padding_length
             label_ids += [pad_token_label_id] * padding_length
             token_boxes += [pad_token_box] * padding_length
-            bbox_images += [np.ones(768)*(-100)] * padding_length
+            bbox_images += [np.ones(768) * pad_token_label_id] * padding_length
 
         assert len(input_ids) == max_seq_length
         assert len(input_mask) == max_seq_length
@@ -458,3 +465,4 @@ def convert_examples_to_features(
         )
 
     return features
+
