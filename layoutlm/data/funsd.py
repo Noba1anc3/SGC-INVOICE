@@ -74,6 +74,8 @@ class FunsdDataset(Dataset):
             [f.boxes for f in features], dtype=torch.long
         )
 
+        self.all_bbox_images = [f.bbox_images for f in features]
+
     def __len__(self):
         return len(self.features)
 
@@ -84,6 +86,7 @@ class FunsdDataset(Dataset):
             self.all_segment_ids[index],
             self.all_label_ids[index],
             self.all_bboxes[index],
+            self.all_bbox_images[index]
         )
 
 
@@ -212,11 +215,30 @@ def read_examples_from_file(data_dir, mode):
 
                     data_dir = '../../examples/seq_labeling/data/'
                     file_path = os.path.join(data_dir, mode + 'ing_data/images', file_name)
+                    fixed_height, fixed_width = (16, 52)
 
                     image = cv.imread(file_path)
                     bbox_image = image[actual_bbox[1]:actual_bbox[3], actual_bbox[0]:actual_bbox[2]]
                     bbox_image = np.array(bbox_image)
-                    bbox_images.append(bbox_image)
+                    height, width = bbox_image.shape[:2]
+
+                    resize_ratio = min(fixed_height / height, fixed_width / width)
+                    new_size = (int(width * resize_ratio), int(height * resize_ratio))
+                    resized_image = cv.resize(bbox_image, new_size)
+
+                    width_pad, height_pad = (0, 0)
+                    if new_size[1] == fixed_height:
+                        width_pad = fixed_width - new_size[0]
+                    else:
+                        height_pad = fixed_height - new_size[1]
+
+                    width_pad = int(width_pad / 2)
+                    height_pad = int(height_pad / 2)
+                    padding_matrix = ((height_pad, height_pad), (width_pad, width_pad), (0, 0))
+                    padded_image = np.pad(resized_image, padding_matrix, 'constant', constant_values=255)
+
+                    resized_image = cv.resize(padded_image, (fixed_width, fixed_height))
+                    bbox_images.append(resized_image)
                 else:
                     # Examples could have no label for mode = "test"
                     labels.append("O")
@@ -409,4 +431,5 @@ def convert_examples_to_features(
                 image=image
             )
         )
+
     return features
