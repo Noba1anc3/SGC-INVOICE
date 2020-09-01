@@ -1,8 +1,14 @@
 import logging
 import os
-import cv2 as cv
 import torch
+import cv2 as cv
+import torch.nn as nn
+
 from torch.utils.data import Dataset
+from torch.autograd import Variable
+
+from torchvision import models, transforms
+
 import numpy as np
 
 logger = logging.getLogger(__name__)
@@ -127,7 +133,6 @@ class InputFeatures(object):
         bbox_images,
         file_name,
         page_size,
-        image
     ):
         assert (
             0 <= all(boxes) <= 1000
@@ -143,7 +148,43 @@ class InputFeatures(object):
         self.bbox_images = bbox_images
         self.file_name = file_name
         self.page_size = page_size
-        self.image = image
+
+
+def resize_and_pad(bbox_image):
+    fixed_height, fixed_width = (16, 52)
+    height, width = bbox_image.shape[:2]
+
+    resize_ratio = min(fixed_height / height, fixed_width / width)
+    new_size = (int(width * resize_ratio), int(height * resize_ratio))
+    resized_image = cv.resize(bbox_image, new_size)
+
+    width_pad, height_pad = (0, 0)
+    if new_size[1] == fixed_height:
+        width_pad = fixed_width - new_size[0]
+    else:
+        height_pad = fixed_height - new_size[1]
+
+    width_pad = int(width_pad / 2)
+    height_pad = int(height_pad / 2)
+    padding_matrix = ((height_pad, height_pad), (width_pad, width_pad), (0, 0))
+    padded_image = np.pad(resized_image, padding_matrix, 'constant', constant_values=255)
+
+    resized_image = cv.resize(padded_image, (fixed_width, fixed_height))
+
+    return resized_image
+
+
+def image_feature(image):
+    image = transforms.ToTensor()(image)
+    resnet = models.resnet101(pretrained=True)
+    fc_features = resnet.fc.in_features
+    resnet.fc = nn.Linear(fc_features, 768)
+    x = Variable(torch.unsqueeze(image, dim=0).float(), requires_grad=False)
+    y = resnet(x)
+    y = y.data.numpy()
+    y = np.squeeze(y)
+
+    return y
 
 
 def read_examples_from_file(data_dir, mode):
@@ -215,30 +256,14 @@ def read_examples_from_file(data_dir, mode):
 
                     data_dir = '../../examples/seq_labeling/data/'
                     file_path = os.path.join(data_dir, mode + 'ing_data/images', file_name)
-                    fixed_height, fixed_width = (16, 52)
-
                     image = cv.imread(file_path)
                     bbox_image = image[actual_bbox[1]:actual_bbox[3], actual_bbox[0]:actual_bbox[2]]
                     bbox_image = np.array(bbox_image)
-                    height, width = bbox_image.shape[:2]
 
-                    resize_ratio = min(fixed_height / height, fixed_width / width)
-                    new_size = (int(width * resize_ratio), int(height * resize_ratio))
-                    resized_image = cv.resize(bbox_image, new_size)
+                    resized_image = resize_and_pad(bbox_image)
+                    feature = image_feature(resized_image)
 
-                    width_pad, height_pad = (0, 0)
-                    if new_size[1] == fixed_height:
-                        width_pad = fixed_width - new_size[0]
-                    else:
-                        height_pad = fixed_height - new_size[1]
-
-                    width_pad = int(width_pad / 2)
-                    height_pad = int(height_pad / 2)
-                    padding_matrix = ((height_pad, height_pad), (width_pad, width_pad), (0, 0))
-                    padded_image = np.pad(resized_image, padding_matrix, 'constant', constant_values=255)
-
-                    resized_image = cv.resize(padded_image, (fixed_width, fixed_height))
-                    bbox_images.append(resized_image)
+                    bbox_images.append(feature)
                 else:
                     # Examples could have no label for mode = "test"
                     labels.append("O")
@@ -290,6 +315,7 @@ def convert_examples_to_features(
 
     features = []
     for (ex_index, example) in enumerate(examples):
+        print(ex_index)
         file_name = example.file_name
         page_size = example.page_size
         image = example.image
@@ -347,14 +373,14 @@ def convert_examples_to_features(
         tokens += [sep_token]
         token_boxes += [sep_token_box]
         actual_bboxes += [[0, 0, width, height]]
-        bbox_images += ['SEP']
+        bbox_images += [np.zeros(768)]
         label_ids += [pad_token_label_id]
         if sep_token_extra:
             # roberta uses an extra separator b/w pairs of sentences
             tokens += [sep_token]
             token_boxes += [sep_token_box]
             actual_bboxes += [[0, 0, width, height]]
-            bbox_images += ['SEP']
+            bbox_images += [np.zeros(768)]
             label_ids += [pad_token_label_id]
         segment_ids = [sequence_a_segment_id] * len(tokens)
 
@@ -362,14 +388,14 @@ def convert_examples_to_features(
             tokens += [cls_token]
             token_boxes += [cls_token_box]
             actual_bboxes += [[0, 0, width, height]]
-            bbox_images += ['CLS']
+            bbox_images += [image_feature(image)]
             label_ids += [pad_token_label_id]
             segment_ids += [cls_token_segment_id]
         else:
             tokens = [cls_token] + tokens
             token_boxes = [cls_token_box] + token_boxes
             actual_bboxes = [[0, 0, width, height]] + actual_bboxes
-            bbox_images = ['CLS'] + bbox_images
+            bbox_images = [image_feature(image)] + bbox_images
             label_ids = [pad_token_label_id] + label_ids
             segment_ids = [cls_token_segment_id] + segment_ids
 
@@ -389,14 +415,14 @@ def convert_examples_to_features(
             segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
             label_ids = ([pad_token_label_id] * padding_length) + label_ids
             token_boxes = ([pad_token_box] * padding_length) + token_boxes
-            bbox_images = (['PAD'] * padding_length) + bbox_images
+            bbox_images = ([np.ones(768)*(-100)] * padding_length) + bbox_images
         else:
             input_ids += [pad_token] * padding_length
             input_mask += [0 if mask_padding_with_zero else 1] * padding_length
             segment_ids += [pad_token_segment_id] * padding_length
             label_ids += [pad_token_label_id] * padding_length
             token_boxes += [pad_token_box] * padding_length
-            bbox_images += ['PAD'] * padding_length
+            bbox_images += [np.ones(768)*(-100)] * padding_length
 
         assert len(input_ids) == max_seq_length
         assert len(input_mask) == max_seq_length
@@ -428,7 +454,6 @@ def convert_examples_to_features(
                 bbox_images=bbox_images,
                 file_name=file_name,
                 page_size=page_size,
-                image=image
             )
         )
 

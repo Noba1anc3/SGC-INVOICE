@@ -705,7 +705,7 @@ def main():  # noqa C901
     # Training
     if args.do_train:
         train_dataset = FunsdDataset(
-            args, tokenizer, labels, pad_token_label_id, mode="train"
+            args, tokenizer, labels, pad_token_label_id, mode="test"
         )
         global_step, tr_loss = train(
             args, train_dataset, model, tokenizer, labels, pad_token_label_id

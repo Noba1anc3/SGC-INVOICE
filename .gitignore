@@ -102,6 +102,7 @@ __pycache__/
 apex
 examples/seq_labeling/bert-base-uncased/
 examples/seq_labeling/data
+examples/seq_labeling/resnet.pth
 examples/seq_labeling/layoutlm-base-uncased/
 examples/seq_labeling/output
 examples/seq_labeling/runs
