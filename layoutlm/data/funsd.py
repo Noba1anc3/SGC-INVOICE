@@ -82,7 +82,9 @@ class FunsdDataset(Dataset):
             [f.boxes for f in features], dtype=torch.long
         )
 
-        self.all_bbox_images = [f.bbox_images for f in features]
+        self.all_bbox_images = torch.tensor(
+            [f.bbox_images for f in features], dtype=torch.float
+        )
 
     def __len__(self):
         return len(self.features)
@@ -178,6 +180,7 @@ def resize_and_pad(bbox_image):
 class ResNet():
     def __init__(self):
         self.resnet = models.resnet101(pretrained=True)
+
 
 def image_feature(ResNet, image):
     image = transforms.ToTensor()(image)
@@ -462,4 +465,3 @@ def convert_examples_to_features(
         )
 
     return features
-

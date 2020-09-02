@@ -213,6 +213,7 @@ def train(  # noqa C901
             }
             if args.model_type in ["layoutlm"]:
                 inputs["bbox"] = batch[4].to(args.device)
+                inputs["bbox_images"] = batch[5].to(args.device)
             inputs["token_type_ids"] = (
                 batch[2].to(args.device) if args.model_type in ["bert", "layoutlm"] else None
             )  # RoBERTa don"t use segment_ids
@@ -262,7 +263,7 @@ def train(  # noqa C901
                             tokenizer,
                             labels,
                             pad_token_label_id,
-                            mode="dev",
+                            mode="test",
                         )
                         for key, value in results.items():
                             tb_writer.add_scalar(
@@ -341,6 +342,7 @@ def evaluate(args, model, tokenizer, labels, pad_token_label_id, mode, prefix=""
             }
             if args.model_type in ["layoutlm"]:
                 inputs["bbox"] = batch[4].to(args.device)
+                inputs["bbox_images"] = batch[5].to(args.device)
             inputs["token_type_ids"] = (
                 batch[2].to(args.device)
                 if args.model_type in ["bert", "layoutlm"]
@@ -821,4 +823,3 @@ def main():  # noqa C901
 
 if __name__ == "__main__":
     main()
-

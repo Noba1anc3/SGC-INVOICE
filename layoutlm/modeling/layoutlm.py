@@ -262,6 +262,7 @@ class LayoutlmForTokenClassification(BertPreTrainedModel):
         self,
         input_ids,
         bbox,
+        bbox_images,
         attention_mask=None,
         token_type_ids=None,
         position_ids=None,
@@ -282,8 +283,9 @@ class LayoutlmForTokenClassification(BertPreTrainedModel):
         sequence_output = outputs[0]
 
         sequence_output = self.dropout(sequence_output)
+        mixed_output = sequence_output + bbox_images
 
-        logits = self.classifier(sequence_output)
+        logits = self.classifier(mixed_output)
 
         outputs = (logits,) + outputs[2:]
         # add hidden states and attention if they are here
