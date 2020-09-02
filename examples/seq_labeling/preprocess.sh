@@ -1,9 +1,9 @@
 #!/bin/bash
-# wget https://guillaumejaume.github.io/FUNSD/dataset.zip
+wget https://guillaumejaume.github.io/FUNSD/dataset.zip
 
-unzip FUNSD.zip && mv dataset data && rm -rf FUNSD.zip __MACOSX
+unzip dataset.zip && mv dataset data && rm -rf dataset.zip __MACOSX
 
-python3 preprocess.py --data_dir data/training_data/annotations \
+python preprocess.py --data_dir data/training_data/annotations \
                                     --data_split train \
                                     --output_dir data \
                                     --model_name_or_path bert-base-uncased \
