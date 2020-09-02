@@ -178,14 +178,11 @@ def resize_and_pad(bbox_image):
 class ResNet():
     def __init__(self):
         self.resnet = models.resnet101(pretrained=True)
-        fc_features = self.resnet.fc.in_features
-        self.resnet.fc == nn.Linear(fc_features, 768)
-
 
 def image_feature(ResNet, image):
     image = transforms.ToTensor()(image)
     x = Variable(torch.unsqueeze(image, dim=0).float(), requires_grad=False)
-    y = ResNet.resnet(x)
+    y = nn.Linear(1000, 768)(ResNet.resnet(x))
     y = y.data.numpy()
     y = np.squeeze(y)
 
