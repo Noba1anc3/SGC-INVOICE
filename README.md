@@ -14,7 +14,7 @@
 | 7  | Mixed Image Feature          | 78.93     | 34.74      | bbox_image += Origin Image                               | 将整张图像的特征添加到每个小图像当中降低了模型的表现                    |
 | 8  | BERT + Layout + Image        | 67.50     | 94.74      |                                                          | 该特征计算与预训练模型的计算方式不同，显然地降低了效果                  |
 | 9  | LayoutLM + Layout + Image    | **79.80** | 85.26      |                                                          | 在6号实验的基础之上再一次添加Layout信息，提升显著，5/19的F1都在0.79之上 |
-| 10 | LayoutLM + Pos + Box + Image |  |  |  |  |
+| 10 | LayoutLM + Pos + Box + Image | 78.91     | 52.63      |                                                          | 在9号实验的基础之上拆分Layout信息为位置信息和宽高信息，结果反而下降     |
 
 
 ## Introduction
