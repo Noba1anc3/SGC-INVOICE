@@ -92,6 +92,7 @@ class LayoutlmEmbeddings(nn.Module):
             + upper_position_embeddings
             + right_position_embeddings
             + lower_position_embeddings
+            + h_position_embeddings
             + w_position_embeddings
         )
 
