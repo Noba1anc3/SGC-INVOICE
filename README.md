@@ -3,15 +3,15 @@
 
 ## Extended Experiments
 
-| ID | Name                  | F1    | Timing |
-|:--:|:---------------------:|:-----:|:------:|
-| 1  | Origin                | 79.20 | 80.00  |
-| 2  | Origin concat Image   | 79.12 | 75.79  |
-| 3  | 2 + Dropout           | 78.96 | 89.00  |
-| 4  | Origin Ensemble Image | 79.15 | 55.26  |
-| 5  | Origin + Image        | 79.22 | 34.74  |
-| 6  | 2 + Dropout           | **79.45** | 42.63  |
-| 7  | Mixed Image Feature   |       |        |
+| ID | Name                  | F1    | Timing     | Note                                                     |
+|:--:|:---------------------:|:-----:|:----------:|:--------------------------------------------------------:|
+| 1  | Origin                | 79.20 | 80.00      | Origin LayoutLM                                          |
+| 2  | Origin concat Image   | 79.12 | 75.79      | ```torch.cat([layoutlm, bbox_images], 2)```              |
+| 3  | 2 + Dropout           | 78.96 | 89.00      |                                                          |
+| 4  | Origin Ensemble Image | 79.15 | 55.26      | ```(classifier(layoutlm) + classifier(bbox_images))/2``` |
+| 5  | Origin + Image        | 79.22 | 34.74      | ```layoutlm + bbox_images```                             |
+| 6  | 5 + Dropout           | **79.45** | 42.63  |                                                          |
+| 7  | Mixed Image Feature   | 78.93 | 34.74      | bbox_image += Origin Image                               |
 
 ## Introduction
 
