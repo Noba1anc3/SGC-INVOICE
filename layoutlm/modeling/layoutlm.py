@@ -280,15 +280,13 @@ class LayoutlmForTokenClassification(BertPreTrainedModel):
             head_mask=head_mask,
         )
 
-        sequence_output = outputs[0]
+        sequence_output = outputs[1]
         sequence_output = self.dropout(sequence_output)
 
-        mixed_output = torch.cat([sequence_output, bbox_images], 2)
-        # mixed_output = self.dropout(mixed_output)
-        mixed_output = nn.Linear(1536, 768)(mixed_output)
+        mixed_output = sequence_output + bbox_images
+        mixed_output = self.dropout(mixed_output)
 
         logits = self.classifier(mixed_output)
-
         outputs = (logits,) + outputs[2:]
         # add hidden states and attention if they are here
 
