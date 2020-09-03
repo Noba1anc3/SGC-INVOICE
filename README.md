@@ -6,11 +6,12 @@
 | ID | Name                  | F1    | Timing |
 |:--:|:---------------------:|:-----:|:------:|
 | 1  | Origin                | 79.20 | 80.00  |
-| 2  | Origin + Image        | 79.22 | 34.74  |
-| 3  | Origin concat Image   | 79.12 | 75.79  |
-| 4  | 3 + Dropout           | 78.96 | 89.00  |
-| 5  | 2 + Dropout           | 79.45%| 42.63  |
-| 6  | Origin Ensemble Image | 79.15 | 55.26  |
+| 2  | Origin concat Image   | 79.12 | 75.79  |
+| 3  | 2 + Dropout           | 78.96 | 89.00  |
+| 4  | Origin Ensemble Image | 79.15 | 55.26  |
+| 5  | Origin + Image        | 79.22 | 34.74  |
+| 6  | 2 + Dropout           | **79.45** | 42.63  |
+| 7  | Mixed Image Feature   |       |        |
 
 ## Introduction
 
