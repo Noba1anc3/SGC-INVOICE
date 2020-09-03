@@ -1,6 +1,17 @@
 # LayoutLM
 **Multimodal (text + layout/format + image) pre-training for document AI**
 
+## Extended Experiments
+
+| ID | Name                  | F1    | Timing |
+|:--:|:---------------------:|:-----:|:------:|
+| 1  | Origin                | 79.20 | 80.00  |
+| 2  | Origin + Image        | 79.22 | 34.74  |
+| 3  | Origin concat Image   | 79.12 | 75.79  |
+| 4  | 3 + Dropout           | 78.96 | 89.00  |
+| 5  | 2 + Dropout           | 79.45%| 42.63  |
+| 6  | Origin Ensemble Image | 79.15 | 55.26  |
+
 ## Introduction
 
 LayoutLM is a simple but effective pre-training method of text and layout for document image understanding and information extraction tasks, such as form understanding and receipt understanding. LayoutLM archives the SOTA results on multiple datasets. For more details, please refer to our paper: 
