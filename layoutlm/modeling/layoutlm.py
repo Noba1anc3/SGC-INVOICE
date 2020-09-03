@@ -95,11 +95,20 @@ class LayoutlmEmbeddings(nn.Module):
             + h_position_embeddings
             + w_position_embeddings
         )
+        layout_embedding = (
+            left_position_embeddings
+            + upper_position_embeddings
+            + right_position_embeddings
+            + lower_position_embeddings
+        )
 
         embeddings = self.LayerNorm(embeddings)
         embeddings = self.dropout(embeddings)
 
-        return embeddings
+        layout_embedding = self.LayerNorm(layout_embedding)
+        layout_embedding = self.dropout(layout_embedding)
+
+        return embeddings, layout_embedding
 
 
 class LayoutlmModel(BertModel):
@@ -170,7 +179,7 @@ class LayoutlmModel(BertModel):
         else:
             head_mask = [None] * self.config.num_hidden_layers
 
-        embedding_output = self.embeddings(
+        embedding_output, layout_embedding = self.embeddings(
             input_ids, bbox, position_ids=position_ids, token_type_ids=token_type_ids
         )
         encoder_outputs = self.encoder(
@@ -182,7 +191,7 @@ class LayoutlmModel(BertModel):
         outputs = (sequence_output, pooled_output) + encoder_outputs[1:]
         # add hidden_states and attentions if they are here
 
-        return outputs  # sequence_output, pooled_output, (hidden_states), (attentions)
+        return outputs, layout_embedding  # sequence_output, pooled_output, (hidden_states), (attentions)
 
 
 class LayoutlmForSequenceClassification(BertPreTrainedModel):
@@ -271,7 +280,7 @@ class LayoutlmForTokenClassification(BertPreTrainedModel):
         labels=None,
     ):
 
-        outputs = self.bert(
+        outputs, layout_embedding = self.bert(
             input_ids=input_ids,
             bbox=bbox,
             attention_mask=attention_mask,
@@ -280,10 +289,10 @@ class LayoutlmForTokenClassification(BertPreTrainedModel):
             head_mask=head_mask,
         )
 
-        sequence_output = outputs[1]
+        sequence_output = outputs[0]
         sequence_output = self.dropout(sequence_output)
 
-        mixed_output = sequence_output + bbox_images
+        mixed_output = sequence_output + bbox_images + layout_embedding
         mixed_output = self.dropout(mixed_output)
 
         logits = self.classifier(mixed_output)
@@ -304,4 +313,3 @@ class LayoutlmForTokenClassification(BertPreTrainedModel):
             outputs = (loss,) + outputs
 
         return outputs  # (loss), scores, (hidden_states), (attentions)
-
