@@ -87,13 +87,12 @@ class LayoutlmEmbeddings(nn.Module):
         embeddings = (
             words_embeddings
             + position_embeddings
+            + token_type_embeddings
             + left_position_embeddings
             + upper_position_embeddings
             + right_position_embeddings
             + lower_position_embeddings
-            + h_position_embeddings
             + w_position_embeddings
-            + token_type_embeddings
         )
 
         embeddings = self.LayerNorm(embeddings)
@@ -281,9 +280,11 @@ class LayoutlmForTokenClassification(BertPreTrainedModel):
         )
 
         sequence_output = outputs[0]
-
         sequence_output = self.dropout(sequence_output)
-        mixed_output = sequence_output + bbox_images
+
+        mixed_output = torch.cat([sequence_output, bbox_images], 2)
+        # mixed_output = self.dropout(mixed_output)
+        mixed_output = nn.Linear(1536, 768)(mixed_output)
 
         logits = self.classifier(mixed_output)
 
@@ -304,3 +305,4 @@ class LayoutlmForTokenClassification(BertPreTrainedModel):
             outputs = (loss,) + outputs
 
         return outputs  # (loss), scores, (hidden_states), (attentions)
+
