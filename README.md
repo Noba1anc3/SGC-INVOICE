@@ -3,17 +3,19 @@
 
 ## Extended Experiments
 
-| ID | Name                      | F1    | Timing     | Code                                                     | Note                                                                 |
-|:--:|:-------------------------:|:-----:|:----------:|:--------------------------------------------------------:|:--------------------------------------------------------------------:|
-| 1  | Origin                    | 79.20 | 80.00      | Origin LayoutLM                                          |                                                                      |
-| 2  | Origin concat Image       | 79.12 | 75.79      | ```torch.cat([layoutlm, bbox_images], 2)```              | 更make sense的concat似乎并没有很好的效果                              |
-| 3  | 2 + Dropout               | 78.96 | 89.00      |                                                          | Dropout在这里的效果平平                                               |
-| 4  | Origin Ensemble Image     | 79.15 | 55.26      | ```(classifier(layoutlm) + classifier(bbox_images))/2``` | 等权重的模型融合并不是一个好主意                                       |
-| 5  | Origin + Image            | **79.22** | 34.74  | ```layoutlm + bbox_images```                             | 增加了图像信息的LayoutLM可以在更短的时间达到更高的分数                  |
-| 6  | 5 + Dropout               | **79.45** | 42.63  |                                                          | Dropout对效果的提升起了一些作用                                       |
-| 7  | Mixed Image Feature       | 78.93 | 34.74      | bbox_image += Origin Image                               | 将整张图像的特征添加到每个小图像当中降低了模型的表现                    |
-| 8  | BERT + Layout + Image     | 67.50 | 94.74      |                                                          | 该特征计算与预训练模型的计算方式不同，显然地降低了效果                  |
-| 9  | LayoutLM + Layout + Image | **79.80** | 85.26  |                                                          | 在6号实验的基础之上再一次添加Layout信息，提升显著，5/19的F1都在0.79之上 |
+| ID | Name                         | F1        | Timing     | Code                                                     | Note                                                                 |
+|:--:|:----------------------------:|:---------:|:----------:|:--------------------------------------------------------:|:--------------------------------------------------------------------:|
+| 1  | LayoutLM                     | 79.20     | 80.00      | Origin LayoutLM                                          |                                                                      |
+| 2  | LayoutLM concat Image        | 79.12     | 75.79      | ```torch.cat([layoutlm, bbox_images], 2)```              | 更make sense的concat似乎并没有很好的效果                              |
+| 3  | 2 + Dropout                  | 78.96     | 89.00      |                                                          | Dropout在这里的效果平平                                               |
+| 4  | LayoutLM Ensemble Image      | 79.15     | 55.26      | ```(classifier(layoutlm) + classifier(bbox_images))/2``` | 等权重的模型融合并不是一个好主意                                       |
+| 5  | LayoutLM + Image             | **79.22** | 34.74      | ```layoutlm + bbox_images```                             | 增加了图像信息的LayoutLM可以在更短的时间达到更高的分数                  |
+| 6  | 5 + Dropout                  | **79.45** | 42.63      |                                                          | Dropout对效果的提升起了一些作用                                       |
+| 7  | Mixed Image Feature          | 78.93     | 34.74      | bbox_image += Origin Image                               | 将整张图像的特征添加到每个小图像当中降低了模型的表现                    |
+| 8  | BERT + Layout + Image        | 67.50     | 94.74      |                                                          | 该特征计算与预训练模型的计算方式不同，显然地降低了效果                  |
+| 9  | LayoutLM + Layout + Image    | **79.80** | 85.26      |                                                          | 在6号实验的基础之上再一次添加Layout信息，提升显著，5/19的F1都在0.79之上 |
+| 10 | LayoutLM + Pos + Box + Image |  |  |  |  |
+
 
 ## Introduction
 
