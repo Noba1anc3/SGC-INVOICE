@@ -155,6 +155,8 @@ class InputFeatures(object):
 
 
 def resize_and_pad(bbox_image):
+    # FUNSD : 16 * 52
+    # SROIE : 39 * 377
     fixed_height, fixed_width = (39, 377)
     height, width = bbox_image.shape[:2]
 
