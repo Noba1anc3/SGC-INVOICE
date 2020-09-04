@@ -5,7 +5,8 @@
 
 | ID | Name                         | F1        | Timing     | Code                                                     | Note                                                                 |
 |:--:|:----------------------------:|:---------:|:----------:|:--------------------------------------------------------:|:--------------------------------------------------------------------:|
-| 1  | LayoutLM                     | 79.20     | 80.00      | Origin LayoutLM                                          |                                                                      |
+| 0  | BERT                         | 66.56     | 33.16      |                                                          |                                                                      |
+| 1  | LayoutLM                     | 79.20     | 80.00      | Origin LayoutLM                                          | LayoutLM相比BERT带来了实质性的提升                                    |
 | 2  | LayoutLM concat Image        | 79.12     | 75.79      | ```torch.cat([layoutlm, bbox_images], 2)```              | 更make sense的concat似乎并没有很好的效果                              |
 | 3  | 2 + Dropout                  | 78.96     | 89.00      |                                                          | Dropout在这里的效果平平                                               |
 | 4  | LayoutLM Ensemble Image      | 79.15     | 55.26      | ```(classifier(layoutlm) + classifier(bbox_images))/2``` | 等权重的模型融合并不是一个好主意                                       |

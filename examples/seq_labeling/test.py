@@ -1,3 +1,70 @@
+import torch
+import torch.nn as nn
+from torch.autograd import Variable
+import cv2 as cv
+import numpy as np
+from torchvision import models, transforms
+
+a = torch.load('10')
+width = []
+height = []
+
+class ResNet():
+    def __init__(self):
+        self.resnet = models.resnet101(pretrained=True)
+
+
+def resize_and_pad(bbox_image):
+    fixed_height, fixed_width = (39, 377)
+    height, width = bbox_image.shape[:2]
+
+    resize_ratio = min(fixed_height / height, fixed_width / width)
+    new_size = (int(width * resize_ratio), int(height * resize_ratio))
+    resized_image = cv.resize(bbox_image, new_size)
+
+    width_pad, height_pad = (0, 0)
+    if new_size[1] == fixed_height:
+        width_pad = fixed_width - new_size[0]
+    else:
+        height_pad = fixed_height - new_size[1]
+
+    width_pad = int(width_pad / 2)
+    height_pad = int(height_pad / 2)
+    padding_matrix = ((height_pad, height_pad), (width_pad, width_pad), (0, 0))
+    padded_image = np.pad(resized_image, padding_matrix, 'constant', constant_values=255)
+
+    resized_image = cv.resize(padded_image, (fixed_width, fixed_height))
+
+    return resized_image
+
+
+def image_feature(ResNet, image):
+    image = transforms.ToTensor()(image)
+    x = Variable(torch.unsqueeze(image, dim=0).float(), requires_grad=False)
+    y = nn.Linear(1000, 768)(ResNet.resnet(x))
+    y = y.data.numpy()
+    y = np.squeeze(y)
+
+    return y
+
+RN = ResNet()
+
+
+for i, page in enumerate(a):
+    if i < 11:
+        continue
+    for j, bbox_image in enumerate(page.bbox_images):
+        if not isinstance(bbox_image, str):
+            print(i, j)
+            shape = bbox_image.shape
+            if len(shape) == 3:
+                resized_image = resize_and_pad(bbox_image)
+                feature = image_feature(RN, resized_image)
+                a[i].bbox_images[j] = feature
+    torch.save(a, str(i))
+
+
+
 import logging
 import os
 import torch
@@ -82,9 +149,9 @@ class FunsdDataset(Dataset):
             [f.boxes for f in features], dtype=torch.long
         )
 
-        self.all_bbox_images = torch.tensor(
-            [f.bbox_images for f in features], dtype=torch.float
-        )
+        # self.all_bbox_images = torch.tensor(
+        #     [f.bbox_images for f in features], dtype=torch.float
+        # )
 
     def __len__(self):
         return len(self.features)
@@ -95,15 +162,15 @@ class FunsdDataset(Dataset):
             self.all_input_mask[index],
             self.all_segment_ids[index],
             self.all_label_ids[index],
-            self.all_bboxes[index],
-            self.all_bbox_images[index]
+            self.all_bboxes[index]
+            #self.all_bbox_images[index]
         )
 
 
 class InputExample(object):
     """A single training/test example for token classification."""
 
-    def __init__(self, guid, words, labels, boxes, actual_bboxes, bbox_images, image, file_name, page_size):
+    def __init__(self, guid, words, labels, boxes, actual_bboxes, image, file_name, page_size):
         """Constructs a InputExample.
 
         Args:
@@ -117,7 +184,7 @@ class InputExample(object):
         self.labels = labels
         self.boxes = boxes
         self.actual_bboxes = actual_bboxes
-        self.bbox_images = bbox_images
+        #self.bbox_images = bbox_images
         self.image = image
         self.file_name = file_name
         self.page_size = page_size
@@ -134,7 +201,7 @@ class InputFeatures(object):
         label_ids,
         boxes,
         actual_bboxes,
-        bbox_images,
+        #bbox_images,
         file_name,
         page_size,
     ):
@@ -149,13 +216,13 @@ class InputFeatures(object):
         self.label_ids = label_ids
         self.boxes = boxes
         self.actual_bboxes = actual_bboxes
-        self.bbox_images = bbox_images
+        #self.bbox_images = bbox_images
         self.file_name = file_name
         self.page_size = page_size
 
 
 def resize_and_pad(bbox_image):
-    fixed_height, fixed_width = (39, 377)
+    fixed_height, fixed_width = (16, 52)
     height, width = bbox_image.shape[:2]
 
     resize_ratio = min(fixed_height / height, fixed_width / width)
@@ -207,7 +274,7 @@ def read_examples_from_file(data_dir, mode, ResNet101):
         labels = []
         boxes = []
         actual_bboxes = []
-        bbox_images = []
+        #bbox_images = []
         image = None
         file_name = None
         page_size = None
@@ -221,7 +288,7 @@ def read_examples_from_file(data_dir, mode, ResNet101):
                             labels=labels,
                             boxes=boxes,
                             actual_bboxes=actual_bboxes,
-                            bbox_images=bbox_images,
+                            #bbox_images=bbox_images,
                             image=image,
                             file_name=file_name,
                             page_size=page_size,
@@ -233,7 +300,7 @@ def read_examples_from_file(data_dir, mode, ResNet101):
                     labels = []
                     boxes = []
                     actual_bboxes = []
-                    bbox_images = []
+                    #bbox_images = []
                     image = None
                     file_name = None
                     page_size = None
@@ -259,17 +326,17 @@ def read_examples_from_file(data_dir, mode, ResNet101):
                     page_size = [int(i) for i in isplits[2].split()]
                     file_name = isplits[3].strip()
 
-                    data_dir = '../../examples/seq_labeling/data/'
-                    file_path = os.path.join(data_dir, mode + 'ing_data/images', file_name)
-                    image = cv.imread(file_path)
-                    bbox_image = image[actual_bbox[1]:actual_bbox[3], actual_bbox[0]:actual_bbox[2]]
-                    bbox_image = np.array(bbox_image)
+                    # data_dir = '../../examples/seq_labeling/data/'
+                    # file_path = os.path.join(data_dir, mode + 'ing_data/images', file_name)
+                    # image = cv.imread(file_path)
+                    # bbox_image = image[actual_bbox[1]:actual_bbox[3], actual_bbox[0]:actual_bbox[2]]
+                    # bbox_image = np.array(bbox_image)
 
-                    resized_image = resize_and_pad(bbox_image)
+                    # resized_image = resize_and_pad(bbox_image)
 
-                    feature = image_feature(ResNet101, resized_image)
+                    # feature = image_feature(ResNet101, resized_image)
 
-                    bbox_images.append(feature)
+                    #bbox_images.append(1)
                 else:
                     # Examples could have no label for mode = "test"
                     labels.append("O")
@@ -281,7 +348,7 @@ def read_examples_from_file(data_dir, mode, ResNet101):
                     labels=labels,
                     boxes=boxes,
                     actual_bboxes=actual_bboxes,
-                    bbox_images=bbox_images,
+                    #bbox_images=bbox_images,
                     image=image,
                     file_name=file_name,
                     page_size=page_size,
@@ -335,16 +402,16 @@ def convert_examples_to_features(
         label_ids = []
         token_boxes = []
         actual_bboxes = []
-        bbox_images = []
+        #bbox_images = []
 
-        for word, label, box, actual_bbox, bbox_image in zip(
-            example.words, example.labels, example.boxes, example.actual_bboxes, example.bbox_images
+        for word, label, box, actual_bbox in zip(
+            example.words, example.labels, example.boxes, example.actual_bboxes
         ):
             word_tokens = tokenizer.tokenize(word)
             tokens.extend(word_tokens)
             token_boxes.extend([box] * len(word_tokens))
             actual_bboxes.extend([actual_bbox] * len(word_tokens))
-            bbox_images.extend([bbox_image] * len(word_tokens))
+            #bbox_images.extend([bbox_image] * len(word_tokens))
             # Use the real label id for the first token of the word, and padding ids for the remaining tokens
             label_ids.extend(
                 [label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1)
@@ -356,7 +423,7 @@ def convert_examples_to_features(
             tokens = tokens[: (max_seq_length - special_tokens_count)]
             token_boxes = token_boxes[: (max_seq_length - special_tokens_count)]
             actual_bboxes = actual_bboxes[: (max_seq_length - special_tokens_count)]
-            bbox_images = bbox_images[: (max_seq_length - special_tokens_count)]
+            #bbox_images = bbox_images[: (max_seq_length - special_tokens_count)]
             label_ids = label_ids[: (max_seq_length - special_tokens_count)]
 
         # The convention in BERT is:
@@ -380,14 +447,14 @@ def convert_examples_to_features(
         tokens += [sep_token]
         token_boxes += [sep_token_box]
         actual_bboxes += [[0, 0, width, height]]
-        bbox_images += [np.zeros(768)]
+        # bbox_images += [np.zeros(768)]
         label_ids += [pad_token_label_id]
         if sep_token_extra:
             # roberta uses an extra separator b/w pairs of sentences
             tokens += [sep_token]
             token_boxes += [sep_token_box]
             actual_bboxes += [[0, 0, width, height]]
-            bbox_images += [np.zeros(768)]
+            #bbox_images += [np.zeros(768)]
             label_ids += [pad_token_label_id]
         segment_ids = [sequence_a_segment_id] * len(tokens)
 
@@ -395,14 +462,14 @@ def convert_examples_to_features(
             tokens += [cls_token]
             token_boxes += [cls_token_box]
             actual_bboxes += [[0, 0, width, height]]
-            bbox_images += [image_feature(ResNet101, image)]
+            #bbox_images += ['1']
             label_ids += [pad_token_label_id]
             segment_ids += [cls_token_segment_id]
         else:
             tokens = [cls_token] + tokens
             token_boxes = [cls_token_box] + token_boxes
             actual_bboxes = [[0, 0, width, height]] + actual_bboxes
-            bbox_images = [image_feature(ResNet101, image)] + bbox_images
+            #bbox_images = ['1'] + bbox_images
             label_ids = [pad_token_label_id] + label_ids
             segment_ids = [cls_token_segment_id] + segment_ids
 
@@ -422,21 +489,21 @@ def convert_examples_to_features(
             segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
             label_ids = ([pad_token_label_id] * padding_length) + label_ids
             token_boxes = ([pad_token_box] * padding_length) + token_boxes
-            bbox_images = ([np.ones(768) * pad_token_label_id] * padding_length) + bbox_images
+            # bbox_images = ([np.ones(768) * pad_token_label_id] * padding_length) + bbox_images
         else:
             input_ids += [pad_token] * padding_length
             input_mask += [0 if mask_padding_with_zero else 1] * padding_length
             segment_ids += [pad_token_segment_id] * padding_length
             label_ids += [pad_token_label_id] * padding_length
             token_boxes += [pad_token_box] * padding_length
-            bbox_images += [np.ones(768) * pad_token_label_id] * padding_length
+            # bbox_images += [np.ones(768) * pad_token_label_id] * padding_length
 
         assert len(input_ids) == max_seq_length
         assert len(input_mask) == max_seq_length
         assert len(segment_ids) == max_seq_length
         assert len(label_ids) == max_seq_length
         assert len(token_boxes) == max_seq_length
-        assert len(bbox_images) == max_seq_length
+        # assert len(bbox_images) == max_seq_length
 
         if ex_index < 5:
             logger.info("*** Example ***")
@@ -448,7 +515,7 @@ def convert_examples_to_features(
             logger.info("label_ids: %s", " ".join([str(x) for x in label_ids]))
             logger.info("boxes: %s", " ".join([str(x) for x in token_boxes]))
             logger.info("actual_bboxes: %s", " ".join([str(x) for x in actual_bboxes]))
-            logger.info("bbox_images: %s", " ".join([str(x) for x in bbox_images]))
+            # logger.info("bbox_images: %s", " ".join([str(x) for x in bbox_images]))
 
         features.append(
             InputFeatures(
@@ -458,10 +525,11 @@ def convert_examples_to_features(
                 label_ids=label_ids,
                 boxes=token_boxes,
                 actual_bboxes=actual_bboxes,
-                bbox_images=bbox_images,
+                # bbox_images=bbox_images,
                 file_name=file_name,
                 page_size=page_size,
             )
         )
 
     return features
+
