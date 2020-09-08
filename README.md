@@ -3,32 +3,46 @@
 
 ## Extended Experiments
 
-### FUNSD Dataset
+### Experiments on FUNSD
 
 | ID | Name                         | F1        | Timing | Code                                                     | Note                                                                 |
 |:--:|:----------------------------:|:---------:|:------:|:--------------------------------------------------------:|:--------------------------------------------------------------------:|
 | 1  | BERT from Scratch            | 23.65     | 14.21  |                                                          |                                                                      |
 | 2  | BERT Pretrained              | 62.45     | 58.42  |                                                          |                                                                      |
-| 2  | BERT in LayoutLM             | 66.56     | 33.16  |                                                          | 在LayoutLM的预训练模型基础上只使用BERT特征进行训练                     |
-| 3  | LayoutLM from Scratch        | 19.04     | 41.58  |                                                          |                                                                      |
-| 4  | LayoutLM Pretrained          | 79.20     | 80.00  | Origin LayoutLM                                          | LayoutLM相比BERT带来了实质性的提升                                    |
-| 5  | LayoutLM concat Image        | 79.12     | 75.79  | ```torch.cat([layoutlm, bbox_images], 2)```              | 更make sense的concat似乎并没有很好的效果                              |
-| 6  | 5 + Dropout                  | 78.96     | 89.00  |                                                          | Dropout在这里的效果平平                                               |
-| 7  | LayoutLM Ensemble Image      | 79.15     | 55.26  | ```(classifier(layoutlm) + classifier(bbox_images))/2``` | 等权重的模型融合并不是一个好主意                                       |
-| 8  | LayoutLM + Image             | **79.22** | 34.74  | ```layoutlm + bbox_images```                             | 增加了图像信息的LayoutLM可以在更短的时间达到更高的分数                  |
-| 9  | 8 + Dropout                  | **79.45** | 42.63  |                                                          | Dropout对效果的提升起了一些作用                                       |
-| 10 | Mixed Image Feature          | 78.93     | 34.74  | bbox_image += Origin Image                               | 将整张图像的特征添加到每个小图像当中降低了模型的表现                    |
-| 11 | BERT + Layout + Image        | 67.50     | 94.74  |                                                          | 该特征计算与预训练模型的计算方式不同，显然地降低了效果                  |
-| 12 | LayoutLM + Layout + Image    | **79.80** | 85.26  |                                                          | 在9号实验的基础之上再一次添加Layout信息，提升显著，5/19的F1都在0.79之上 |
-| 13 | LayoutLM + Pos + Box + Image | 78.91     | 52.63  |                                                          | 在12号实验的基础之上拆分Layout信息为位置信息和宽高信息，结果反而下降     |
+| 3  | BERT in LayoutLM             | 66.56     | 33.16  |                                                          | 在LayoutLM的预训练模型基础上只使用BERT特征进行训练                     |
+| 4  | LayoutLM from Scratch        | 19.04     | 41.58  |                                                          |                                                                      |
+| 5  | LayoutLM Pretrained          | 79.20     | 80.00  | Origin LayoutLM                                          | LayoutLM相比BERT带来了实质性的提升                                    |
+| 6  | LayoutLM concat Image        | 79.12     | 75.79  | ```torch.cat([layoutlm, bbox_images], 2)```              | 更make sense的concat似乎并没有很好的效果                              |
+| 7  | 6 + Dropout                  | 78.96     | 89.00  |                                                          | Dropout在这里的效果平平                                               |
+| 8  | LayoutLM Ensemble Image      | 79.15     | 55.26  | ```(classifier(layoutlm) + classifier(bbox_images))/2``` | 等权重的模型融合并不是一个好主意                                       |
+| 9  | LayoutLM + Image             | **79.22** | 34.74  | ```layoutlm + bbox_images```                             | 增加了图像信息的LayoutLM可以在更短的时间达到更高的分数                  |
+| 10 | 9 + Dropout                  | **79.45** | 42.63  |                                                          | Dropout对效果的提升起了一些作用                                       |
+| 11 | Mixed Image Feature          | 78.93     | 34.74  | bbox_image += Origin Image                               | 将整张图像的特征添加到每个小图像当中降低了模型的表现                    |
+| 12 | BERT + Layout + Image        | 67.50     | 94.74  |                                                          | 该特征计算与预训练模型的计算方式不同，显然地降低了效果                  |
+| 13 | LayoutLM + Layout + Image    | **79.80** | 85.26  |                                                          | 在10号实验的基础之上再一次添加Layout信息，提升显著，5/19的F1都在0.79之上 |
+| 14 | LayoutLM + Pos + Box + Image | 78.91     | 52.63  |                                                          | 在13号实验的基础之上拆分Layout信息为位置信息和宽高信息，结果反而下降     |
 
-### SROIE Dataset
+### Tensorboard
 
-| ID | Name                         | F1        | Timing | Note                                                                 |
-|:--:|:----------------------------:|:---------:|:------:|:--------------------------------------------------------------------:|
-| 0  | BERT                         | | |                                                                               |
-| 1  | LayoutLM                     | 96.92     | 66.27  |                                                                      |
-| 2  | LayoutLM + Layout + Image    | 96.74     | 24.92  |                                                                      |
+#### Eval_F1
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEJuU6JtppyfvLR1e5Ql*enErLnwUTMp61vuJJuqDyI7YlunVmDbvp71rR522d*76O7qYnZ6xLHcBafEvrPCuUFs!/r)
+
+#### Eval_Precision
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrELlyWa8XHVus03N4TdYy4UMw4J7FyxuLMbyhSmXRg*lkBG8AJVndffxsaxpuqnl54efeEB9OaDJXawFgn4f7SWQ!/r)
+
+#### Eval_Recall
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEAxIKMwH4V95AfIKt9hZaLquheMEUMl57ZecV.36S*baX72Dyr5XyrAJelMKHxHvKGV1wAEq9gu*T6XpjWmAv1o!/r)
+
+#### Eval Loss
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEK8lkoPxJtArWvItLsF0O*Nmcj9N3YNKp*NJnbHRpQy0zUCIY77X7h2ffOndoQmtH4YvhYi2okFu0X1sRF68yFw!/r)
+
+#### Train_Loss
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEPw8Oh04YAj9E6g7yw1zjZyhjUabdVUO2DBpdvXWcjq3HW0b.8RwZhjWDXAkEfcex46qeXEvmOixRjYNT7RbGJI!/r)
 
 ## Introduction
 
