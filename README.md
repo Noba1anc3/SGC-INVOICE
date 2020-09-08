@@ -7,20 +7,21 @@
 
 | ID | Name                         | F1        | Timing | Code                                                     | Note                                                                 |
 |:--:|:----------------------------:|:---------:|:------:|:--------------------------------------------------------:|:--------------------------------------------------------------------:|
-| 1  | BERT from Scratch            | 23.65     | 14.21  |                                                          |                                                                      |
-| 2  | BERT Pretrained              | 62.45     | 58.42  |                                                          |                                                                      |
-| 3  | BERT in LayoutLM             | 66.56     | 33.16  |                                                          | 在LayoutLM的预训练模型基础上只使用BERT特征进行训练                     |
-| 4  | LayoutLM from Scratch        | 19.04     | 41.58  |                                                          |                                                                      |
-| 5  | LayoutLM Pretrained          | 79.20     | 80.00  | Origin LayoutLM                                          | LayoutLM相比BERT带来了实质性的提升                                    |
-| 6  | LayoutLM concat Image        | 79.12     | 75.79  | ```torch.cat([layoutlm, bbox_images], 2)```              | 更make sense的concat似乎并没有很好的效果                              |
-| 7  | 6 + Dropout                  | 78.96     | 89.00  |                                                          | Dropout在这里的效果平平                                               |
-| 8  | LayoutLM Ensemble Image      | 79.15     | 55.26  | ```(classifier(layoutlm) + classifier(bbox_images))/2``` | 等权重的模型融合并不是一个好主意                                       |
-| 9  | LayoutLM + Image             | **79.22** | 34.74  | ```layoutlm + bbox_images```                             | 增加了图像信息的LayoutLM可以在更短的时间达到更高的分数                  |
+| 01 | BERT from Scratch            | 23.65     | 14.21  | ```model.init_weights()```                               | 从零训练BERT模型                                                      |
+| 02 | BERT Pretrained              | 62.45     | 58.42  | Origin BERT                                              | BERT预训练模型对效果提升显著                                          |
+| 03 | BERT in LayoutLM             | 66.56     | 33.16  |                                                          | 在LayoutLM的预训练模型基础上只使用BERT特征进行训练                     |
+| 04 | LayoutLM from Scratch        | 19.04     | 41.58  | ```model.init_weights()```                               | 从零训练含有BERT框架的LayoutLM的结果并不如纯粹的BERT模型               |
+| 05 | LayoutLM Pretrained          | 79.20     | 80.00  | Origin LayoutLM                                          | LayoutLM预训练模型相比BERT带来了更大的提升                            |
+| 06 | LayoutLM Concat Image        | 79.12     | 75.79  | ```torch.cat([layoutlm, bbox_images], 2)```              | 更make sense的concat似乎并没有很好的效果                              |
+| 07 | 6 + Dropout                  | 78.96     | 89.00  |                                                          | Dropout在这里的效果平平                                               |
+| 08 | LayoutLM Ensemble Image      | 79.15     | 55.26  | ```(classifier(layoutlm) + classifier(bbox_images))/2``` | 等权重的模型融合并不是一个好主意                                       |
+| 09 | LayoutLM + Image             | **79.22** | 34.74  | ```layoutlm + bbox_images```                             | 增加了图像信息的LayoutLM可以在更短的时间达到更高的分数                  |
 | 10 | 9 + Dropout                  | **79.45** | 42.63  |                                                          | Dropout对效果的提升起了一些作用                                       |
 | 11 | Mixed Image Feature          | 78.93     | 34.74  | bbox_image += Origin Image                               | 将整张图像的特征添加到每个小图像当中降低了模型的表现                    |
 | 12 | BERT + Layout + Image        | 67.50     | 94.74  |                                                          | 该特征计算与预训练模型的计算方式不同，显然地降低了效果                  |
 | 13 | LayoutLM + Layout + Image    | **79.80** | 85.26  |                                                          | 在10号实验的基础之上再一次添加Layout信息，提升显著，5/19的F1都在0.79之上 |
 | 14 | LayoutLM + Pos + Box + Image | 78.91     | 52.63  |                                                          | 在13号实验的基础之上拆分Layout信息为位置信息和宽高信息，结果反而下降     |
+| 15 | 13 + BERT                    | 78.50     | 90.53  |                                                          | 在13号实验的基础之上再一次添加BERT特征，结果反而下降                    |
 
 ### Tensorboard
 
