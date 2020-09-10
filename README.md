@@ -96,6 +96,11 @@
 
 ### Original Feature Train in LayoutLM
 
+| ID | Name     | F1    | Epoch |
+|:--:|:--------:|:-----:|:-----:|
+| 01 | BERT     | 90.56 | 31/ |
+| 02 | LayoutLM | 98.40 | 37/72 |
+
 ![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrELP5owIgRhIWHjWkha3EGe1wa97QtvsELW1diSeF.DuDVD7IWVIZRg7lW0ynwEayLtVFTJ.LjMw0zePnpplsS2E!/r)
 
 ![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEGc6ty4kFrczvEjnZuDw5KJgqmputEHr8zp6GwdUaipcq*QUD*VuLfO5NLeVVYT3EkhdBQOajZbtJQbHoh6rfSE!/r)

@@ -1,0 +1,3664 @@
+09/03/2020 05:51:14 - WARNING - __main__ - Process rank: -1, device: cuda, n_gpu: 1, distributed training: False, 16-bits training: False
+09/03/2020 05:51:14 - INFO - transformers.configuration_utils - loading configuration file layoutlm-base-uncased/config.json
+09/03/2020 05:51:14 - INFO - transformers.configuration_utils - Model config LayoutlmConfig {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2",
+    "3": "LABEL_3",
+    "4": "LABEL_4",
+    "5": "LABEL_5",
+    "6": "LABEL_6",
+    "7": "LABEL_7",
+    "8": "LABEL_8",
+    "9": "LABEL_9",
+    "10": "LABEL_10",
+    "11": "LABEL_11",
+    "12": "LABEL_12"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_10": 10,
+    "LABEL_11": 11,
+    "LABEL_12": 12,
+    "LABEL_2": 2,
+    "LABEL_3": 3,
+    "LABEL_4": 4,
+    "LABEL_5": 5,
+    "LABEL_6": 6,
+    "LABEL_7": 7,
+    "LABEL_8": 8,
+    "LABEL_9": 9
+  },
+  "layer_norm_eps": 1e-12,
+  "max_2d_position_embeddings": 1024,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+09/03/2020 05:51:14 - INFO - transformers.tokenization_utils - Model name 'layoutlm-base-uncased' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, bert-base-finnish-cased-v1, bert-base-finnish-uncased-v1, bert-base-dutch-cased). Assuming 'layoutlm-base-uncased' is a path, a model identifier, or url to a directory containing tokenizer files.
+09/03/2020 05:51:14 - INFO - transformers.tokenization_utils - loading file layoutlm-base-uncased/vocab.txt
+09/03/2020 05:51:14 - INFO - transformers.tokenization_utils - loading file layoutlm-base-uncased/added_tokens.json
+09/03/2020 05:51:14 - INFO - transformers.tokenization_utils - loading file layoutlm-base-uncased/special_tokens_map.json
+09/03/2020 05:51:14 - INFO - transformers.tokenization_utils - loading file layoutlm-base-uncased/tokenizer_config.json
+09/03/2020 05:51:14 - INFO - transformers.modeling_utils - loading weights file layoutlm-base-uncased/pytorch_model.bin
+09/03/2020 05:51:19 - INFO - transformers.modeling_utils - Weights of LayoutlmForTokenClassification not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+09/03/2020 05:51:19 - INFO - transformers.modeling_utils - Weights from pretrained model not used in LayoutlmForTokenClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight']
+09/03/2020 05:51:23 - INFO - __main__ - Training/evaluation parameters Namespace(adam_epsilon=1e-08, cache_dir='', config_name='', data_dir='data', device=device(type='cuda'), do_eval=False, do_lower_case=True, do_predict=False, do_train=True, eval_all_checkpoints=False, evaluate_during_training=True, fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=1, labels='data/labels.txt', learning_rate=5e-05, local_rank=-1, logging_steps=10, max_grad_norm=1.0, max_seq_length=512, max_steps=-1, model_name_or_path='layoutlm-base-uncased', model_type='layoutlm', n_gpu=1, no_cuda=False, num_train_epochs=100.0, output_dir='output', overwrite_cache=False, overwrite_output_dir=True, per_gpu_eval_batch_size=8, per_gpu_train_batch_size=8, save_steps=-1, seed=42, server_ip='', server_port='', tokenizer_name='', warmup_steps=0, weight_decay=0.0)
+09/03/2020 05:51:23 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_train_layoutlm-base-uncased_512
+09/03/2020 05:51:29 - INFO - __main__ - ***** Running training *****
+09/03/2020 05:51:29 - INFO - __main__ -   Num examples = 150
+09/03/2020 05:51:29 - INFO - __main__ -   Num Epochs = 100
+09/03/2020 05:51:29 - INFO - __main__ -   Instantaneous batch size per GPU = 8
+09/03/2020 05:51:29 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 8
+09/03/2020 05:51:29 - INFO - __main__ -   Gradient Accumulation steps = 1
+09/03/2020 05:51:29 - INFO - __main__ -   Total optimization steps = 1900
+09/03/2020 05:51:37 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:51:39 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:51:39 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:51:39 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:51:41 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.03      0.04      0.03       809
+ QUESTION       0.19      0.08      0.12      1071
+   HEADER       0.00      0.00      0.00       119
+
+micro avg       0.08      0.06      0.07      1999
+macro avg       0.12      0.06      0.08      1999
+
+09/03/2020 05:51:41 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:51:41 - INFO - __main__ -   f1 = 0.06854615809839691
+09/03/2020 05:51:41 - INFO - __main__ -   loss = 2.0626974957329884
+09/03/2020 05:51:41 - INFO - __main__ -   precision = 0.0765904879555281
+09/03/2020 05:51:41 - INFO - __main__ -   recall = 0.062031015507753876
+09/03/2020 05:51:48 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:51:51 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:51:51 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:51:51 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:51:52 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.19      0.19      0.19       809
+ QUESTION       0.46      0.55      0.50      1071
+   HEADER       0.00      0.00      0.00       119
+
+micro avg       0.35      0.37      0.36      1999
+macro avg       0.32      0.37      0.35      1999
+
+09/03/2020 05:51:52 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:51:52 - INFO - __main__ -   f1 = 0.36315021876519205
+09/03/2020 05:51:52 - INFO - __main__ -   loss = 1.5568352426801408
+09/03/2020 05:51:52 - INFO - __main__ -   precision = 0.35319148936170214
+09/03/2020 05:51:52 - INFO - __main__ -   recall = 0.3736868434217109
+09/03/2020 05:52:00 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:52:02 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:52:02 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:52:02 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:52:04 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.55      0.69      0.61       809
+ QUESTION       0.60      0.76      0.67      1071
+   HEADER       0.03      0.01      0.01       119
+
+micro avg       0.57      0.69      0.62      1999
+macro avg       0.55      0.69      0.61      1999
+
+09/03/2020 05:52:04 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:52:04 - INFO - __main__ -   f1 = 0.6225857759600091
+09/03/2020 05:52:04 - INFO - __main__ -   loss = 1.1706471272877284
+09/03/2020 05:52:04 - INFO - __main__ -   precision = 0.5703580349708576
+09/03/2020 05:52:04 - INFO - __main__ -   recall = 0.6853426713356678
+09/03/2020 05:52:12 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:52:14 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:52:14 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:52:14 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:52:16 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.58      0.76      0.66       809
+ QUESTION       0.66      0.78      0.71      1071
+   HEADER       0.24      0.15      0.19       119
+
+micro avg       0.61      0.73      0.67      1999
+macro avg       0.60      0.73      0.66      1999
+
+09/03/2020 05:52:16 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:52:16 - INFO - __main__ -   f1 = 0.6684869169510808
+09/03/2020 05:52:16 - INFO - __main__ -   loss = 0.9548294203622001
+09/03/2020 05:52:16 - INFO - __main__ -   precision = 0.6131051752921536
+09/03/2020 05:52:16 - INFO - __main__ -   recall = 0.7348674337168585
+09/03/2020 05:52:24 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:52:26 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:52:26 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:52:26 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:52:28 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.57      0.80      0.67       809
+ QUESTION       0.67      0.69      0.68      1071
+   HEADER       0.26      0.17      0.20       119
+
+micro avg       0.61      0.70      0.65      1999
+macro avg       0.61      0.70      0.65      1999
+
+09/03/2020 05:52:28 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:52:28 - INFO - __main__ -   f1 = 0.6539357242664183
+09/03/2020 05:52:28 - INFO - __main__ -   loss = 0.9120183161326817
+09/03/2020 05:52:28 - INFO - __main__ -   precision = 0.611764705882353
+09/03/2020 05:52:28 - INFO - __main__ -   recall = 0.7023511755877939
+09/03/2020 05:52:36 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:52:38 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:52:38 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:52:38 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:52:40 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.64      0.78      0.70       809
+ QUESTION       0.71      0.80      0.75      1071
+   HEADER       0.35      0.21      0.26       119
+
+micro avg       0.67      0.76      0.71      1999
+macro avg       0.66      0.76      0.70      1999
+
+09/03/2020 05:52:40 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:52:40 - INFO - __main__ -   f1 = 0.7108716026241799
+09/03/2020 05:52:40 - INFO - __main__ -   loss = 0.8286864161491394
+09/03/2020 05:52:40 - INFO - __main__ -   precision = 0.6685764654032613
+09/03/2020 05:52:40 - INFO - __main__ -   recall = 0.7588794397198599
+09/03/2020 05:52:49 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:52:51 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:52:51 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:52:51 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:52:53 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.68      0.79      0.73       809
+ QUESTION       0.75      0.83      0.79      1071
+   HEADER       0.33      0.25      0.29       119
+
+micro avg       0.70      0.78      0.74      1999
+macro avg       0.70      0.78      0.74      1999
+
+09/03/2020 05:52:53 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:52:53 - INFO - __main__ -   f1 = 0.7398624614654967
+09/03/2020 05:52:53 - INFO - __main__ -   loss = 0.8208729795047215
+09/03/2020 05:52:53 - INFO - __main__ -   precision = 0.7033363390441839
+09/03/2020 05:52:53 - INFO - __main__ -   recall = 0.7803901950975488
+09/03/2020 05:53:01 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:53:03 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:53:03 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:53:03 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:53:05 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.67      0.81      0.73       809
+ QUESTION       0.76      0.85      0.80      1071
+   HEADER       0.27      0.29      0.28       119
+
+micro avg       0.69      0.80      0.74      1999
+macro avg       0.69      0.80      0.74      1999
+
+09/03/2020 05:53:05 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:53:05 - INFO - __main__ -   f1 = 0.7429765498026468
+09/03/2020 05:53:05 - INFO - __main__ -   loss = 0.8624929785728455
+09/03/2020 05:53:05 - INFO - __main__ -   precision = 0.6932409012131716
+09/03/2020 05:53:05 - INFO - __main__ -   recall = 0.80040020010005
+09/03/2020 05:53:13 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:53:15 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:53:15 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:53:15 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:53:17 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.68      0.74      0.71       809
+ QUESTION       0.78      0.85      0.81      1071
+   HEADER       0.35      0.29      0.32       119
+
+micro avg       0.72      0.77      0.75      1999
+macro avg       0.71      0.77      0.74      1999
+
+09/03/2020 05:53:17 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:53:17 - INFO - __main__ -   f1 = 0.7454282964388835
+09/03/2020 05:53:17 - INFO - __main__ -   loss = 0.9085387161799839
+09/03/2020 05:53:17 - INFO - __main__ -   precision = 0.7181270282800185
+09/03/2020 05:53:17 - INFO - __main__ -   recall = 0.7748874437218609
+09/03/2020 05:53:25 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:53:27 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:53:27 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:53:27 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:53:29 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.67      0.82      0.74       809
+ QUESTION       0.74      0.83      0.78      1071
+   HEADER       0.31      0.34      0.33       119
+
+micro avg       0.68      0.80      0.74      1999
+macro avg       0.68      0.80      0.73      1999
+
+09/03/2020 05:53:29 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:53:29 - INFO - __main__ -   f1 = 0.7350427350427351
+09/03/2020 05:53:29 - INFO - __main__ -   loss = 0.9044309343610492
+09/03/2020 05:53:29 - INFO - __main__ -   precision = 0.6828326180257511
+09/03/2020 05:53:29 - INFO - __main__ -   recall = 0.7958979489744873
+09/03/2020 05:53:37 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:53:39 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:53:39 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:53:39 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:53:41 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.68      0.83      0.75       809
+ QUESTION       0.78      0.82      0.80      1071
+   HEADER       0.31      0.36      0.33       119
+
+micro avg       0.71      0.80      0.75      1999
+macro avg       0.71      0.80      0.75      1999
+
+09/03/2020 05:53:41 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:53:41 - INFO - __main__ -   f1 = 0.7497648165569144
+09/03/2020 05:53:41 - INFO - __main__ -   loss = 0.9521330850464957
+09/03/2020 05:53:41 - INFO - __main__ -   precision = 0.7075011096316023
+09/03/2020 05:53:41 - INFO - __main__ -   recall = 0.7973986993496749
+09/03/2020 05:53:49 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:53:51 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:53:51 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:53:51 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:53:53 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.78      0.75       809
+ QUESTION       0.79      0.84      0.82      1071
+   HEADER       0.40      0.34      0.37       119
+
+micro avg       0.75      0.79      0.77      1999
+macro avg       0.74      0.79      0.76      1999
+
+09/03/2020 05:53:53 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:53:53 - INFO - __main__ -   f1 = 0.7664962259556853
+09/03/2020 05:53:53 - INFO - __main__ -   loss = 0.9837679522378104
+09/03/2020 05:53:53 - INFO - __main__ -   precision = 0.7466793168880456
+09/03/2020 05:53:53 - INFO - __main__ -   recall = 0.7873936968484242
+09/03/2020 05:54:02 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:54:04 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:54:04 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:54:04 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:54:06 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.68      0.82      0.74       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.34      0.33      0.33       119
+
+micro avg       0.72      0.79      0.75      1999
+macro avg       0.72      0.79      0.75      1999
+
+09/03/2020 05:54:06 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:54:06 - INFO - __main__ -   f1 = 0.7544026653974297
+09/03/2020 05:54:06 - INFO - __main__ -   loss = 1.0113493289266313
+09/03/2020 05:54:06 - INFO - __main__ -   precision = 0.7194734453018611
+09/03/2020 05:54:06 - INFO - __main__ -   recall = 0.7928964482241121
+09/03/2020 05:54:14 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:54:16 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:54:16 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:54:16 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:54:18 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.69      0.81      0.75       809
+ QUESTION       0.74      0.83      0.78      1071
+   HEADER       0.23      0.39      0.29       119
+
+micro avg       0.68      0.79      0.73      1999
+macro avg       0.69      0.79      0.74      1999
+
+09/03/2020 05:54:18 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:54:18 - INFO - __main__ -   f1 = 0.7305389221556886
+09/03/2020 05:54:18 - INFO - __main__ -   loss = 0.9965162873268127
+09/03/2020 05:54:18 - INFO - __main__ -   precision = 0.6769099445155783
+09/03/2020 05:54:18 - INFO - __main__ -   recall = 0.7933966983491746
+09/03/2020 05:54:26 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:54:28 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:54:28 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:54:28 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:54:30 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.68      0.73      0.70       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.37      0.35      0.36       119
+
+micro avg       0.72      0.76      0.74      1999
+macro avg       0.72      0.76      0.74      1999
+
+09/03/2020 05:54:30 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:54:30 - INFO - __main__ -   f1 = 0.741370928536704
+09/03/2020 05:54:30 - INFO - __main__ -   loss = 1.0422731978552682
+09/03/2020 05:54:30 - INFO - __main__ -   precision = 0.7210401891252955
+09/03/2020 05:54:30 - INFO - __main__ -   recall = 0.7628814407203601
+09/03/2020 05:54:38 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:54:40 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:54:40 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:54:40 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:54:42 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.70      0.80      0.74       809
+ QUESTION       0.78      0.84      0.81      1071
+   HEADER       0.35      0.42      0.38       119
+
+micro avg       0.72      0.80      0.76      1999
+macro avg       0.72      0.80      0.76      1999
+
+09/03/2020 05:54:42 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:54:42 - INFO - __main__ -   f1 = 0.7574609189957366
+09/03/2020 05:54:42 - INFO - __main__ -   loss = 1.0492712259292603
+09/03/2020 05:54:42 - INFO - __main__ -   precision = 0.7192982456140351
+09/03/2020 05:54:42 - INFO - __main__ -   recall = 0.7998999499749875
+09/03/2020 05:54:50 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:54:52 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:54:52 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:54:52 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:54:54 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.69      0.82      0.75       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.40      0.34      0.37       119
+
+micro avg       0.73      0.80      0.76      1999
+macro avg       0.73      0.80      0.76      1999
+
+09/03/2020 05:54:54 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:54:54 - INFO - __main__ -   f1 = 0.7624070966195157
+09/03/2020 05:54:54 - INFO - __main__ -   loss = 1.1102549689156669
+09/03/2020 05:54:54 - INFO - __main__ -   precision = 0.7320441988950276
+09/03/2020 05:54:54 - INFO - __main__ -   recall = 0.7953976988494247
+09/03/2020 05:55:02 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:55:04 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:55:04 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:55:04 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:55:06 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.82      0.76       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.39      0.44      0.41       119
+
+micro avg       0.73      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 05:55:06 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:55:06 - INFO - __main__ -   f1 = 0.766953199617956
+09/03/2020 05:55:06 - INFO - __main__ -   loss = 1.043868098940168
+09/03/2020 05:55:06 - INFO - __main__ -   precision = 0.7336683417085427
+09/03/2020 05:55:06 - INFO - __main__ -   recall = 0.8034017008504252
+09/03/2020 05:55:14 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:55:17 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:55:17 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:55:17 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:55:19 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.81      0.77       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.41      0.53      0.46       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 05:55:19 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:55:19 - INFO - __main__ -   f1 = 0.7697478991596638
+09/03/2020 05:55:19 - INFO - __main__ -   loss = 1.063246488571167
+09/03/2020 05:55:19 - INFO - __main__ -   precision = 0.7400738688827332
+09/03/2020 05:55:19 - INFO - __main__ -   recall = 0.8019009504752376
+09/03/2020 05:55:27 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:55:29 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:55:29 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:55:29 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:55:31 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.83      0.76       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.43      0.39      0.41       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 05:55:31 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:55:31 - INFO - __main__ -   f1 = 0.7687156182731405
+09/03/2020 05:55:31 - INFO - __main__ -   loss = 1.0755250709397453
+09/03/2020 05:55:31 - INFO - __main__ -   precision = 0.736480293308891
+09/03/2020 05:55:31 - INFO - __main__ -   recall = 0.8039019509754878
+09/03/2020 05:55:39 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:55:41 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:55:41 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:55:41 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:55:43 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.80      0.76       809
+ QUESTION       0.80      0.84      0.82      1071
+   HEADER       0.46      0.44      0.45       119
+
+micro avg       0.75      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 05:55:43 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:55:43 - INFO - __main__ -   f1 = 0.7724304715840388
+09/03/2020 05:55:43 - INFO - __main__ -   loss = 1.0954401663371496
+09/03/2020 05:55:43 - INFO - __main__ -   precision = 0.7476591760299626
+09/03/2020 05:55:43 - INFO - __main__ -   recall = 0.7988994497248624
+09/03/2020 05:55:51 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:55:53 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:55:53 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:55:53 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:55:55 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.68      0.83      0.75       809
+ QUESTION       0.78      0.82      0.80      1071
+   HEADER       0.45      0.45      0.45       119
+
+micro avg       0.72      0.80      0.76      1999
+macro avg       0.72      0.80      0.76      1999
+
+09/03/2020 05:55:55 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:55:55 - INFO - __main__ -   f1 = 0.757203589985829
+09/03/2020 05:55:55 - INFO - __main__ -   loss = 1.0789536918912614
+09/03/2020 05:55:55 - INFO - __main__ -   precision = 0.7172259507829978
+09/03/2020 05:55:55 - INFO - __main__ -   recall = 0.8019009504752376
+09/03/2020 05:56:03 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:56:05 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:56:05 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:56:05 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:56:07 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.80      0.75       809
+ QUESTION       0.82      0.81      0.82      1071
+   HEADER       0.51      0.59      0.54       119
+
+micro avg       0.75      0.80      0.77      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 05:56:07 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:56:07 - INFO - __main__ -   f1 = 0.7737226277372263
+09/03/2020 05:56:07 - INFO - __main__ -   loss = 1.2058674267360143
+09/03/2020 05:56:07 - INFO - __main__ -   precision = 0.7531975367124586
+09/03/2020 05:56:07 - INFO - __main__ -   recall = 0.7953976988494247
+09/03/2020 05:56:16 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:56:18 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:56:18 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:56:18 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:56:20 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.80      0.76       809
+ QUESTION       0.81      0.84      0.83      1071
+   HEADER       0.47      0.51      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 05:56:20 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:56:20 - INFO - __main__ -   f1 = 0.7786370227162881
+09/03/2020 05:56:20 - INFO - __main__ -   loss = 1.1781644906316484
+09/03/2020 05:56:20 - INFO - __main__ -   precision = 0.7531556802244039
+09/03/2020 05:56:20 - INFO - __main__ -   recall = 0.8059029514757379
+09/03/2020 05:56:28 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:56:30 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:56:30 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:56:30 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:56:32 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.80      0.75       809
+ QUESTION       0.78      0.84      0.81      1071
+   HEADER       0.43      0.47      0.45       119
+
+micro avg       0.73      0.80      0.76      1999
+macro avg       0.73      0.80      0.76      1999
+
+09/03/2020 05:56:32 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:56:32 - INFO - __main__ -   f1 = 0.7637832699619771
+09/03/2020 05:56:32 - INFO - __main__ -   loss = 1.1521176440375192
+09/03/2020 05:56:32 - INFO - __main__ -   precision = 0.7274784970574921
+09/03/2020 05:56:32 - INFO - __main__ -   recall = 0.8039019509754878
+09/03/2020 05:56:40 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:56:42 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:56:42 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:56:42 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:56:44 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.82      0.77       809
+ QUESTION       0.81      0.82      0.81      1071
+   HEADER       0.47      0.43      0.45       119
+
+micro avg       0.75      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 05:56:44 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:56:44 - INFO - __main__ -   f1 = 0.7748844000973473
+09/03/2020 05:56:44 - INFO - __main__ -   loss = 1.2284119469778878
+09/03/2020 05:56:44 - INFO - __main__ -   precision = 0.7545023696682465
+09/03/2020 05:56:44 - INFO - __main__ -   recall = 0.7963981990995498
+09/03/2020 05:56:52 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:56:54 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:56:54 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:56:54 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:56:56 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.81      0.77       809
+ QUESTION       0.79      0.84      0.81      1071
+   HEADER       0.43      0.49      0.46       119
+
+micro avg       0.75      0.81      0.77      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 05:56:56 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:56:56 - INFO - __main__ -   f1 = 0.7749219312995436
+09/03/2020 05:56:56 - INFO - __main__ -   loss = 1.2029947979109628
+09/03/2020 05:56:56 - INFO - __main__ -   precision = 0.7453789279112755
+09/03/2020 05:56:56 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 05:57:04 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:57:07 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:57:07 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:57:07 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:57:09 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.82      0.77       809
+ QUESTION       0.79      0.84      0.81      1071
+   HEADER       0.42      0.42      0.42       119
+
+micro avg       0.74      0.81      0.77      1999
+macro avg       0.74      0.81      0.77      1999
+
+09/03/2020 05:57:09 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:57:09 - INFO - __main__ -   f1 = 0.7724005749880211
+09/03/2020 05:57:09 - INFO - __main__ -   loss = 1.2337086200714111
+09/03/2020 05:57:09 - INFO - __main__ -   precision = 0.7411494252873563
+09/03/2020 05:57:09 - INFO - __main__ -   recall = 0.8064032016008004
+09/03/2020 05:57:17 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:57:19 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:57:19 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:57:19 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:57:21 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.83      0.77       809
+ QUESTION       0.79      0.82      0.81      1071
+   HEADER       0.40      0.50      0.44       119
+
+micro avg       0.74      0.81      0.77      1999
+macro avg       0.74      0.81      0.77      1999
+
+09/03/2020 05:57:21 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:57:21 - INFO - __main__ -   f1 = 0.7697446910045335
+09/03/2020 05:57:21 - INFO - __main__ -   loss = 1.3032228776386805
+09/03/2020 05:57:21 - INFO - __main__ -   precision = 0.7358576642335767
+09/03/2020 05:57:21 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 05:57:29 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:57:31 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:57:31 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:57:31 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:57:33 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.79      0.75       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.46      0.48      0.47       119
+
+micro avg       0.74      0.79      0.77      1999
+macro avg       0.74      0.79      0.77      1999
+
+09/03/2020 05:57:33 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:57:33 - INFO - __main__ -   f1 = 0.7676328502415458
+09/03/2020 05:57:33 - INFO - __main__ -   loss = 1.2752588135855538
+09/03/2020 05:57:33 - INFO - __main__ -   precision = 0.742176553012611
+09/03/2020 05:57:33 - INFO - __main__ -   recall = 0.7948974487243622
+09/03/2020 05:57:41 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:57:43 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:57:43 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:57:43 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:57:45 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.82      0.76       809
+ QUESTION       0.78      0.84      0.81      1071
+   HEADER       0.47      0.46      0.47       119
+
+micro avg       0.73      0.81      0.77      1999
+macro avg       0.73      0.81      0.77      1999
+
+09/03/2020 05:57:45 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:57:45 - INFO - __main__ -   f1 = 0.769926243159648
+09/03/2020 05:57:45 - INFO - __main__ -   loss = 1.2721853256225586
+09/03/2020 05:57:45 - INFO - __main__ -   precision = 0.7341197822141561
+09/03/2020 05:57:45 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 05:57:53 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:57:55 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:57:55 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:57:55 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:57:57 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.79      0.76       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.46      0.50      0.48       119
+
+micro avg       0.75      0.79      0.77      1999
+macro avg       0.75      0.79      0.77      1999
+
+09/03/2020 05:57:57 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:57:57 - INFO - __main__ -   f1 = 0.7715119105493435
+09/03/2020 05:57:57 - INFO - __main__ -   loss = 1.3516865798405238
+09/03/2020 05:57:57 - INFO - __main__ -   precision = 0.750354609929078
+09/03/2020 05:57:57 - INFO - __main__ -   recall = 0.7938969484742371
+09/03/2020 05:58:05 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:58:07 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:58:07 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:58:07 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:58:09 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.80      0.76       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.41      0.52      0.46       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 05:58:09 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:58:09 - INFO - __main__ -   f1 = 0.766674692993017
+09/03/2020 05:58:09 - INFO - __main__ -   loss = 1.3809172000203813
+09/03/2020 05:58:09 - INFO - __main__ -   precision = 0.7390900649953575
+09/03/2020 05:58:09 - INFO - __main__ -   recall = 0.7963981990995498
+09/03/2020 05:58:18 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:58:20 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:58:20 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:58:20 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:58:22 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.69      0.79      0.74       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.47      0.46      0.47       119
+
+micro avg       0.74      0.79      0.76      1999
+macro avg       0.74      0.79      0.76      1999
+
+09/03/2020 05:58:22 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:58:22 - INFO - __main__ -   f1 = 0.762273276904474
+09/03/2020 05:58:22 - INFO - __main__ -   loss = 1.3974148375647408
+09/03/2020 05:58:22 - INFO - __main__ -   precision = 0.7378277153558053
+09/03/2020 05:58:22 - INFO - __main__ -   recall = 0.7883941970985493
+09/03/2020 05:58:30 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:58:32 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:58:32 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:58:32 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:58:34 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.79      0.75       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.41      0.52      0.46       119
+
+micro avg       0.75      0.79      0.77      1999
+macro avg       0.75      0.79      0.77      1999
+
+09/03/2020 05:58:34 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:58:34 - INFO - __main__ -   f1 = 0.7687091305400823
+09/03/2020 05:58:34 - INFO - __main__ -   loss = 1.3877897262573242
+09/03/2020 05:58:34 - INFO - __main__ -   precision = 0.7450704225352113
+09/03/2020 05:58:34 - INFO - __main__ -   recall = 0.7938969484742371
+09/03/2020 05:58:42 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:58:44 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:58:44 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:58:44 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:58:46 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.82      0.77       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.43      0.45      0.44       119
+
+micro avg       0.73      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 05:58:46 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:58:46 - INFO - __main__ -   f1 = 0.7673918240497252
+09/03/2020 05:58:46 - INFO - __main__ -   loss = 1.4008638177599226
+09/03/2020 05:58:46 - INFO - __main__ -   precision = 0.7348901098901099
+09/03/2020 05:58:46 - INFO - __main__ -   recall = 0.8029014507253627
+09/03/2020 05:58:54 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:58:56 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:58:56 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:58:56 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:58:58 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.80      0.76       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.43      0.52      0.47       119
+
+micro avg       0.73      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 05:58:58 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:58:58 - INFO - __main__ -   f1 = 0.7656923814087206
+09/03/2020 05:58:58 - INFO - __main__ -   loss = 1.3845649191311427
+09/03/2020 05:58:58 - INFO - __main__ -   precision = 0.7347126436781609
+09/03/2020 05:58:58 - INFO - __main__ -   recall = 0.799399699849925
+09/03/2020 05:59:06 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:59:08 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:59:08 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:59:08 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:59:10 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.80      0.76       809
+ QUESTION       0.79      0.81      0.80      1071
+   HEADER       0.44      0.53      0.48       119
+
+micro avg       0.74      0.79      0.76      1999
+macro avg       0.74      0.79      0.77      1999
+
+09/03/2020 05:59:10 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:59:10 - INFO - __main__ -   f1 = 0.7635836754407148
+09/03/2020 05:59:10 - INFO - __main__ -   loss = 1.430321957383837
+09/03/2020 05:59:10 - INFO - __main__ -   precision = 0.7380952380952381
+09/03/2020 05:59:10 - INFO - __main__ -   recall = 0.7908954477238619
+09/03/2020 05:59:18 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:59:21 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:59:21 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:59:21 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:59:23 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.81      0.77       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.45      0.46       119
+
+micro avg       0.75      0.80      0.78      1999
+macro avg       0.75      0.80      0.78      1999
+
+09/03/2020 05:59:23 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:59:23 - INFO - __main__ -   f1 = 0.7761846901579587
+09/03/2020 05:59:23 - INFO - __main__ -   loss = 1.390390728201185
+09/03/2020 05:59:23 - INFO - __main__ -   precision = 0.754725897920605
+09/03/2020 05:59:23 - INFO - __main__ -   recall = 0.7988994497248624
+09/03/2020 05:59:31 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:59:33 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:59:33 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:59:33 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:59:35 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.81      0.76       809
+ QUESTION       0.78      0.82      0.80      1071
+   HEADER       0.42      0.45      0.44       119
+
+micro avg       0.73      0.79      0.76      1999
+macro avg       0.73      0.79      0.76      1999
+
+09/03/2020 05:59:35 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:59:35 - INFO - __main__ -   f1 = 0.7625
+09/03/2020 05:59:35 - INFO - __main__ -   loss = 1.4354434268815177
+09/03/2020 05:59:35 - INFO - __main__ -   precision = 0.7339194817214253
+09/03/2020 05:59:35 - INFO - __main__ -   recall = 0.7933966983491746
+09/03/2020 05:59:43 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:59:45 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:59:45 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:59:45 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:59:47 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.80      0.77       809
+ QUESTION       0.81      0.81      0.81      1071
+   HEADER       0.43      0.55      0.48       119
+
+micro avg       0.75      0.79      0.77      1999
+macro avg       0.76      0.79      0.78      1999
+
+09/03/2020 05:59:47 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:59:47 - INFO - __main__ -   f1 = 0.7726495726495726
+09/03/2020 05:59:47 - INFO - __main__ -   loss = 1.4844844852175032
+09/03/2020 05:59:47 - INFO - __main__ -   precision = 0.7547709923664122
+09/03/2020 05:59:47 - INFO - __main__ -   recall = 0.7913956978489245
+09/03/2020 05:59:55 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 05:59:57 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 05:59:57 - INFO - __main__ -   Num examples = 52
+09/03/2020 05:59:57 - INFO - __main__ -   Batch size = 8
+09/03/2020 05:59:59 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.80      0.77       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.46      0.45      0.46       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.77      1999
+
+09/03/2020 05:59:59 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 05:59:59 - INFO - __main__ -   f1 = 0.7750426517182548
+09/03/2020 05:59:59 - INFO - __main__ -   loss = 1.524141447884696
+09/03/2020 05:59:59 - INFO - __main__ -   precision = 0.7557034220532319
+09/03/2020 05:59:59 - INFO - __main__ -   recall = 0.7953976988494247
+09/03/2020 06:00:07 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:00:09 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:00:09 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:00:09 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:00:11 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.80      0.77       809
+ QUESTION       0.77      0.81      0.79      1071
+   HEADER       0.42      0.50      0.45       119
+
+micro avg       0.73      0.79      0.76      1999
+macro avg       0.74      0.79      0.76      1999
+
+09/03/2020 06:00:11 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:00:11 - INFO - __main__ -   f1 = 0.7616754935002407
+09/03/2020 06:00:11 - INFO - __main__ -   loss = 1.452068371432168
+09/03/2020 06:00:11 - INFO - __main__ -   precision = 0.7341067285382831
+09/03/2020 06:00:11 - INFO - __main__ -   recall = 0.7913956978489245
+09/03/2020 06:00:19 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:00:21 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:00:21 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:00:21 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:00:23 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.81      0.77       809
+ QUESTION       0.77      0.82      0.79      1071
+   HEADER       0.43      0.52      0.47       119
+
+micro avg       0.73      0.80      0.76      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:00:23 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:00:23 - INFO - __main__ -   f1 = 0.7640718562874252
+09/03/2020 06:00:23 - INFO - __main__ -   loss = 1.4038216812270028
+09/03/2020 06:00:23 - INFO - __main__ -   precision = 0.7329963235294118
+09/03/2020 06:00:23 - INFO - __main__ -   recall = 0.7978989494747374
+09/03/2020 06:00:31 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:00:34 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:00:34 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:00:34 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:00:36 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.80      0.76       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.44      0.53      0.48       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:00:36 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:00:36 - INFO - __main__ -   f1 = 0.7678657074340527
+09/03/2020 06:00:36 - INFO - __main__ -   loss = 1.4718695368085588
+09/03/2020 06:00:36 - INFO - __main__ -   precision = 0.737448180561953
+09/03/2020 06:00:36 - INFO - __main__ -   recall = 0.8009004502251126
+09/03/2020 06:00:44 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:00:46 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:00:46 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:00:46 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:00:48 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.81      0.76       809
+ QUESTION       0.78      0.82      0.80      1071
+   HEADER       0.41      0.49      0.44       119
+
+micro avg       0.73      0.79      0.76      1999
+macro avg       0.74      0.79      0.76      1999
+
+09/03/2020 06:00:48 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:00:48 - INFO - __main__ -   f1 = 0.7624760076775432
+09/03/2020 06:00:48 - INFO - __main__ -   loss = 1.597810183252607
+09/03/2020 06:00:48 - INFO - __main__ -   precision = 0.7325956662056247
+09/03/2020 06:00:48 - INFO - __main__ -   recall = 0.7948974487243622
+09/03/2020 06:00:56 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:00:58 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:00:58 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:00:58 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:01:00 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.81      0.76       809
+ QUESTION       0.81      0.82      0.81      1071
+   HEADER       0.50      0.46      0.48       119
+
+micro avg       0.75      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 06:01:00 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:01:00 - INFO - __main__ -   f1 = 0.772594752186589
+09/03/2020 06:01:00 - INFO - __main__ -   loss = 1.580669300896781
+09/03/2020 06:01:00 - INFO - __main__ -   precision = 0.7510628247520076
+09/03/2020 06:01:00 - INFO - __main__ -   recall = 0.7953976988494247
+09/03/2020 06:01:08 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:01:10 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:01:10 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:01:10 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:01:12 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.77      0.82      0.80      1071
+   HEADER       0.38      0.48      0.42       119
+
+micro avg       0.73      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:01:12 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:01:12 - INFO - __main__ -   f1 = 0.766953199617956
+09/03/2020 06:01:12 - INFO - __main__ -   loss = 1.5481757521629333
+09/03/2020 06:01:12 - INFO - __main__ -   precision = 0.7336683417085427
+09/03/2020 06:01:12 - INFO - __main__ -   recall = 0.8034017008504252
+09/03/2020 06:01:20 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:01:22 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:01:22 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:01:22 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:01:24 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.79      0.76       809
+ QUESTION       0.81      0.82      0.81      1071
+   HEADER       0.44      0.51      0.47       119
+
+micro avg       0.75      0.79      0.77      1999
+macro avg       0.76      0.79      0.77      1999
+
+09/03/2020 06:01:24 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:01:24 - INFO - __main__ -   f1 = 0.7697947214076246
+09/03/2020 06:01:24 - INFO - __main__ -   loss = 1.5754671948296683
+09/03/2020 06:01:24 - INFO - __main__ -   precision = 0.7525083612040134
+09/03/2020 06:01:24 - INFO - __main__ -   recall = 0.7878939469734867
+09/03/2020 06:01:32 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:01:34 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:01:34 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:01:34 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:01:36 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.80      0.76       809
+ QUESTION       0.79      0.82      0.81      1071
+   HEADER       0.40      0.51      0.45       119
+
+micro avg       0.74      0.79      0.76      1999
+macro avg       0.74      0.79      0.77      1999
+
+09/03/2020 06:01:36 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:01:36 - INFO - __main__ -   f1 = 0.7638287638287639
+09/03/2020 06:01:36 - INFO - __main__ -   loss = 1.5552652393068587
+09/03/2020 06:01:36 - INFO - __main__ -   precision = 0.7355257063455304
+09/03/2020 06:01:36 - INFO - __main__ -   recall = 0.7943971985992997
+09/03/2020 06:01:44 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:01:46 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:01:46 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:01:46 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:01:48 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.81      0.78       809
+ QUESTION       0.76      0.82      0.79      1071
+   HEADER       0.40      0.52      0.45       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:01:48 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:01:48 - INFO - __main__ -   f1 = 0.7668269230769231
+09/03/2020 06:01:48 - INFO - __main__ -   loss = 1.5470830372401647
+09/03/2020 06:01:48 - INFO - __main__ -   precision = 0.7380842202683943
+09/03/2020 06:01:48 - INFO - __main__ -   recall = 0.7978989494747374
+09/03/2020 06:01:56 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:01:58 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:01:58 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:01:58 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:02:00 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.81      0.77       809
+ QUESTION       0.79      0.81      0.80      1071
+   HEADER       0.45      0.50      0.47       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:02:00 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:02:00 - INFO - __main__ -   f1 = 0.7667469879518072
+09/03/2020 06:02:00 - INFO - __main__ -   loss = 1.5255708353860038
+09/03/2020 06:02:00 - INFO - __main__ -   precision = 0.7396559739655973
+09/03/2020 06:02:00 - INFO - __main__ -   recall = 0.7958979489744873
+09/03/2020 06:02:09 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:02:11 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:02:11 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:02:11 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:02:13 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.81      0.77       809
+ QUESTION       0.78      0.83      0.80      1071
+   HEADER       0.47      0.50      0.49       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:02:13 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:02:13 - INFO - __main__ -   f1 = 0.7699688174622212
+09/03/2020 06:02:13 - INFO - __main__ -   loss = 1.5091033322470528
+09/03/2020 06:02:13 - INFO - __main__ -   precision = 0.7396313364055299
+09/03/2020 06:02:13 - INFO - __main__ -   recall = 0.8029014507253627
+09/03/2020 06:02:21 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:02:23 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:02:23 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:02:23 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:02:25 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.78      0.76       809
+ QUESTION       0.79      0.81      0.80      1071
+   HEADER       0.42      0.53      0.47       119
+
+micro avg       0.74      0.78      0.76      1999
+macro avg       0.74      0.78      0.76      1999
+
+09/03/2020 06:02:25 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:02:25 - INFO - __main__ -   f1 = 0.7599418040737149
+09/03/2020 06:02:25 - INFO - __main__ -   loss = 1.5167493649891444
+09/03/2020 06:02:25 - INFO - __main__ -   precision = 0.7374117647058823
+09/03/2020 06:02:25 - INFO - __main__ -   recall = 0.7838919459729865
+09/03/2020 06:02:33 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:02:35 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:02:35 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:02:35 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:02:37 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.81      0.77       809
+ QUESTION       0.78      0.84      0.81      1071
+   HEADER       0.50      0.47      0.49       119
+
+micro avg       0.75      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 06:02:37 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:02:37 - INFO - __main__ -   f1 = 0.7745664739884393
+09/03/2020 06:02:37 - INFO - __main__ -   loss = 1.460477590560913
+09/03/2020 06:02:37 - INFO - __main__ -   precision = 0.7468648397584765
+09/03/2020 06:02:37 - INFO - __main__ -   recall = 0.8044022011005503
+09/03/2020 06:02:45 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:02:47 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:02:47 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:02:47 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:02:49 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.83      0.76       809
+ QUESTION       0.79      0.81      0.80      1071
+   HEADER       0.42      0.54      0.47       119
+
+micro avg       0.73      0.80      0.76      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:02:49 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:02:49 - INFO - __main__ -   f1 = 0.7644953471725126
+09/03/2020 06:02:49 - INFO - __main__ -   loss = 1.500409415790013
+09/03/2020 06:02:49 - INFO - __main__ -   precision = 0.7308394160583942
+09/03/2020 06:02:49 - INFO - __main__ -   recall = 0.8014007003501751
+09/03/2020 06:02:57 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:02:59 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:02:59 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:02:59 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:03:01 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.81      0.77       809
+ QUESTION       0.78      0.82      0.80      1071
+   HEADER       0.42      0.51      0.46       119
+
+micro avg       0.73      0.80      0.76      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:03:01 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:03:01 - INFO - __main__ -   f1 = 0.7647340680402491
+09/03/2020 06:03:01 - INFO - __main__ -   loss = 1.5488595281328474
+09/03/2020 06:03:01 - INFO - __main__ -   precision = 0.7337931034482759
+09/03/2020 06:03:01 - INFO - __main__ -   recall = 0.7983991995997999
+09/03/2020 06:03:09 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:03:11 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:03:11 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:03:11 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:03:13 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.81      0.78       809
+ QUESTION       0.77      0.82      0.80      1071
+   HEADER       0.45      0.51      0.48       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:03:13 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:03:13 - INFO - __main__ -   f1 = 0.768565248738284
+09/03/2020 06:03:13 - INFO - __main__ -   loss = 1.4956225156784058
+09/03/2020 06:03:13 - INFO - __main__ -   precision = 0.7395929694727105
+09/03/2020 06:03:13 - INFO - __main__ -   recall = 0.7998999499749875
+09/03/2020 06:03:21 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:03:23 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:03:23 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:03:23 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:03:26 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.82      0.77       809
+ QUESTION       0.78      0.83      0.81      1071
+   HEADER       0.42      0.50      0.46       119
+
+micro avg       0.73      0.81      0.77      1999
+macro avg       0.74      0.81      0.77      1999
+
+09/03/2020 06:03:26 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:03:26 - INFO - __main__ -   f1 = 0.7687544653488927
+09/03/2020 06:03:26 - INFO - __main__ -   loss = 1.535356777054923
+09/03/2020 06:03:26 - INFO - __main__ -   precision = 0.7336363636363636
+09/03/2020 06:03:26 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:03:34 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:03:36 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:03:36 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:03:36 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:03:38 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.78      0.75       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.42      0.50      0.46       119
+
+micro avg       0.74      0.79      0.76      1999
+macro avg       0.74      0.79      0.76      1999
+
+09/03/2020 06:03:38 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:03:38 - INFO - __main__ -   f1 = 0.7621582385676264
+09/03/2020 06:03:38 - INFO - __main__ -   loss = 1.5426073840686254
+09/03/2020 06:03:38 - INFO - __main__ -   precision = 0.7380506091846298
+09/03/2020 06:03:38 - INFO - __main__ -   recall = 0.7878939469734867
+09/03/2020 06:03:46 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:03:48 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:03:48 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:03:48 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:03:50 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.83      0.77       809
+ QUESTION       0.75      0.83      0.79      1071
+   HEADER       0.47      0.50      0.48       119
+
+micro avg       0.72      0.81      0.76      1999
+macro avg       0.72      0.81      0.76      1999
+
+09/03/2020 06:03:50 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:03:50 - INFO - __main__ -   f1 = 0.7639182522903453
+09/03/2020 06:03:50 - INFO - __main__ -   loss = 1.532506491456713
+09/03/2020 06:03:50 - INFO - __main__ -   precision = 0.7201062887511072
+09/03/2020 06:03:50 - INFO - __main__ -   recall = 0.8134067033516759
+09/03/2020 06:03:58 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:04:00 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:04:00 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:04:00 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:04:02 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.81      0.76       809
+ QUESTION       0.79      0.82      0.80      1071
+   HEADER       0.41      0.50      0.45       119
+
+micro avg       0.73      0.80      0.76      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:04:02 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:04:02 - INFO - __main__ -   f1 = 0.7642976788705431
+09/03/2020 06:04:02 - INFO - __main__ -   loss = 1.527952151639121
+09/03/2020 06:04:02 - INFO - __main__ -   precision = 0.7325688073394495
+09/03/2020 06:04:02 - INFO - __main__ -   recall = 0.7988994497248624
+09/03/2020 06:04:10 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:04:12 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:04:12 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:04:12 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:04:14 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.69      0.82      0.75       809
+ QUESTION       0.80      0.80      0.80      1071
+   HEADER       0.49      0.49      0.49       119
+
+micro avg       0.74      0.79      0.76      1999
+macro avg       0.74      0.79      0.77      1999
+
+09/03/2020 06:04:14 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:04:14 - INFO - __main__ -   f1 = 0.7648192771084338
+09/03/2020 06:04:14 - INFO - __main__ -   loss = 1.5702192272458757
+09/03/2020 06:04:14 - INFO - __main__ -   precision = 0.7377963737796374
+09/03/2020 06:04:14 - INFO - __main__ -   recall = 0.7938969484742371
+09/03/2020 06:04:22 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:04:24 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:04:24 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:04:24 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:04:26 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.79      0.84      0.81      1071
+   HEADER       0.44      0.52      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:04:26 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:04:26 - INFO - __main__ -   f1 = 0.7809340394800193
+09/03/2020 06:04:26 - INFO - __main__ -   loss = 1.564138446535383
+09/03/2020 06:04:26 - INFO - __main__ -   precision = 0.7526682134570766
+09/03/2020 06:04:26 - INFO - __main__ -   recall = 0.8114057028514257
+09/03/2020 06:04:34 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:04:36 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:04:36 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:04:36 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:04:38 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.81      0.78       809
+ QUESTION       0.78      0.84      0.81      1071
+   HEADER       0.50      0.46      0.48       119
+
+micro avg       0.75      0.80      0.78      1999
+macro avg       0.75      0.80      0.78      1999
+
+09/03/2020 06:04:38 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:04:38 - INFO - __main__ -   f1 = 0.7764876632801161
+09/03/2020 06:04:38 - INFO - __main__ -   loss = 1.569169521331787
+09/03/2020 06:04:38 - INFO - __main__ -   precision = 0.7517564402810304
+09/03/2020 06:04:38 - INFO - __main__ -   recall = 0.8029014507253627
+09/03/2020 06:04:47 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:04:49 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:04:49 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:04:49 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:04:51 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.83      0.77       809
+ QUESTION       0.80      0.81      0.81      1071
+   HEADER       0.41      0.52      0.46       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 06:04:51 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:04:51 - INFO - __main__ -   f1 = 0.7709282801631087
+09/03/2020 06:04:51 - INFO - __main__ -   loss = 1.6574540053095137
+09/03/2020 06:04:51 - INFO - __main__ -   precision = 0.740552995391705
+09/03/2020 06:04:51 - INFO - __main__ -   recall = 0.8039019509754878
+09/03/2020 06:04:59 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:05:01 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:05:01 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:05:01 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:05:03 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.82      0.77       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.50      0.50      0.50       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:05:03 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:05:03 - INFO - __main__ -   f1 = 0.7791957620996869
+09/03/2020 06:05:03 - INFO - __main__ -   loss = 1.6257411071232386
+09/03/2020 06:05:03 - INFO - __main__ -   precision = 0.7511606313834726
+09/03/2020 06:05:03 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:05:11 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:05:13 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:05:13 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:05:13 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:05:15 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.81      0.77       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.48      0.49      0.49       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:05:15 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:05:15 - INFO - __main__ -   f1 = 0.7775609756097562
+09/03/2020 06:05:15 - INFO - __main__ -   loss = 1.623109255518232
+09/03/2020 06:05:15 - INFO - __main__ -   precision = 0.7586863398381724
+09/03/2020 06:05:15 - INFO - __main__ -   recall = 0.7973986993496749
+09/03/2020 06:05:23 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:05:25 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:05:25 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:05:25 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:05:27 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.82      0.77       809
+ QUESTION       0.80      0.80      0.80      1071
+   HEADER       0.46      0.53      0.49       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 06:05:27 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:05:27 - INFO - __main__ -   f1 = 0.7695284159613058
+09/03/2020 06:05:27 - INFO - __main__ -   loss = 1.6578957012721471
+09/03/2020 06:05:27 - INFO - __main__ -   precision = 0.7448501872659176
+09/03/2020 06:05:27 - INFO - __main__ -   recall = 0.7958979489744873
+09/03/2020 06:05:35 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:05:37 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:05:37 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:05:37 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:05:39 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.81      0.78       809
+ QUESTION       0.77      0.84      0.80      1071
+   HEADER       0.42      0.50      0.46       119
+
+micro avg       0.74      0.81      0.77      1999
+macro avg       0.74      0.81      0.77      1999
+
+09/03/2020 06:05:39 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:05:39 - INFO - __main__ -   f1 = 0.7728797316722568
+09/03/2020 06:05:39 - INFO - __main__ -   loss = 1.6745130845478602
+09/03/2020 06:05:39 - INFO - __main__ -   precision = 0.7416091954022989
+09/03/2020 06:05:39 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 06:05:47 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:05:49 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:05:49 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:05:49 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:05:51 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.80      0.77       809
+ QUESTION       0.78      0.83      0.81      1071
+   HEADER       0.42      0.50      0.46       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 06:05:51 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:05:51 - INFO - __main__ -   f1 = 0.7711191335740073
+09/03/2020 06:05:51 - INFO - __main__ -   loss = 1.662755983216422
+09/03/2020 06:05:51 - INFO - __main__ -   precision = 0.7430426716141002
+09/03/2020 06:05:51 - INFO - __main__ -   recall = 0.8014007003501751
+09/03/2020 06:05:59 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:06:01 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:06:01 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:06:01 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:06:03 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.80      0.77       809
+ QUESTION       0.78      0.82      0.80      1071
+   HEADER       0.41      0.51      0.45       119
+
+micro avg       0.74      0.79      0.76      1999
+macro avg       0.74      0.79      0.77      1999
+
+09/03/2020 06:06:03 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:06:03 - INFO - __main__ -   f1 = 0.7645923781958516
+09/03/2020 06:06:03 - INFO - __main__ -   loss = 1.6697488852909632
+09/03/2020 06:06:03 - INFO - __main__ -   precision = 0.7382394038192828
+09/03/2020 06:06:03 - INFO - __main__ -   recall = 0.7928964482241121
+09/03/2020 06:06:11 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:06:13 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:06:13 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:06:13 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:06:15 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.83      0.77       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.47      0.42      0.44       119
+
+micro avg       0.75      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 06:06:15 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:06:15 - INFO - __main__ -   f1 = 0.7729794933655005
+09/03/2020 06:06:15 - INFO - __main__ -   loss = 1.6228147745132446
+09/03/2020 06:06:15 - INFO - __main__ -   precision = 0.7465051258154707
+09/03/2020 06:06:15 - INFO - __main__ -   recall = 0.8014007003501751
+09/03/2020 06:06:24 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:06:26 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:06:26 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:06:26 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:06:28 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.80      0.77       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.48      0.49      0.49       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:06:28 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:06:28 - INFO - __main__ -   f1 = 0.7765567765567765
+09/03/2020 06:06:28 - INFO - __main__ -   loss = 1.6490401029586792
+09/03/2020 06:06:28 - INFO - __main__ -   precision = 0.7585877862595419
+09/03/2020 06:06:28 - INFO - __main__ -   recall = 0.7953976988494247
+09/03/2020 06:06:36 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:06:38 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:06:38 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:06:38 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:06:40 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.80      0.77       809
+ QUESTION       0.79      0.81      0.80      1071
+   HEADER       0.47      0.53      0.50       119
+
+micro avg       0.75      0.79      0.77      1999
+macro avg       0.75      0.79      0.77      1999
+
+09/03/2020 06:06:40 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:06:40 - INFO - __main__ -   f1 = 0.7693054881010198
+09/03/2020 06:06:40 - INFO - __main__ -   loss = 1.6911764315196447
+09/03/2020 06:06:40 - INFO - __main__ -   precision = 0.7475224162340727
+09/03/2020 06:06:40 - INFO - __main__ -   recall = 0.7923961980990495
+09/03/2020 06:06:48 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:06:50 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:06:50 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:06:50 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:06:52 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.82      0.77       809
+ QUESTION       0.78      0.82      0.80      1071
+   HEADER       0.45      0.49      0.47       119
+
+micro avg       0.73      0.80      0.77      1999
+macro avg       0.73      0.80      0.77      1999
+
+09/03/2020 06:06:52 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:06:52 - INFO - __main__ -   f1 = 0.7667304015296368
+09/03/2020 06:06:52 - INFO - __main__ -   loss = 1.6516248158046178
+09/03/2020 06:06:52 - INFO - __main__ -   precision = 0.7340961098398169
+09/03/2020 06:06:52 - INFO - __main__ -   recall = 0.8024012006003002
+09/03/2020 06:07:00 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:07:02 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:07:02 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:07:02 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:07:04 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.77      0.82      0.80      1071
+   HEADER       0.45      0.48      0.46       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:07:04 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:07:04 - INFO - __main__ -   f1 = 0.7697100407380782
+09/03/2020 06:07:04 - INFO - __main__ -   loss = 1.6455569948468889
+09/03/2020 06:07:04 - INFO - __main__ -   precision = 0.7387304507819688
+09/03/2020 06:07:04 - INFO - __main__ -   recall = 0.8034017008504252
+09/03/2020 06:07:12 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:07:14 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:07:14 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:07:14 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:07:16 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.80      0.77       809
+ QUESTION       0.78      0.81      0.80      1071
+   HEADER       0.45      0.50      0.47       119
+
+micro avg       0.74      0.79      0.77      1999
+macro avg       0.74      0.79      0.77      1999
+
+09/03/2020 06:07:16 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:07:16 - INFO - __main__ -   f1 = 0.7656174334140434
+09/03/2020 06:07:16 - INFO - __main__ -   loss = 1.673408099583217
+09/03/2020 06:07:16 - INFO - __main__ -   precision = 0.7419052088221493
+09/03/2020 06:07:16 - INFO - __main__ -   recall = 0.7908954477238619
+09/03/2020 06:07:24 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:07:26 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:07:26 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:07:26 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:07:28 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.81      0.77       809
+ QUESTION       0.79      0.82      0.80      1071
+   HEADER       0.49      0.49      0.49       119
+
+micro avg       0.75      0.80      0.77      1999
+macro avg       0.75      0.80      0.77      1999
+
+09/03/2020 06:07:28 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:07:28 - INFO - __main__ -   f1 = 0.7725841608137565
+09/03/2020 06:07:28 - INFO - __main__ -   loss = 1.6458875962666102
+09/03/2020 06:07:28 - INFO - __main__ -   precision = 0.7488262910798122
+09/03/2020 06:07:28 - INFO - __main__ -   recall = 0.7978989494747374
+09/03/2020 06:07:36 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:07:38 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:07:38 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:07:38 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:07:40 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.82      0.76       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.46      0.49      0.48       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:07:40 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:07:40 - INFO - __main__ -   f1 = 0.7714491708723864
+09/03/2020 06:07:40 - INFO - __main__ -   loss = 1.6300151688711983
+09/03/2020 06:07:40 - INFO - __main__ -   precision = 0.742368177613321
+09/03/2020 06:07:40 - INFO - __main__ -   recall = 0.8029014507253627
+09/03/2020 06:07:48 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:07:51 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:07:51 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:07:51 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:07:53 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.70      0.82      0.76       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.46      0.47      0.46       119
+
+micro avg       0.74      0.81      0.77      1999
+macro avg       0.74      0.81      0.77      1999
+
+09/03/2020 06:07:53 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:07:53 - INFO - __main__ -   f1 = 0.769708552317248
+09/03/2020 06:07:53 - INFO - __main__ -   loss = 1.6173253229686193
+09/03/2020 06:07:53 - INFO - __main__ -   precision = 0.7366255144032922
+09/03/2020 06:07:53 - INFO - __main__ -   recall = 0.8059029514757379
+09/03/2020 06:08:01 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:08:03 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:08:03 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:08:03 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:08:05 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.71      0.83      0.76       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.42      0.52      0.47       119
+
+micro avg       0.73      0.81      0.77      1999
+macro avg       0.74      0.81      0.77      1999
+
+09/03/2020 06:08:05 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:08:05 - INFO - __main__ -   f1 = 0.7680608365019013
+09/03/2020 06:08:05 - INFO - __main__ -   loss = 1.6153312921524048
+09/03/2020 06:08:05 - INFO - __main__ -   precision = 0.7315527387958353
+09/03/2020 06:08:05 - INFO - __main__ -   recall = 0.8084042021010506
+09/03/2020 06:08:13 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:08:15 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:08:15 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:08:15 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:08:17 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.82      0.77       809
+ QUESTION       0.81      0.82      0.81      1071
+   HEADER       0.46      0.52      0.49       119
+
+micro avg       0.75      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:08:17 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:08:17 - INFO - __main__ -   f1 = 0.7768354737097164
+09/03/2020 06:08:17 - INFO - __main__ -   loss = 1.619218349456787
+09/03/2020 06:08:17 - INFO - __main__ -   precision = 0.7532894736842105
+09/03/2020 06:08:17 - INFO - __main__ -   recall = 0.8019009504752376
+09/03/2020 06:08:25 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:08:27 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:08:27 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:08:27 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:08:29 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.84      0.78       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.45      0.52      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:08:29 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:08:29 - INFO - __main__ -   f1 = 0.7779913503123499
+09/03/2020 06:08:29 - INFO - __main__ -   loss = 1.6410653931753976
+09/03/2020 06:08:29 - INFO - __main__ -   precision = 0.7484974572353214
+09/03/2020 06:08:29 - INFO - __main__ -   recall = 0.8099049524762382
+09/03/2020 06:08:37 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:08:39 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:08:39 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:08:39 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:08:41 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.83      0.77       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.51      0.51      0.51       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:08:41 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:08:41 - INFO - __main__ -   f1 = 0.7826718296224588
+09/03/2020 06:08:41 - INFO - __main__ -   loss = 1.643215503011431
+09/03/2020 06:08:41 - INFO - __main__ -   precision = 0.7580872011251758
+09/03/2020 06:08:41 - INFO - __main__ -   recall = 0.8089044522261131
+09/03/2020 06:08:49 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:08:51 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:08:51 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:08:51 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:08:53 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.84      0.78       809
+ QUESTION       0.82      0.82      0.82      1071
+   HEADER       0.47      0.55      0.51       119
+
+micro avg       0.76      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:08:53 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:08:53 - INFO - __main__ -   f1 = 0.7857489093553078
+09/03/2020 06:08:53 - INFO - __main__ -   loss = 1.627739531653268
+09/03/2020 06:08:53 - INFO - __main__ -   precision = 0.7621062529384109
+09/03/2020 06:08:53 - INFO - __main__ -   recall = 0.8109054527263632
+09/03/2020 06:09:01 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:09:03 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:09:03 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:09:03 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:09:05 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.81      0.78       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.45      0.55      0.50       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:09:05 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:09:05 - INFO - __main__ -   f1 = 0.7786885245901639
+09/03/2020 06:09:05 - INFO - __main__ -   loss = 1.6370983804975237
+09/03/2020 06:09:05 - INFO - __main__ -   precision = 0.7515123313168915
+09/03/2020 06:09:05 - INFO - __main__ -   recall = 0.807903951975988
+09/03/2020 06:09:13 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:09:15 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:09:15 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:09:15 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:09:17 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.81      0.77       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.48      0.55      0.52       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:09:17 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:09:17 - INFO - __main__ -   f1 = 0.7784489007006523
+09/03/2020 06:09:17 - INFO - __main__ -   loss = 1.6247259719031197
+09/03/2020 06:09:17 - INFO - __main__ -   precision = 0.752803738317757
+09/03/2020 06:09:17 - INFO - __main__ -   recall = 0.8059029514757379
+09/03/2020 06:09:26 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:09:28 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:09:28 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:09:28 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:09:30 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.82      0.78       809
+ QUESTION       0.82      0.82      0.82      1071
+   HEADER       0.48      0.50      0.49       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:09:30 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:09:30 - INFO - __main__ -   f1 = 0.7821011673151752
+09/03/2020 06:09:30 - INFO - __main__ -   loss = 1.6392444031579154
+09/03/2020 06:09:30 - INFO - __main__ -   precision = 0.7610033128253668
+09/03/2020 06:09:30 - INFO - __main__ -   recall = 0.8044022011005503
+09/03/2020 06:09:38 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:09:40 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:09:40 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:09:40 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:09:42 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.83      0.78       809
+ QUESTION       0.82      0.82      0.82      1071
+   HEADER       0.44      0.47      0.45       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:09:42 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:09:42 - INFO - __main__ -   f1 = 0.7806060606060606
+09/03/2020 06:09:42 - INFO - __main__ -   loss = 1.6392429726464408
+09/03/2020 06:09:42 - INFO - __main__ -   precision = 0.7572906867356538
+09/03/2020 06:09:42 - INFO - __main__ -   recall = 0.8054027013506754
+09/03/2020 06:09:50 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:09:52 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:09:52 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:09:52 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:09:54 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.44      0.53      0.48       119
+
+micro avg       0.75      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:09:54 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:09:54 - INFO - __main__ -   f1 = 0.7763794772507259
+09/03/2020 06:09:54 - INFO - __main__ -   loss = 1.6601382834570748
+09/03/2020 06:09:54 - INFO - __main__ -   precision = 0.7519924988279418
+09/03/2020 06:09:54 - INFO - __main__ -   recall = 0.8024012006003002
+09/03/2020 06:10:02 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:10:04 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:10:04 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:10:04 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:10:06 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.77      0.82      0.79      1071
+   HEADER       0.44      0.53      0.48       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:10:06 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:10:06 - INFO - __main__ -   f1 = 0.7712982961363092
+09/03/2020 06:10:06 - INFO - __main__ -   loss = 1.6799811635698592
+09/03/2020 06:10:06 - INFO - __main__ -   precision = 0.7412361623616236
+09/03/2020 06:10:06 - INFO - __main__ -   recall = 0.8039019509754878
+09/03/2020 06:10:14 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:10:16 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:10:16 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:10:16 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:10:18 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.78      0.82      0.80      1071
+   HEADER       0.41      0.53      0.46       119
+
+micro avg       0.74      0.80      0.77      1999
+macro avg       0.74      0.80      0.77      1999
+
+09/03/2020 06:10:18 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:10:18 - INFO - __main__ -   f1 = 0.769304327038011
+09/03/2020 06:10:18 - INFO - __main__ -   loss = 1.7034306185586112
+09/03/2020 06:10:18 - INFO - __main__ -   precision = 0.7367216117216118
+09/03/2020 06:10:18 - INFO - __main__ -   recall = 0.8049024512256128
+09/03/2020 06:10:26 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:10:28 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:10:28 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:10:28 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:10:30 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.83      0.77       809
+ QUESTION       0.79      0.82      0.81      1071
+   HEADER       0.45      0.50      0.48       119
+
+micro avg       0.74      0.81      0.77      1999
+macro avg       0.74      0.81      0.77      1999
+
+09/03/2020 06:10:30 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:10:30 - INFO - __main__ -   f1 = 0.7732502396931928
+09/03/2020 06:10:30 - INFO - __main__ -   loss = 1.698015536580767
+09/03/2020 06:10:30 - INFO - __main__ -   precision = 0.742291762540267
+09/03/2020 06:10:30 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 06:10:38 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:10:40 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:10:40 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:10:40 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:10:42 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.47      0.53      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:10:42 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:10:42 - INFO - __main__ -   f1 = 0.7797676669893515
+09/03/2020 06:10:42 - INFO - __main__ -   loss = 1.694129126412528
+09/03/2020 06:10:42 - INFO - __main__ -   precision = 0.7552742616033755
+09/03/2020 06:10:42 - INFO - __main__ -   recall = 0.8059029514757379
+09/03/2020 06:10:50 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:10:52 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:10:52 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:10:52 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:10:54 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.41      0.50      0.45       119
+
+micro avg       0.75      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:10:54 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:10:54 - INFO - __main__ -   f1 = 0.7760542898691226
+09/03/2020 06:10:54 - INFO - __main__ -   loss = 1.706633346421378
+09/03/2020 06:10:54 - INFO - __main__ -   precision = 0.7527033380347908
+09/03/2020 06:10:54 - INFO - __main__ -   recall = 0.8009004502251126
+09/03/2020 06:11:02 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:11:04 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:11:04 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:11:04 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:11:06 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.81      0.79       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.38      0.50      0.43       119
+
+micro avg       0.75      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:11:06 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:11:06 - INFO - __main__ -   f1 = 0.7758162031438937
+09/03/2020 06:11:06 - INFO - __main__ -   loss = 1.7197648797716414
+09/03/2020 06:11:06 - INFO - __main__ -   precision = 0.7509363295880149
+09/03/2020 06:11:06 - INFO - __main__ -   recall = 0.8024012006003002
+09/03/2020 06:11:15 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:11:17 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:11:17 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:11:17 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:11:19 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.80      0.84      0.82      1071
+   HEADER       0.47      0.53      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:11:19 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:11:19 - INFO - __main__ -   f1 = 0.783822821376986
+09/03/2020 06:11:19 - INFO - __main__ -   loss = 1.6865130833217077
+09/03/2020 06:11:19 - INFO - __main__ -   precision = 0.7554524361948955
+09/03/2020 06:11:19 - INFO - __main__ -   recall = 0.8144072036018009
+09/03/2020 06:11:27 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:11:29 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:11:29 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:11:29 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:11:31 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.50      0.49      0.49       119
+
+micro avg       0.76      0.81      0.79      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:11:31 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:11:31 - INFO - __main__ -   f1 = 0.7852138197632279
+09/03/2020 06:11:31 - INFO - __main__ -   loss = 1.6746862615857805
+09/03/2020 06:11:31 - INFO - __main__ -   precision = 0.7593457943925234
+09/03/2020 06:11:31 - INFO - __main__ -   recall = 0.8129064532266133
+09/03/2020 06:11:39 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:11:41 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:11:41 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:11:41 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:11:43 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.83      0.77       809
+ QUESTION       0.83      0.82      0.83      1071
+   HEADER       0.49      0.48      0.49       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.77      0.80      0.78      1999
+
+09/03/2020 06:11:43 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:11:43 - INFO - __main__ -   f1 = 0.783625730994152
+09/03/2020 06:11:43 - INFO - __main__ -   loss = 1.7032932553972517
+09/03/2020 06:11:43 - INFO - __main__ -   precision = 0.763895486935867
+09/03/2020 06:11:43 - INFO - __main__ -   recall = 0.8044022011005503
+09/03/2020 06:11:51 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:11:53 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:11:53 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:11:53 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:11:55 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.48      0.50      0.49       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:11:55 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:11:55 - INFO - __main__ -   f1 = 0.7834056922334781
+09/03/2020 06:11:55 - INFO - __main__ -   loss = 1.6792349304471696
+09/03/2020 06:11:55 - INFO - __main__ -   precision = 0.7564042850489054
+09/03/2020 06:11:55 - INFO - __main__ -   recall = 0.8124062031015508
+09/03/2020 06:12:03 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:12:05 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:12:05 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:12:05 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:12:07 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.83      0.78       809
+ QUESTION       0.79      0.84      0.81      1071
+   HEADER       0.46      0.49      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:12:07 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:12:07 - INFO - __main__ -   f1 = 0.7794576433885289
+09/03/2020 06:12:07 - INFO - __main__ -   loss = 1.7024074792861938
+09/03/2020 06:12:07 - INFO - __main__ -   precision = 0.7490774907749077
+09/03/2020 06:12:07 - INFO - __main__ -   recall = 0.8124062031015508
+09/03/2020 06:12:15 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:12:17 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:12:17 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:12:17 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:12:19 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.80      0.83      0.82      1071
+   HEADER       0.45      0.50      0.47       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:12:19 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:12:19 - INFO - __main__ -   f1 = 0.7815980629539953
+09/03/2020 06:12:19 - INFO - __main__ -   loss = 1.7108798367636544
+09/03/2020 06:12:19 - INFO - __main__ -   precision = 0.7573908962928203
+09/03/2020 06:12:19 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:12:27 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:12:29 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:12:29 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:12:29 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:12:31 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.47      0.53      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:12:31 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:12:31 - INFO - __main__ -   f1 = 0.7836853605243992
+09/03/2020 06:12:31 - INFO - __main__ -   loss = 1.7060784952981132
+09/03/2020 06:12:31 - INFO - __main__ -   precision = 0.7613207547169811
+09/03/2020 06:12:31 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:12:39 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:12:41 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:12:41 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:12:41 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:12:43 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.83      0.79       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.46      0.51      0.48       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:12:43 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:12:43 - INFO - __main__ -   f1 = 0.78427566124727
+09/03/2020 06:12:43 - INFO - __main__ -   loss = 1.714205571583339
+09/03/2020 06:12:43 - INFO - __main__ -   precision = 0.7615457115928369
+09/03/2020 06:12:43 - INFO - __main__ -   recall = 0.8084042021010506
+09/03/2020 06:12:51 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:12:53 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:12:53 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:12:53 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:12:55 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.84      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.47      0.50      0.49       119
+
+micro avg       0.76      0.81      0.79      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:12:55 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:12:55 - INFO - __main__ -   f1 = 0.7875121006776378
+09/03/2020 06:12:55 - INFO - __main__ -   loss = 1.7158987351826258
+09/03/2020 06:12:55 - INFO - __main__ -   precision = 0.7627754336615096
+09/03/2020 06:12:55 - INFO - __main__ -   recall = 0.8139069534767384
+09/03/2020 06:13:03 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:13:05 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:13:05 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:13:05 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:13:08 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.79      0.84      0.81      1071
+   HEADER       0.47      0.50      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:13:08 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:13:08 - INFO - __main__ -   f1 = 0.7815428983417448
+09/03/2020 06:13:08 - INFO - __main__ -   loss = 1.7110873801367623
+09/03/2020 06:13:08 - INFO - __main__ -   precision = 0.7520814061054579
+09/03/2020 06:13:08 - INFO - __main__ -   recall = 0.8134067033516759
+09/03/2020 06:13:16 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:13:18 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:13:18 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:13:18 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:13:20 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.83      0.78       809
+ QUESTION       0.80      0.83      0.82      1071
+   HEADER       0.45      0.50      0.48       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:13:20 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:13:20 - INFO - __main__ -   f1 = 0.7833655705996132
+09/03/2020 06:13:20 - INFO - __main__ -   loss = 1.7116151366915022
+09/03/2020 06:13:20 - INFO - __main__ -   precision = 0.7580720636406177
+09/03/2020 06:13:20 - INFO - __main__ -   recall = 0.8104052026013007
+09/03/2020 06:13:28 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:13:30 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:13:30 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:13:30 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:13:32 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.84      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.45      0.51      0.48       119
+
+micro avg       0.76      0.81      0.79      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:13:32 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:13:32 - INFO - __main__ -   f1 = 0.7860936745533559
+09/03/2020 06:13:32 - INFO - __main__ -   loss = 1.707886508532933
+09/03/2020 06:13:32 - INFO - __main__ -   precision = 0.7596826878208119
+09/03/2020 06:13:32 - INFO - __main__ -   recall = 0.8144072036018009
+09/03/2020 06:13:40 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:13:42 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:13:42 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:13:42 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:13:44 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.51      0.48       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:13:44 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:13:44 - INFO - __main__ -   f1 = 0.7845597104945717
+09/03/2020 06:13:44 - INFO - __main__ -   loss = 1.7008754525865828
+09/03/2020 06:13:44 - INFO - __main__ -   precision = 0.7576887232059646
+09/03/2020 06:13:44 - INFO - __main__ -   recall = 0.8134067033516759
+09/03/2020 06:13:52 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:13:54 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:13:54 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:13:54 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:13:56 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.81      0.78       809
+ QUESTION       0.81      0.82      0.81      1071
+   HEADER       0.46      0.54      0.50       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:13:56 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:13:56 - INFO - __main__ -   f1 = 0.7792650279873449
+09/03/2020 06:13:56 - INFO - __main__ -   loss = 1.7058233192988805
+09/03/2020 06:13:56 - INFO - __main__ -   precision = 0.7587677725118483
+09/03/2020 06:13:56 - INFO - __main__ -   recall = 0.8009004502251126
+09/03/2020 06:14:04 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:14:06 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:14:06 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:14:06 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:14:08 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.82      0.79       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.43      0.52      0.47       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:14:08 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:14:08 - INFO - __main__ -   f1 = 0.7804284323271665
+09/03/2020 06:14:08 - INFO - __main__ -   loss = 1.7214135442461287
+09/03/2020 06:14:08 - INFO - __main__ -   precision = 0.7600758653390233
+09/03/2020 06:14:08 - INFO - __main__ -   recall = 0.8019009504752376
+09/03/2020 06:14:16 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:14:18 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:14:18 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:14:18 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:14:20 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.83      0.79       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.44      0.51      0.47       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:14:20 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:14:20 - INFO - __main__ -   f1 = 0.7841046765204749
+09/03/2020 06:14:20 - INFO - __main__ -   loss = 1.734513759613037
+09/03/2020 06:14:20 - INFO - __main__ -   precision = 0.7603383458646616
+09/03/2020 06:14:20 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:14:28 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:14:40 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:14:42 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:14:42 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:14:42 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:14:44 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.82      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.40      0.50      0.44       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:14:44 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:14:44 - INFO - __main__ -   f1 = 0.7836200629997577
+09/03/2020 06:14:44 - INFO - __main__ -   loss = 1.7352635860443115
+09/03/2020 06:14:44 - INFO - __main__ -   precision = 0.7598684210526315
+09/03/2020 06:14:44 - INFO - __main__ -   recall = 0.8089044522261131
+09/03/2020 06:14:52 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:14:54 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:14:54 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:14:54 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:14:57 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.80      0.84      0.82      1071
+   HEADER       0.48      0.50      0.49       119
+
+micro avg       0.76      0.82      0.79      1999
+macro avg       0.76      0.82      0.79      1999
+
+09/03/2020 06:14:57 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:14:57 - INFO - __main__ -   f1 = 0.7857486759749639
+09/03/2020 06:14:57 - INFO - __main__ -   loss = 1.7054867233548845
+09/03/2020 06:14:57 - INFO - __main__ -   precision = 0.757308584686775
+09/03/2020 06:14:57 - INFO - __main__ -   recall = 0.8164082041020511
+09/03/2020 06:15:05 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:15:07 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:15:07 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:15:07 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:15:09 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.84      0.78       809
+ QUESTION       0.80      0.83      0.82      1071
+   HEADER       0.47      0.50      0.49       119
+
+micro avg       0.75      0.82      0.78      1999
+macro avg       0.75      0.82      0.78      1999
+
+09/03/2020 06:15:09 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:15:09 - INFO - __main__ -   f1 = 0.7821497120921305
+09/03/2020 06:15:09 - INFO - __main__ -   loss = 1.7082604340144567
+09/03/2020 06:15:09 - INFO - __main__ -   precision = 0.7514983863531581
+09/03/2020 06:15:09 - INFO - __main__ -   recall = 0.815407703851926
+09/03/2020 06:15:17 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:15:19 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:15:19 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:15:19 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:15:21 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.85      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.44      0.49      0.46       119
+
+micro avg       0.76      0.82      0.79      1999
+macro avg       0.76      0.82      0.79      1999
+
+09/03/2020 06:15:21 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:15:21 - INFO - __main__ -   f1 = 0.7851816213615587
+09/03/2020 06:15:21 - INFO - __main__ -   loss = 1.6827455077852522
+09/03/2020 06:15:21 - INFO - __main__ -   precision = 0.7562557924003707
+09/03/2020 06:15:21 - INFO - __main__ -   recall = 0.8164082041020511
+09/03/2020 06:15:29 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:15:31 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:15:31 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:15:31 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:15:33 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.85      0.79       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.45      0.51      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:15:33 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:15:33 - INFO - __main__ -   f1 = 0.7837382727928797
+09/03/2020 06:15:33 - INFO - __main__ -   loss = 1.696977172579084
+09/03/2020 06:15:33 - INFO - __main__ -   precision = 0.7548656163113995
+09/03/2020 06:15:33 - INFO - __main__ -   recall = 0.8149074537268635
+09/03/2020 06:15:41 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:15:43 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:15:43 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:15:43 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:15:45 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.84      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.48      0.49      0.48       119
+
+micro avg       0.76      0.82      0.79      1999
+macro avg       0.76      0.82      0.79      1999
+
+09/03/2020 06:15:45 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:15:45 - INFO - __main__ -   f1 = 0.7878202029966167
+09/03/2020 06:15:45 - INFO - __main__ -   loss = 1.6922553607395716
+09/03/2020 06:15:45 - INFO - __main__ -   precision = 0.7620383356708742
+09/03/2020 06:15:45 - INFO - __main__ -   recall = 0.815407703851926
+09/03/2020 06:15:53 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:15:55 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:15:55 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:15:55 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:15:57 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.83      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.48      0.50      0.49       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:15:57 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:15:57 - INFO - __main__ -   f1 = 0.787037037037037
+09/03/2020 06:15:57 - INFO - __main__ -   loss = 1.7053168501172746
+09/03/2020 06:15:57 - INFO - __main__ -   precision = 0.7672209026128266
+09/03/2020 06:15:57 - INFO - __main__ -   recall = 0.807903951975988
+09/03/2020 06:16:05 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:16:07 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:16:07 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:16:07 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:16:09 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.43      0.53      0.48       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:16:09 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:16:09 - INFO - __main__ -   f1 = 0.7802385008517887
+09/03/2020 06:16:09 - INFO - __main__ -   loss = 1.7159571477345057
+09/03/2020 06:16:09 - INFO - __main__ -   precision = 0.7597156398104266
+09/03/2020 06:16:09 - INFO - __main__ -   recall = 0.8019009504752376
+09/03/2020 06:16:18 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:16:20 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:16:20 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:16:20 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:16:22 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.81      0.82      0.81      1071
+   HEADER       0.44      0.55      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:16:22 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:16:22 - INFO - __main__ -   f1 = 0.7787439613526571
+09/03/2020 06:16:22 - INFO - __main__ -   loss = 1.7166702577045985
+09/03/2020 06:16:22 - INFO - __main__ -   precision = 0.7529191966370855
+09/03/2020 06:16:22 - INFO - __main__ -   recall = 0.8064032016008004
+09/03/2020 06:16:30 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:16:32 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:16:32 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:16:32 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:16:34 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.80      0.83      0.82      1071
+   HEADER       0.45      0.54      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:16:34 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:16:34 - INFO - __main__ -   f1 = 0.7821686746987953
+09/03/2020 06:16:34 - INFO - __main__ -   loss = 1.7194398130689348
+09/03/2020 06:16:34 - INFO - __main__ -   precision = 0.7545327754532776
+09/03/2020 06:16:34 - INFO - __main__ -   recall = 0.8119059529764883
+09/03/2020 06:16:42 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:16:44 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:16:44 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:16:44 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:16:46 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.54      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:16:46 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:16:46 - INFO - __main__ -   f1 = 0.7826718296224588
+09/03/2020 06:16:46 - INFO - __main__ -   loss = 1.7266027757099696
+09/03/2020 06:16:46 - INFO - __main__ -   precision = 0.7580872011251758
+09/03/2020 06:16:46 - INFO - __main__ -   recall = 0.8089044522261131
+09/03/2020 06:16:54 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:16:56 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:16:56 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:16:56 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:16:58 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.80      0.82      0.81      1071
+   HEADER       0.47      0.54      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:16:58 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:16:58 - INFO - __main__ -   f1 = 0.7814088598402323
+09/03/2020 06:16:58 - INFO - __main__ -   loss = 1.718652503831046
+09/03/2020 06:16:58 - INFO - __main__ -   precision = 0.7570356472795498
+09/03/2020 06:16:58 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:17:06 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:17:08 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:17:08 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:17:08 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:17:10 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.46      0.53      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:17:10 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:17:10 - INFO - __main__ -   f1 = 0.7806996381182147
+09/03/2020 06:17:10 - INFO - __main__ -   loss = 1.7134818179266793
+09/03/2020 06:17:10 - INFO - __main__ -   precision = 0.7539608574091333
+09/03/2020 06:17:10 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:17:18 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:17:20 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:17:20 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:17:20 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:17:22 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.82      0.79       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.46      0.55      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:17:22 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:17:22 - INFO - __main__ -   f1 = 0.7834502782482459
+09/03/2020 06:17:22 - INFO - __main__ -   loss = 1.726193870816912
+09/03/2020 06:17:22 - INFO - __main__ -   precision = 0.7586691658856607
+09/03/2020 06:17:22 - INFO - __main__ -   recall = 0.8099049524762382
+09/03/2020 06:17:30 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:17:32 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:17:32 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:17:32 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:17:34 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.44      0.54      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:17:34 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:17:34 - INFO - __main__ -   f1 = 0.7788762961176754
+09/03/2020 06:17:34 - INFO - __main__ -   loss = 1.7307326112474715
+09/03/2020 06:17:34 - INFO - __main__ -   precision = 0.7518621973929237
+09/03/2020 06:17:34 - INFO - __main__ -   recall = 0.807903951975988
+09/03/2020 06:17:42 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:17:44 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:17:44 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:17:44 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:17:47 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.43      0.55      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:17:47 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:17:47 - INFO - __main__ -   f1 = 0.781287677839402
+09/03/2020 06:17:47 - INFO - __main__ -   loss = 1.7416126728057861
+09/03/2020 06:17:47 - INFO - __main__ -   precision = 0.7541899441340782
+09/03/2020 06:17:47 - INFO - __main__ -   recall = 0.8104052026013007
+09/03/2020 06:17:55 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:17:57 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:17:57 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:17:57 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:17:59 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.44      0.55      0.49       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:17:59 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:17:59 - INFO - __main__ -   f1 = 0.7843326885880076
+09/03/2020 06:17:59 - INFO - __main__ -   loss = 1.7385469334466117
+09/03/2020 06:17:59 - INFO - __main__ -   precision = 0.7590079550772111
+09/03/2020 06:17:59 - INFO - __main__ -   recall = 0.8114057028514257
+09/03/2020 06:18:07 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:18:09 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:18:09 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:18:09 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:18:11 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.44      0.52      0.48       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:18:11 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:18:11 - INFO - __main__ -   f1 = 0.7838952219257823
+09/03/2020 06:18:11 - INFO - __main__ -   loss = 1.7230493681771415
+09/03/2020 06:18:11 - INFO - __main__ -   precision = 0.7608286252354048
+09/03/2020 06:18:11 - INFO - __main__ -   recall = 0.8084042021010506
+09/03/2020 06:18:19 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:18:21 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:18:21 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:18:21 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:18:23 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.80      0.83      0.82      1071
+   HEADER       0.47      0.51      0.49       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:18:23 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:18:23 - INFO - __main__ -   f1 = 0.7837248728505692
+09/03/2020 06:18:23 - INFO - __main__ -   loss = 1.7131040777478899
+09/03/2020 06:18:23 - INFO - __main__ -   precision = 0.7596244131455399
+09/03/2020 06:18:23 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:18:31 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:18:33 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:18:33 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:18:33 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:18:35 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.47      0.52      0.49       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:18:35 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:18:35 - INFO - __main__ -   f1 = 0.784522370012092
+09/03/2020 06:18:35 - INFO - __main__ -   loss = 1.708557060786656
+09/03/2020 06:18:35 - INFO - __main__ -   precision = 0.7593632958801498
+09/03/2020 06:18:35 - INFO - __main__ -   recall = 0.8114057028514257
+09/03/2020 06:18:43 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:18:45 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:18:45 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:18:45 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:18:47 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.45      0.55      0.50       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:18:47 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:18:47 - INFO - __main__ -   f1 = 0.7798254122211444
+09/03/2020 06:18:47 - INFO - __main__ -   loss = 1.711939079420907
+09/03/2020 06:18:47 - INFO - __main__ -   precision = 0.7567058823529412
+09/03/2020 06:18:47 - INFO - __main__ -   recall = 0.8044022011005503
+09/03/2020 06:18:55 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:18:57 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:18:57 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:18:57 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:18:59 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.80      0.83      0.82      1071
+   HEADER       0.46      0.56      0.51       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:18:59 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:18:59 - INFO - __main__ -   f1 = 0.78055822906641
+09/03/2020 06:18:59 - INFO - __main__ -   loss = 1.7054022891180856
+09/03/2020 06:18:59 - INFO - __main__ -   precision = 0.7519703291608716
+09/03/2020 06:18:59 - INFO - __main__ -   recall = 0.8114057028514257
+09/03/2020 06:19:07 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:19:09 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:19:09 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:19:09 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:19:11 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.79      0.84      0.81      1071
+   HEADER       0.46      0.53      0.49       119
+
+micro avg       0.75      0.82      0.78      1999
+macro avg       0.75      0.82      0.78      1999
+
+09/03/2020 06:19:11 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:19:11 - INFO - __main__ -   f1 = 0.7821497120921305
+09/03/2020 06:19:11 - INFO - __main__ -   loss = 1.707582644053868
+09/03/2020 06:19:11 - INFO - __main__ -   precision = 0.7514983863531581
+09/03/2020 06:19:11 - INFO - __main__ -   recall = 0.815407703851926
+09/03/2020 06:19:20 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:19:22 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:19:22 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:19:22 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:19:24 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.83      0.79       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.45      0.53      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:19:24 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:19:24 - INFO - __main__ -   f1 = 0.7821067821067822
+09/03/2020 06:19:24 - INFO - __main__ -   loss = 1.7171361786978585
+09/03/2020 06:19:24 - INFO - __main__ -   precision = 0.7531264474293654
+09/03/2020 06:19:24 - INFO - __main__ -   recall = 0.8134067033516759
+09/03/2020 06:19:32 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:19:34 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:19:34 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:19:34 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:19:36 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.83      0.79       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.46      0.51      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:19:36 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:19:36 - INFO - __main__ -   f1 = 0.781980245723922
+09/03/2020 06:19:36 - INFO - __main__ -   loss = 1.7142620256968908
+09/03/2020 06:19:36 - INFO - __main__ -   precision = 0.754182156133829
+09/03/2020 06:19:36 - INFO - __main__ -   recall = 0.8119059529764883
+09/03/2020 06:19:44 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:19:46 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:19:46 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:19:46 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:19:48 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.47      0.51      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:19:48 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:19:48 - INFO - __main__ -   f1 = 0.7801350048216007
+09/03/2020 06:19:48 - INFO - __main__ -   loss = 1.706403272492545
+09/03/2020 06:19:48 - INFO - __main__ -   precision = 0.7529083294555607
+09/03/2020 06:19:48 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:19:56 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:19:58 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:19:58 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:19:58 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:20:00 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.79      0.83      0.81      1071
+   HEADER       0.46      0.50      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:20:00 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:20:00 - INFO - __main__ -   f1 = 0.778552536667468
+09/03/2020 06:20:00 - INFO - __main__ -   loss = 1.7033356939043318
+09/03/2020 06:20:00 - INFO - __main__ -   precision = 0.749537037037037
+09/03/2020 06:20:00 - INFO - __main__ -   recall = 0.8099049524762382
+09/03/2020 06:20:08 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:20:10 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:20:10 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:20:10 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:20:12 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.80      0.83      0.81      1071
+   HEADER       0.46      0.53      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:20:12 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:20:12 - INFO - __main__ -   f1 = 0.7780993728895321
+09/03/2020 06:20:12 - INFO - __main__ -   loss = 1.7032020602907454
+09/03/2020 06:20:12 - INFO - __main__ -   precision = 0.7512808570097811
+09/03/2020 06:20:12 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 06:20:20 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:20:22 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:20:22 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:20:22 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:20:24 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.84      0.78       809
+ QUESTION       0.81      0.82      0.81      1071
+   HEADER       0.44      0.55      0.49       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:20:24 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:20:24 - INFO - __main__ -   f1 = 0.7795957651588066
+09/03/2020 06:20:24 - INFO - __main__ -   loss = 1.7180894442967005
+09/03/2020 06:20:24 - INFO - __main__ -   precision = 0.7510431154381085
+09/03/2020 06:20:24 - INFO - __main__ -   recall = 0.8104052026013007
+09/03/2020 06:20:32 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:20:34 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:20:34 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:20:34 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:20:36 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.83      0.77       809
+ QUESTION       0.81      0.82      0.81      1071
+   HEADER       0.44      0.54      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:20:36 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:20:36 - INFO - __main__ -   f1 = 0.7769784172661871
+09/03/2020 06:20:36 - INFO - __main__ -   loss = 1.728563836642674
+09/03/2020 06:20:36 - INFO - __main__ -   precision = 0.7461999078765545
+09/03/2020 06:20:36 - INFO - __main__ -   recall = 0.8104052026013007
+09/03/2020 06:20:44 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:20:46 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:20:46 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:20:46 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:20:49 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.72      0.83      0.77       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.51      0.48       119
+
+micro avg       0.75      0.81      0.78      1999
+macro avg       0.75      0.81      0.78      1999
+
+09/03/2020 06:20:49 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:20:49 - INFO - __main__ -   f1 = 0.7789271108972817
+09/03/2020 06:20:49 - INFO - __main__ -   loss = 1.7322718245642525
+09/03/2020 06:20:49 - INFO - __main__ -   precision = 0.7502316960148285
+09/03/2020 06:20:49 - INFO - __main__ -   recall = 0.8099049524762382
+09/03/2020 06:20:57 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:20:59 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:20:59 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:20:59 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:21:01 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.48      0.52      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:21:01 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:21:01 - INFO - __main__ -   f1 = 0.7832201745877788
+09/03/2020 06:21:01 - INFO - __main__ -   loss = 1.7371034111295427
+09/03/2020 06:21:01 - INFO - __main__ -   precision = 0.76
+09/03/2020 06:21:01 - INFO - __main__ -   recall = 0.807903951975988
+09/03/2020 06:21:09 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:21:11 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:21:11 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:21:11 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:21:13 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.50      0.52      0.51       119
+
+micro avg       0.76      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:21:13 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:21:13 - INFO - __main__ -   f1 = 0.7858011184050572
+09/03/2020 06:21:13 - INFO - __main__ -   loss = 1.736848132950919
+09/03/2020 06:21:13 - INFO - __main__ -   precision = 0.7644276253547777
+09/03/2020 06:21:13 - INFO - __main__ -   recall = 0.8084042021010506
+09/03/2020 06:21:21 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:21:23 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:21:23 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:21:23 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:21:25 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.82      0.77       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.51      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:21:25 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:21:25 - INFO - __main__ -   f1 = 0.7836853605243992
+09/03/2020 06:21:25 - INFO - __main__ -   loss = 1.7399097681045532
+09/03/2020 06:21:25 - INFO - __main__ -   precision = 0.7613207547169811
+09/03/2020 06:21:25 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:21:33 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:21:35 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:21:35 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:21:35 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:21:37 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.82      0.77       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.47      0.51      0.49       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:21:37 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:21:37 - INFO - __main__ -   f1 = 0.7819148936170212
+09/03/2020 06:21:37 - INFO - __main__ -   loss = 1.7418134212493896
+09/03/2020 06:21:37 - INFO - __main__ -   precision = 0.7566682264857276
+09/03/2020 06:21:37 - INFO - __main__ -   recall = 0.8089044522261131
+09/03/2020 06:21:45 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:21:47 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:21:47 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:21:47 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:21:49 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.83      0.77       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.53      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:21:49 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:21:49 - INFO - __main__ -   f1 = 0.7832607643928399
+09/03/2020 06:21:49 - INFO - __main__ -   loss = 1.7451661825180054
+09/03/2020 06:21:49 - INFO - __main__ -   precision = 0.7583138173302107
+09/03/2020 06:21:49 - INFO - __main__ -   recall = 0.8099049524762382
+09/03/2020 06:21:57 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:21:59 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:21:59 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:21:59 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:22:01 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.83      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.49      0.53      0.51       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:22:01 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:22:01 - INFO - __main__ -   f1 = 0.7843137254901961
+09/03/2020 06:22:01 - INFO - __main__ -   loss = 1.7446598155157906
+09/03/2020 06:22:01 - INFO - __main__ -   precision = 0.7598499061913696
+09/03/2020 06:22:01 - INFO - __main__ -   recall = 0.8104052026013007
+09/03/2020 06:22:09 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:22:11 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:22:11 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:22:11 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:22:13 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.49      0.53      0.51       119
+
+micro avg       0.76      0.81      0.79      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:22:13 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:22:13 - INFO - __main__ -   f1 = 0.7859733978234583
+09/03/2020 06:22:13 - INFO - __main__ -   loss = 1.7480000257492065
+09/03/2020 06:22:13 - INFO - __main__ -   precision = 0.7607677902621723
+09/03/2020 06:22:13 - INFO - __main__ -   recall = 0.8129064532266133
+09/03/2020 06:22:21 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:22:24 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:22:24 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:22:24 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:22:26 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.50      0.53      0.52       119
+
+micro avg       0.76      0.81      0.79      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:22:26 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:22:26 - INFO - __main__ -   f1 = 0.7868376481974353
+09/03/2020 06:22:26 - INFO - __main__ -   loss = 1.750892230442592
+09/03/2020 06:22:26 - INFO - __main__ -   precision = 0.7619493908153702
+09/03/2020 06:22:26 - INFO - __main__ -   recall = 0.8134067033516759
+09/03/2020 06:22:34 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:22:36 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:22:36 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:22:36 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:22:38 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.47      0.53      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:22:38 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:22:38 - INFO - __main__ -   f1 = 0.7843326885880076
+09/03/2020 06:22:38 - INFO - __main__ -   loss = 1.7541636739458357
+09/03/2020 06:22:38 - INFO - __main__ -   precision = 0.7590079550772111
+09/03/2020 06:22:38 - INFO - __main__ -   recall = 0.8114057028514257
+09/03/2020 06:22:46 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:22:48 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:22:48 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:22:48 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:22:50 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.47      0.53      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:22:50 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:22:50 - INFO - __main__ -   f1 = 0.7838880849011096
+09/03/2020 06:22:50 - INFO - __main__ -   loss = 1.748989292553493
+09/03/2020 06:22:50 - INFO - __main__ -   precision = 0.7568700512342804
+09/03/2020 06:22:50 - INFO - __main__ -   recall = 0.8129064532266133
+09/03/2020 06:22:58 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:23:00 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:23:00 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:23:00 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:23:02 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.50      0.48       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:23:02 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:23:02 - INFO - __main__ -   f1 = 0.7822931785195937
+09/03/2020 06:23:02 - INFO - __main__ -   loss = 1.7537079538617815
+09/03/2020 06:23:02 - INFO - __main__ -   precision = 0.7573770491803279
+09/03/2020 06:23:02 - INFO - __main__ -   recall = 0.8089044522261131
+09/03/2020 06:23:10 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:23:12 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:23:12 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:23:12 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:23:14 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.47      0.50      0.49       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:23:14 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:23:14 - INFO - __main__ -   f1 = 0.7837903421499637
+09/03/2020 06:23:14 - INFO - __main__ -   loss = 1.7542889969689506
+09/03/2020 06:23:14 - INFO - __main__ -   precision = 0.7610744580584354
+09/03/2020 06:23:14 - INFO - __main__ -   recall = 0.807903951975988
+09/03/2020 06:23:22 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:23:24 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:23:24 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:23:24 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:23:26 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.51      0.49       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:23:26 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:23:26 - INFO - __main__ -   f1 = 0.7846079380445304
+09/03/2020 06:23:26 - INFO - __main__ -   loss = 1.7587765455245972
+09/03/2020 06:23:26 - INFO - __main__ -   precision = 0.7599624941397093
+09/03/2020 06:23:26 - INFO - __main__ -   recall = 0.8109054527263632
+09/03/2020 06:23:34 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:23:36 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:23:36 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:23:36 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:23:38 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.73      0.84      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.45      0.50      0.48       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.79      1999
+
+09/03/2020 06:23:38 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:23:38 - INFO - __main__ -   f1 = 0.7840386940749697
+09/03/2020 06:23:38 - INFO - __main__ -   loss = 1.7588913440704346
+09/03/2020 06:23:38 - INFO - __main__ -   precision = 0.7588951310861424
+09/03/2020 06:23:38 - INFO - __main__ -   recall = 0.8109054527263632
+09/03/2020 06:23:46 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:23:48 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:23:48 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:23:48 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:23:50 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.83      0.79       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.47      0.53      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:23:50 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:23:50 - INFO - __main__ -   f1 = 0.7884381831430654
+09/03/2020 06:23:50 - INFO - __main__ -   loss = 1.7529139348438807
+09/03/2020 06:23:50 - INFO - __main__ -   precision = 0.7662889518413598
+09/03/2020 06:23:50 - INFO - __main__ -   recall = 0.8119059529764883
+09/03/2020 06:23:59 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:24:01 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:24:01 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:24:01 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:24:03 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.83      0.78       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.46      0.51      0.49       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.77      0.81      0.78      1999
+
+09/03/2020 06:24:03 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:24:03 - INFO - __main__ -   f1 = 0.7840466926070039
+09/03/2020 06:24:03 - INFO - __main__ -   loss = 1.7573343855994088
+09/03/2020 06:24:03 - INFO - __main__ -   precision = 0.7628963558920966
+09/03/2020 06:24:03 - INFO - __main__ -   recall = 0.8064032016008004
+09/03/2020 06:24:11 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:24:13 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:24:13 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:24:13 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:24:15 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.47      0.52      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.76      0.81      0.78      1999
+
+09/03/2020 06:24:15 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:24:15 - INFO - __main__ -   f1 = 0.7840853954391074
+09/03/2020 06:24:15 - INFO - __main__ -   loss = 1.7591119834354945
+09/03/2020 06:24:15 - INFO - __main__ -   precision = 0.7611869995289684
+09/03/2020 06:24:15 - INFO - __main__ -   recall = 0.8084042021010506
+09/03/2020 06:24:23 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:24:25 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:24:25 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:24:25 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:24:27 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.77       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.48      0.55      0.51       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:24:27 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:24:27 - INFO - __main__ -   f1 = 0.7807720320466132
+09/03/2020 06:24:27 - INFO - __main__ -   loss = 1.7627084766115462
+09/03/2020 06:24:27 - INFO - __main__ -   precision = 0.7584905660377359
+09/03/2020 06:24:27 - INFO - __main__ -   recall = 0.8044022011005503
+09/03/2020 06:24:35 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:24:37 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:24:37 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:24:37 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:24:39 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.74      0.82      0.78       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.46      0.54      0.50       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:24:39 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:24:39 - INFO - __main__ -   f1 = 0.7803454147409389
+09/03/2020 06:24:39 - INFO - __main__ -   loss = 1.7635887180055891
+09/03/2020 06:24:39 - INFO - __main__ -   precision = 0.759469696969697
+09/03/2020 06:24:39 - INFO - __main__ -   recall = 0.8024012006003002
+09/03/2020 06:24:47 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:24:49 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:24:49 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:24:49 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:24:51 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.82      0.82      1071
+   HEADER       0.47      0.54      0.50       119
+
+micro avg       0.76      0.80      0.78      1999
+macro avg       0.76      0.80      0.78      1999
+
+09/03/2020 06:24:51 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:24:51 - INFO - __main__ -   f1 = 0.7826721830128984
+09/03/2020 06:24:51 - INFO - __main__ -   loss = 1.7626273121152605
+09/03/2020 06:24:51 - INFO - __main__ -   precision = 0.762085308056872
+09/03/2020 06:24:51 - INFO - __main__ -   recall = 0.8044022011005503
+09/03/2020 06:24:59 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:25:01 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:25:01 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:25:01 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:25:03 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.48      0.54      0.51       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:25:03 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:25:03 - INFO - __main__ -   f1 = 0.7846191287417863
+09/03/2020 06:25:03 - INFO - __main__ -   loss = 1.7623203652245658
+09/03/2020 06:25:03 - INFO - __main__ -   precision = 0.7639810426540284
+09/03/2020 06:25:03 - INFO - __main__ -   recall = 0.8064032016008004
+09/03/2020 06:25:11 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:25:13 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:25:13 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:25:13 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:25:15 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.48      0.54      0.51       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:25:15 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:25:15 - INFO - __main__ -   f1 = 0.7865497076023393
+09/03/2020 06:25:15 - INFO - __main__ -   loss = 1.7632436922618322
+09/03/2020 06:25:15 - INFO - __main__ -   precision = 0.7667458432304038
+09/03/2020 06:25:15 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:25:23 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:25:25 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:25:25 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:25:25 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:25:27 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.49      0.54      0.51       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:25:27 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:25:27 - INFO - __main__ -   f1 = 0.7888834714773282
+09/03/2020 06:25:27 - INFO - __main__ -   loss = 1.7629326071058
+09/03/2020 06:25:27 - INFO - __main__ -   precision = 0.7693770803613885
+09/03/2020 06:25:27 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:25:36 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:25:38 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:25:38 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:25:38 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:25:40 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.49      0.54      0.51       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:25:40 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:25:40 - INFO - __main__ -   f1 = 0.7895635210924165
+09/03/2020 06:25:40 - INFO - __main__ -   loss = 1.7626828806740897
+09/03/2020 06:25:40 - INFO - __main__ -   precision = 0.7702188392007612
+09/03/2020 06:25:40 - INFO - __main__ -   recall = 0.8099049524762382
+09/03/2020 06:25:48 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:25:50 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:25:50 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:25:50 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:25:52 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.49      0.54      0.51       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:25:52 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:25:52 - INFO - __main__ -   f1 = 0.7888834714773282
+09/03/2020 06:25:52 - INFO - __main__ -   loss = 1.7635386330740792
+09/03/2020 06:25:52 - INFO - __main__ -   precision = 0.7693770803613885
+09/03/2020 06:25:52 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:26:00 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:26:02 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:26:02 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:26:02 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:26:04 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.83      0.79       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.54      0.51       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:26:04 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:26:04 - INFO - __main__ -   f1 = 0.7895635210924165
+09/03/2020 06:26:04 - INFO - __main__ -   loss = 1.764552116394043
+09/03/2020 06:26:04 - INFO - __main__ -   precision = 0.7702188392007612
+09/03/2020 06:26:04 - INFO - __main__ -   recall = 0.8099049524762382
+09/03/2020 06:26:12 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:26:14 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:26:14 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:26:14 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:26:16 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.48      0.54      0.51       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:26:16 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:26:16 - INFO - __main__ -   f1 = 0.7860793380384521
+09/03/2020 06:26:16 - INFO - __main__ -   loss = 1.7663212844303675
+09/03/2020 06:26:16 - INFO - __main__ -   precision = 0.7654028436018957
+09/03/2020 06:26:16 - INFO - __main__ -   recall = 0.807903951975988
+09/03/2020 06:26:24 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:26:26 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:26:26 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:26:26 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:26:28 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.83      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.47      0.54      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:26:28 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:26:28 - INFO - __main__ -   f1 = 0.786773644541697
+09/03/2020 06:26:28 - INFO - __main__ -   loss = 1.7679340498788017
+09/03/2020 06:26:28 - INFO - __main__ -   precision = 0.7653736991485336
+09/03/2020 06:26:28 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:26:36 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:26:38 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:26:38 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:26:38 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:26:40 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.82      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.54      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:26:40 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:26:40 - INFO - __main__ -   f1 = 0.7873479318734793
+09/03/2020 06:26:40 - INFO - __main__ -   loss = 1.771857397896903
+09/03/2020 06:26:40 - INFO - __main__ -   precision = 0.7664613927048792
+09/03/2020 06:26:40 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:26:48 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:26:50 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:26:50 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:26:50 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:26:52 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.54      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:26:52 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:26:52 - INFO - __main__ -   f1 = 0.7861834103624423
+09/03/2020 06:26:52 - INFO - __main__ -   loss = 1.7758534806115287
+09/03/2020 06:26:52 - INFO - __main__ -   precision = 0.7651515151515151
+09/03/2020 06:26:52 - INFO - __main__ -   recall = 0.8084042021010506
+09/03/2020 06:27:00 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:27:02 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:27:02 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:27:02 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:27:04 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.54      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:27:04 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:27:04 - INFO - __main__ -   f1 = 0.7849331713244229
+09/03/2020 06:27:04 - INFO - __main__ -   loss = 1.7754470791135515
+09/03/2020 06:27:04 - INFO - __main__ -   precision = 0.7632325141776938
+09/03/2020 06:27:04 - INFO - __main__ -   recall = 0.807903951975988
+09/03/2020 06:27:12 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:27:14 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:27:14 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:27:14 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:27:16 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.54      0.50       119
+
+micro avg       0.76      0.81      0.78      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:27:16 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:27:16 - INFO - __main__ -   f1 = 0.7849148418491484
+09/03/2020 06:27:16 - INFO - __main__ -   loss = 1.7745954479490007
+09/03/2020 06:27:16 - INFO - __main__ -   precision = 0.7640928469919469
+09/03/2020 06:27:16 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 06:27:24 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:27:27 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:27:27 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:27:27 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:27:29 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.81      0.83      0.82      1071
+   HEADER       0.46      0.54      0.50       119
+
+micro avg       0.76      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:27:29 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:27:29 - INFO - __main__ -   f1 = 0.7850194552529184
+09/03/2020 06:27:29 - INFO - __main__ -   loss = 1.7772975308554513
+09/03/2020 06:27:29 - INFO - __main__ -   precision = 0.7638428774254614
+09/03/2020 06:27:29 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:27:37 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:27:39 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:27:39 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:27:39 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:27:41 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.47      0.54      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:27:41 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:27:41 - INFO - __main__ -   f1 = 0.7865497076023393
+09/03/2020 06:27:41 - INFO - __main__ -   loss = 1.7804722104753767
+09/03/2020 06:27:41 - INFO - __main__ -   precision = 0.7667458432304038
+09/03/2020 06:27:41 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:27:49 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:27:51 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:27:51 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:27:51 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:27:53 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.46      0.53      0.49       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:27:53 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:27:53 - INFO - __main__ -   f1 = 0.7863414634146342
+09/03/2020 06:27:53 - INFO - __main__ -   loss = 1.7838473320007324
+09/03/2020 06:27:53 - INFO - __main__ -   precision = 0.7672536887196573
+09/03/2020 06:27:53 - INFO - __main__ -   recall = 0.8064032016008004
+09/03/2020 06:28:01 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:28:03 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:28:03 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:28:03 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:28:05 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.53      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:28:05 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:28:05 - INFO - __main__ -   f1 = 0.7877899877899878
+09/03/2020 06:28:05 - INFO - __main__ -   loss = 1.7830537217003959
+09/03/2020 06:28:05 - INFO - __main__ -   precision = 0.7695610687022901
+09/03/2020 06:28:05 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 06:28:13 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:28:15 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:28:15 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:28:15 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:28:17 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.47      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:28:17 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:28:17 - INFO - __main__ -   f1 = 0.787109375
+09/03/2020 06:28:17 - INFO - __main__ -   loss = 1.7785440683364868
+09/03/2020 06:28:17 - INFO - __main__ -   precision = 0.7687172150691464
+09/03/2020 06:28:17 - INFO - __main__ -   recall = 0.8064032016008004
+09/03/2020 06:28:25 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:28:27 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:28:27 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:28:27 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:28:29 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:28:29 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:28:29 - INFO - __main__ -   f1 = 0.78759765625
+09/03/2020 06:28:29 - INFO - __main__ -   loss = 1.775943602834429
+09/03/2020 06:28:29 - INFO - __main__ -   precision = 0.7691940867906533
+09/03/2020 06:28:29 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 06:28:37 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:28:39 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:28:39 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:28:39 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:28:41 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:28:41 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:28:41 - INFO - __main__ -   f1 = 0.787701317715959
+09/03/2020 06:28:41 - INFO - __main__ -   loss = 1.7757430246898107
+09/03/2020 06:28:41 - INFO - __main__ -   precision = 0.7689375893282515
+09/03/2020 06:28:41 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:28:49 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:28:51 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:28:51 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:28:51 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:28:53 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:28:53 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:28:53 - INFO - __main__ -   f1 = 0.7875091485728227
+09/03/2020 06:28:53 - INFO - __main__ -   loss = 1.7761172907693046
+09/03/2020 06:28:53 - INFO - __main__ -   precision = 0.7685714285714286
+09/03/2020 06:28:53 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:29:01 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:29:03 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:29:03 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:29:03 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:29:05 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:29:05 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:29:05 - INFO - __main__ -   f1 = 0.7874054185989748
+09/03/2020 06:29:05 - INFO - __main__ -   loss = 1.775628651891436
+09/03/2020 06:29:05 - INFO - __main__ -   precision = 0.7688274547187798
+09/03/2020 06:29:05 - INFO - __main__ -   recall = 0.806903451725863
+09/03/2020 06:29:13 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:29:16 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:29:16 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:29:16 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:29:18 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.78       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.47      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:29:18 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:29:18 - INFO - __main__ -   f1 = 0.7873170731707316
+09/03/2020 06:29:18 - INFO - __main__ -   loss = 1.7751683677945818
+09/03/2020 06:29:18 - INFO - __main__ -   precision = 0.7682056163731557
+09/03/2020 06:29:18 - INFO - __main__ -   recall = 0.8074037018509255
+09/03/2020 06:29:26 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:29:28 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:29:28 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:29:28 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:29:30 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.76      0.82      0.79       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:29:30 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:29:30 - INFO - __main__ -   f1 = 0.7886774036115178
+09/03/2020 06:29:30 - INFO - __main__ -   loss = 1.7751611130578178
+09/03/2020 06:29:30 - INFO - __main__ -   precision = 0.769890424011434
+09/03/2020 06:29:30 - INFO - __main__ -   recall = 0.8084042021010506
+09/03/2020 06:29:38 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:29:40 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:29:40 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:29:40 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:29:42 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:29:42 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:29:42 - INFO - __main__ -   f1 = 0.7892682926829269
+09/03/2020 06:29:42 - INFO - __main__ -   loss = 1.775035296167646
+09/03/2020 06:29:42 - INFO - __main__ -   precision = 0.7701094716801523
+09/03/2020 06:29:42 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:29:50 - INFO - layoutlm.data.funsd - Loading features from cached file data/cached_test_layoutlm-base-uncased_512
+09/03/2020 06:29:52 - INFO - __main__ - ***** Running evaluation  *****
+09/03/2020 06:29:52 - INFO - __main__ -   Num examples = 52
+09/03/2020 06:29:52 - INFO - __main__ -   Batch size = 8
+09/03/2020 06:29:54 - INFO - __main__ - 
+           precision    recall  f1-score   support
+
+   ANSWER       0.75      0.82      0.79       809
+ QUESTION       0.82      0.83      0.82      1071
+   HEADER       0.48      0.52      0.50       119
+
+micro avg       0.77      0.81      0.79      1999
+macro avg       0.77      0.81      0.79      1999
+
+09/03/2020 06:29:54 - INFO - __main__ - ***** Eval results  *****
+09/03/2020 06:29:54 - INFO - __main__ -   f1 = 0.7892682926829269
+09/03/2020 06:29:54 - INFO - __main__ -   loss = 1.774957231112889
+09/03/2020 06:29:54 - INFO - __main__ -   precision = 0.7701094716801523
+09/03/2020 06:29:54 - INFO - __main__ -   recall = 0.8094047023511756
+09/03/2020 06:29:54 - INFO - __main__ -  global_step = 1900, average loss = 0.07598589385490509
+09/03/2020 06:29:54 - INFO - __main__ - Saving model checkpoint to output
+09/03/2020 06:29:54 - INFO - transformers.configuration_utils - Configuration saved in output/config.json
+09/03/2020 06:29:55 - INFO - transformers.modeling_utils - Model weights saved in output/pytorch_model.bin
