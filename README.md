@@ -56,6 +56,8 @@
 - [cached_test_layoutlm-base-uncased_512](https://bhpan.buaa.edu.cn:443/link/4962F0E4280A89304FCC0E946C6C130B)
 - [sen_level_cached_train_layoutlm-base-uncased_512](https://bhpan.buaa.edu.cn:443/link/4962F0E4280A89304FCC0E946C6C130B)
 - [sen_level_cached_test_layoutlm-base-uncased_512](https://bhpan.buaa.edu.cn:443/link/EBCFD7481BCD27C1937BEB2BFB73771D)
+- [sen_level_bert_cached_train_layoutlm-base-uncased_512](https://bhpan.buaa.edu.cn:443/link/34CEFB49586B4EBBEA3C5301E2792636)
+- [sen_level_bert_cached_test_layoutlm-base-uncased_512](https://bhpan.buaa.edu.cn:443/link/F771EC9F11438E7A8F125D53CD26AE36)
 
 ### Overview on Dataset
 
@@ -89,17 +91,35 @@
 | Training Set |  112   |  111  |    90   |  315  |    112    |  112  |     99   |    331    |   57   |   120  |    222    | 112  | 112 |    36   |  1941 |
 | Testing Set  |   38   |   37  |    30   |  106  |     38    |   38  |     34   |    111    |   20   |    40  |     75    |  38  |  38 |    12   |   655 |
 
-### Wrong Coordinate Clean
+#### Wrong Coordinate Clean
 
 - Training Set : 440 IN 183581 ITEMS -> 183141 ITEMS  
 - Testing Set : 108 IN 59673 ITEMS -> 59565 ITEMS  
 
-### Original Feature Train in LayoutLM
+### Token_Level_BERT Feature Train in LayoutLM
 
-| ID | Name     | F1    | Epoch |
-|:--:|:--------:|:-----:|:-----:|
-| 01 | BERT     | 90.56 | 31/ |
-| 02 | LayoutLM | 98.40 | 37/72 |
+| ID | Name     | First Epoch | F1    | Epoch   |
+|:--:|:--------:|:-----------:|:-----:|:-------:|
+| 01 | BERT     | 82.51       | 90.80 | 54 / 59 |
+| 02 | LayoutLM | 94.98       | 98.40 | 37 / 72 |
+
+#### Comparison
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEDC4JFkLHJvviB8sgUxvoh0pV*.0nk5fa78wuByYZYKyypdFPdU1HJsxq0*WJsy05aRbE99lW6KOwcSuSbFC5Ig!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrELzIuRZ.hlIyTpYLyscU5rMU*HY.A5FvMbCI0svcxjfNcN.EZwMuDDCmrDbTLtR73j3yTgH2Qv.wRgJ.ussYeMk!/r)
+
+#### BERT
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrENDXFe*BXhsx9Wun29518.WWEZUxh3OcL*EqFun3h.XI6UDNZTCFcRmwVSczcFa7Z4hiuK0ieCEluFr0nZCRQyY!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEJwWDznIdTnBHybu6Xjh2kCEQ9xS8MyZo18.n.gbDmM2FCU0GjqyKL.IhgfBtMGmn64xyJl.vmVmzqACnr4XLIk!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEJuHIJwaByVGWcNWHBrFvJ8XehboriCBd6Yhn7SG2xePr3ipxWQvEhI*wBIk0hLc49Aeg*8fo0*PEhmqrfaD3OQ!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEBCVUfAmyYY1YEn26sEVRprWXOBHgH.9EjiQzOAMGcj55gtODFXnYjPQLJ1XsLBjRzm8ePuzqn.aNsGlgK.jrUY!/r)
+
+#### LayoutLM
 
 ![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrELP5owIgRhIWHjWkha3EGe1wa97QtvsELW1diSeF.DuDVD7IWVIZRg7lW0ynwEayLtVFTJ.LjMw0zePnpplsS2E!/r)
 
@@ -108,4 +128,12 @@
 ![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEIZlXwcoL8pnBqff6hDaKGSwYzJrsLM2wjoK6eJ7qaFulL.w8TzYctzcuAVSGe5arEdpgPfvf2CkAyIPcsGFSo4!/r)
 
 ![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEA*gGtfVgk5CdVghOiV3dNKOx2R9ens3YHPr5ftAMrB1n2kyu4tJJzMAeO1tELjUo65wG*qjslCJM55ZOjfBWRc!/r)
+
+
+### Sentence_Level_BERT Feature Train in LayoutLM
+
+| ID | Name     | F1    | Epoch   |
+|:--:|:--------:|:-----:|:-------:|
+| 01 | BERT     |  |  |
+| 02 | LayoutLM |  |  |
 

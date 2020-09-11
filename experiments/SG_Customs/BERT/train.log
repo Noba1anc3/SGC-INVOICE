@@ -1818,3 +1818,639 @@ INVCOMMODITY.PARTNUMBER       0.97      0.98      0.98       708
 09/10/2020 10:50:39 - INFO - __main__ -   ***** Running evaluation  *****
 09/10/2020 10:50:39 - INFO - __main__ -     Num examples = 857
 09/10/2020 10:50:39 - INFO - __main__ -     Batch size = 14
+09/10/2020 10:51:11 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.97      0.93      0.95      2136
+             INVTOTALGW       0.95      0.96      0.96       427
+            INVCURRENCY       0.95      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.83      0.88      0.85      1228
+       INVCOMMODITY.QTY       0.87      0.92      0.90      1275
+       INVCOMMODITY.COO       0.95      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.95      0.99      0.97       708
+                INVDATE       0.94      0.95      0.95       664
+    INVCOMMODITY.HSCODE       0.99      0.96      0.98       508
+                  INVNO       0.95      0.97      0.96       741
+           INVCONSIGNEE       0.80      0.78      0.79      3097
+                INVPAGE       0.98      0.99      0.98       501
+            INVTERMTYPE       0.96      0.96      0.96       501
+     INVCOMMODITY.TOTAL       0.81      0.81      0.81      1235
+               INVTOTAL       0.86      0.82      0.84       682
+            INVTOTALQTY       0.88      0.86      0.87       432
+    INVCOMMODITY.ITEMNO       0.91      0.92      0.92       854
+             INVSHIPPER       0.93      0.96      0.95      2485
+              INVQTYUOM       0.99      0.91      0.94        85
+             INVTOTALNW       0.97      0.84      0.90        76
+        INVCOMMODITY.GW       0.71      0.85      0.77        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.90      0.91      0.90     20013
+              macro avg       0.90      0.91      0.90     20013
+
+09/10/2020 10:51:11 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 10:51:11 - INFO - __main__ -     f1 = 0.9049423968879359
+09/10/2020 10:51:11 - INFO - __main__ -     loss = 0.37714181479907805
+09/10/2020 10:51:11 - INFO - __main__ -     precision = 0.9032306237244263
+09/10/2020 10:51:11 - INFO - __main__ -     recall = 0.9066606705641334
+09/10/2020 10:55:38 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 10:55:39 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 10:55:39 - INFO - __main__ -     Num examples = 857
+09/10/2020 10:55:39 - INFO - __main__ -     Batch size = 14
+09/10/2020 10:56:11 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.97      0.94      0.95      2136
+             INVTOTALGW       0.96      0.94      0.95       427
+            INVCURRENCY       0.96      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.84      0.87      0.85      1228
+       INVCOMMODITY.QTY       0.87      0.93      0.90      1275
+       INVCOMMODITY.COO       0.96      0.97      0.97      1066
+INVCOMMODITY.PARTNUMBER       0.98      0.98      0.98       708
+                INVDATE       0.91      0.96      0.94       664
+    INVCOMMODITY.HSCODE       0.99      0.97      0.98       508
+                  INVNO       0.97      0.97      0.97       741
+           INVCONSIGNEE       0.81      0.78      0.79      3097
+                INVPAGE       0.97      0.99      0.98       501
+            INVTERMTYPE       0.95      0.97      0.96       501
+     INVCOMMODITY.TOTAL       0.79      0.82      0.81      1235
+               INVTOTAL       0.84      0.82      0.83       682
+            INVTOTALQTY       0.86      0.87      0.86       432
+    INVCOMMODITY.ITEMNO       0.91      0.93      0.92       854
+             INVSHIPPER       0.94      0.96      0.95      2485
+              INVQTYUOM       0.97      0.92      0.95        85
+             INVTOTALNW       0.97      0.87      0.92        76
+        INVCOMMODITY.GW       0.64      0.88      0.74        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.90      0.91      0.90     20013
+              macro avg       0.90      0.91      0.90     20013
+
+09/10/2020 10:56:11 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 10:56:11 - INFO - __main__ -     f1 = 0.904906600249066
+09/10/2020 10:56:11 - INFO - __main__ -     loss = 0.3553883077636842
+09/10/2020 10:56:11 - INFO - __main__ -     precision = 0.9021204747479764
+09/10/2020 10:56:11 - INFO - __main__ -     recall = 0.9077099885074701
+09/10/2020 11:00:38 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:00:39 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:00:39 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:00:39 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:01:11 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.98      0.93      0.95      2136
+             INVTOTALGW       0.93      0.95      0.94       427
+            INVCURRENCY       0.97      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.83      0.86      0.85      1228
+       INVCOMMODITY.QTY       0.87      0.92      0.90      1275
+       INVCOMMODITY.COO       0.97      0.96      0.97      1066
+INVCOMMODITY.PARTNUMBER       0.96      0.99      0.97       708
+                INVDATE       0.93      0.96      0.94       664
+    INVCOMMODITY.HSCODE       0.98      0.97      0.98       508
+                  INVNO       0.97      0.97      0.97       741
+           INVCONSIGNEE       0.81      0.79      0.80      3097
+                INVPAGE       0.98      0.98      0.98       501
+            INVTERMTYPE       0.96      0.96      0.96       501
+     INVCOMMODITY.TOTAL       0.80      0.82      0.81      1235
+               INVTOTAL       0.87      0.83      0.85       682
+            INVTOTALQTY       0.87      0.85      0.86       432
+    INVCOMMODITY.ITEMNO       0.91      0.92      0.91       854
+             INVSHIPPER       0.95      0.96      0.95      2485
+              INVQTYUOM       0.99      0.92      0.95        85
+             INVTOTALNW       1.00      0.83      0.91        76
+        INVCOMMODITY.GW       0.63      0.88      0.74        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.91      0.91      0.91     20013
+              macro avg       0.91      0.91      0.91     20013
+
+09/10/2020 11:01:11 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:01:11 - INFO - __main__ -     f1 = 0.9060478129449676
+09/10/2020 11:01:11 - INFO - __main__ -     loss = 0.3510070246073507
+09/10/2020 11:01:11 - INFO - __main__ -     precision = 0.9059346588070736
+09/10/2020 11:01:11 - INFO - __main__ -     recall = 0.9061609953530205
+09/10/2020 11:05:38 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:05:39 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:05:39 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:05:39 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:06:11 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.97      0.94      0.95      2136
+             INVTOTALGW       0.97      0.91      0.94       427
+            INVCURRENCY       0.96      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.83      0.87      0.85      1228
+       INVCOMMODITY.QTY       0.88      0.91      0.89      1275
+       INVCOMMODITY.COO       0.97      0.96      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.95      0.99      0.97       708
+                INVDATE       0.92      0.96      0.94       664
+    INVCOMMODITY.HSCODE       0.99      0.97      0.98       508
+                  INVNO       0.94      0.98      0.96       741
+           INVCONSIGNEE       0.80      0.79      0.80      3097
+                INVPAGE       0.97      0.99      0.98       501
+            INVTERMTYPE       0.96      0.96      0.96       501
+     INVCOMMODITY.TOTAL       0.81      0.82      0.81      1235
+               INVTOTAL       0.87      0.83      0.85       682
+            INVTOTALQTY       0.87      0.86      0.86       432
+    INVCOMMODITY.ITEMNO       0.93      0.93      0.93       854
+             INVSHIPPER       0.94      0.96      0.95      2485
+              INVQTYUOM       0.98      0.93      0.95        85
+             INVTOTALNW       0.99      0.87      0.92        76
+        INVCOMMODITY.GW       0.56      0.84      0.67        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.90      0.91      0.90     20013
+              macro avg       0.90      0.91      0.91     20013
+
+09/10/2020 11:06:11 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:06:11 - INFO - __main__ -     f1 = 0.9048840626634455
+09/10/2020 11:06:11 - INFO - __main__ -     loss = 0.358215207053769
+09/10/2020 11:06:11 - INFO - __main__ -     precision = 0.9020756778230211
+09/10/2020 11:06:11 - INFO - __main__ -     recall = 0.9077099885074701
+09/10/2020 11:10:38 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:10:39 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:10:39 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:10:39 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:11:11 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.95      0.94      0.95      2136
+             INVTOTALGW       0.94      0.96      0.95       427
+            INVCURRENCY       0.96      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.85      0.88      0.86      1228
+       INVCOMMODITY.QTY       0.90      0.91      0.90      1275
+       INVCOMMODITY.COO       0.96      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.98      0.98      0.98       708
+                INVDATE       0.92      0.96      0.94       664
+    INVCOMMODITY.HSCODE       0.99      0.97      0.98       508
+                  INVNO       0.96      0.97      0.97       741
+           INVCONSIGNEE       0.81      0.79      0.80      3097
+                INVPAGE       0.97      0.99      0.98       501
+            INVTERMTYPE       0.96      0.97      0.96       501
+     INVCOMMODITY.TOTAL       0.82      0.81      0.81      1235
+               INVTOTAL       0.83      0.86      0.84       682
+            INVTOTALQTY       0.83      0.89      0.86       432
+    INVCOMMODITY.ITEMNO       0.92      0.91      0.92       854
+             INVSHIPPER       0.95      0.95      0.95      2485
+              INVQTYUOM       0.99      0.93      0.96        85
+             INVTOTALNW       1.00      0.86      0.92        76
+        INVCOMMODITY.GW       0.65      0.82      0.73        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.91      0.91      0.91     20013
+              macro avg       0.91      0.91      0.91     20013
+
+09/10/2020 11:11:11 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:11:11 - INFO - __main__ -     f1 = 0.9069662921348315
+09/10/2020 11:11:11 - INFO - __main__ -     loss = 0.3572969203514437
+09/10/2020 11:11:11 - INFO - __main__ -     precision = 0.9064231172331187
+09/10/2020 11:11:11 - INFO - __main__ -     recall = 0.907510118423025
+09/10/2020 11:15:38 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:15:39 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:15:39 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:15:39 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:16:11 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.97      0.94      0.96      2136
+             INVTOTALGW       0.97      0.95      0.96       427
+            INVCURRENCY       0.96      0.95      0.96       850
+     INVCOMMODITY.PRICE       0.82      0.88      0.85      1228
+       INVCOMMODITY.QTY       0.90      0.91      0.90      1275
+       INVCOMMODITY.COO       0.96      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.90      0.99      0.94       708
+                INVDATE       0.92      0.95      0.93       664
+    INVCOMMODITY.HSCODE       0.99      0.98      0.99       508
+                  INVNO       0.95      0.98      0.97       741
+           INVCONSIGNEE       0.80      0.80      0.80      3097
+                INVPAGE       0.97      0.99      0.98       501
+            INVTERMTYPE       0.96      0.97      0.96       501
+     INVCOMMODITY.TOTAL       0.82      0.80      0.81      1235
+               INVTOTAL       0.84      0.85      0.84       682
+            INVTOTALQTY       0.87      0.85      0.86       432
+    INVCOMMODITY.ITEMNO       0.92      0.93      0.92       854
+             INVSHIPPER       0.94      0.96      0.95      2485
+              INVQTYUOM       0.98      0.93      0.95        85
+             INVTOTALNW       0.99      0.87      0.92        76
+        INVCOMMODITY.GW       0.66      0.85      0.74        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.90      0.91      0.91     20013
+              macro avg       0.90      0.91      0.91     20013
+
+09/10/2020 11:16:11 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:16:11 - INFO - __main__ -     f1 = 0.9060603045079112
+09/10/2020 11:16:11 - INFO - __main__ -     loss = 0.37260741692396904
+09/10/2020 11:16:11 - INFO - __main__ -     precision = 0.9022444631620671
+09/10/2020 11:16:11 - INFO - __main__ -     recall = 0.9099085594363664
+09/10/2020 11:20:38 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:20:38 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:20:38 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:20:38 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:21:11 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.98      0.93      0.96      2136
+             INVTOTALGW       0.96      0.94      0.95       427
+            INVCURRENCY       0.97      0.95      0.96       850
+     INVCOMMODITY.PRICE       0.85      0.87      0.86      1228
+       INVCOMMODITY.QTY       0.90      0.91      0.90      1275
+       INVCOMMODITY.COO       0.95      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.95      0.99      0.97       708
+                INVDATE       0.95      0.93      0.94       664
+    INVCOMMODITY.HSCODE       0.99      0.97      0.98       508
+                  INVNO       0.91      0.98      0.94       741
+           INVCONSIGNEE       0.81      0.78      0.79      3097
+                INVPAGE       0.98      0.98      0.98       501
+            INVTERMTYPE       0.96      0.97      0.96       501
+     INVCOMMODITY.TOTAL       0.81      0.83      0.82      1235
+               INVTOTAL       0.85      0.85      0.85       682
+            INVTOTALQTY       0.83      0.88      0.85       432
+    INVCOMMODITY.ITEMNO       0.90      0.92      0.91       854
+             INVSHIPPER       0.95      0.96      0.95      2485
+              INVQTYUOM       0.98      0.93      0.95        85
+             INVTOTALNW       1.00      0.84      0.91        76
+        INVCOMMODITY.GW       0.67      0.81      0.73        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.99       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.91      0.91      0.91     20013
+              macro avg       0.91      0.91      0.91     20013
+
+09/10/2020 11:21:11 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:21:11 - INFO - __main__ -     f1 = 0.9060718215464639
+09/10/2020 11:21:11 - INFO - __main__ -     loss = 0.3546958193182945
+09/10/2020 11:21:11 - INFO - __main__ -     precision = 0.9069336670838548
+09/10/2020 11:21:11 - INFO - __main__ -     recall = 0.9052116124519063
+09/10/2020 11:25:37 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:25:38 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:25:38 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:25:38 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:26:10 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.98      0.94      0.96      2136
+             INVTOTALGW       0.96      0.94      0.95       427
+            INVCURRENCY       0.96      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.84      0.89      0.86      1228
+       INVCOMMODITY.QTY       0.90      0.91      0.90      1275
+       INVCOMMODITY.COO       0.95      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.94      0.99      0.96       708
+                INVDATE       0.92      0.97      0.94       664
+    INVCOMMODITY.HSCODE       0.98      0.98      0.98       508
+                  INVNO       0.94      0.98      0.96       741
+           INVCONSIGNEE       0.81      0.79      0.80      3097
+                INVPAGE       0.98      0.99      0.98       501
+            INVTERMTYPE       0.96      0.96      0.96       501
+     INVCOMMODITY.TOTAL       0.83      0.81      0.82      1235
+               INVTOTAL       0.85      0.83      0.84       682
+            INVTOTALQTY       0.86      0.86      0.86       432
+    INVCOMMODITY.ITEMNO       0.88      0.94      0.91       854
+             INVSHIPPER       0.95      0.95      0.95      2485
+              INVQTYUOM       0.98      0.94      0.96        85
+             INVTOTALNW       0.97      0.82      0.89        76
+        INVCOMMODITY.GW       0.59      0.85      0.69        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.90      0.91      0.91     20013
+              macro avg       0.91      0.91      0.91     20013
+
+09/10/2020 11:26:10 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:26:10 - INFO - __main__ -     f1 = 0.9070068773048939
+09/10/2020 11:26:10 - INFO - __main__ -     loss = 0.35882056384317335
+09/10/2020 11:26:10 - INFO - __main__ -     precision = 0.9046175257219544
+09/10/2020 11:26:10 - INFO - __main__ -     recall = 0.9094088842252536
+09/10/2020 11:30:37 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:30:38 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:30:38 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:30:38 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:31:10 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.98      0.94      0.96      2136
+             INVTOTALGW       0.95      0.96      0.95       427
+            INVCURRENCY       0.96      0.97      0.96       850
+     INVCOMMODITY.PRICE       0.87      0.85      0.86      1228
+       INVCOMMODITY.QTY       0.89      0.92      0.90      1275
+       INVCOMMODITY.COO       0.96      0.96      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.94      0.99      0.96       708
+                INVDATE       0.93      0.97      0.95       664
+    INVCOMMODITY.HSCODE       0.98      0.98      0.98       508
+                  INVNO       0.96      0.98      0.97       741
+           INVCONSIGNEE       0.80      0.80      0.80      3097
+                INVPAGE       0.97      0.99      0.98       501
+            INVTERMTYPE       0.96      0.97      0.96       501
+     INVCOMMODITY.TOTAL       0.80      0.82      0.81      1235
+               INVTOTAL       0.81      0.87      0.84       682
+            INVTOTALQTY       0.85      0.88      0.87       432
+    INVCOMMODITY.ITEMNO       0.90      0.94      0.92       854
+             INVSHIPPER       0.93      0.96      0.95      2485
+              INVQTYUOM       0.96      0.94      0.95        85
+             INVTOTALNW       0.98      0.86      0.92        76
+        INVCOMMODITY.GW       0.67      0.78      0.72        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.90      0.91      0.91     20013
+              macro avg       0.90      0.91      0.91     20013
+
+09/10/2020 11:31:10 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:31:10 - INFO - __main__ -     f1 = 0.9060930116886347
+09/10/2020 11:31:10 - INFO - __main__ -     loss = 0.36458632325933826
+09/10/2020 11:31:10 - INFO - __main__ -     precision = 0.9019656384611576
+09/10/2020 11:31:10 - INFO - __main__ -     recall = 0.9102583320841453
+09/10/2020 11:35:37 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:35:37 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:35:37 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:35:37 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:36:10 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.97      0.94      0.96      2136
+             INVTOTALGW       0.93      0.97      0.95       427
+            INVCURRENCY       0.97      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.85      0.87      0.86      1228
+       INVCOMMODITY.QTY       0.90      0.89      0.90      1275
+       INVCOMMODITY.COO       0.96      0.96      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.99      0.98      0.98       708
+                INVDATE       0.92      0.95      0.93       664
+    INVCOMMODITY.HSCODE       0.99      0.97      0.98       508
+                  INVNO       0.97      0.97      0.97       741
+           INVCONSIGNEE       0.80      0.78      0.79      3097
+                INVPAGE       0.98      0.98      0.98       501
+            INVTERMTYPE       0.95      0.97      0.96       501
+     INVCOMMODITY.TOTAL       0.82      0.82      0.82      1235
+               INVTOTAL       0.85      0.85      0.85       682
+            INVTOTALQTY       0.81      0.90      0.85       432
+    INVCOMMODITY.ITEMNO       0.90      0.94      0.92       854
+             INVSHIPPER       0.94      0.96      0.95      2485
+              INVQTYUOM       0.98      0.93      0.95        85
+             INVTOTALNW       1.00      0.86      0.92        76
+        INVCOMMODITY.GW       0.74      0.78      0.76        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.91      0.91      0.91     20013
+              macro avg       0.91      0.91      0.91     20013
+
+09/10/2020 11:36:10 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:36:10 - INFO - __main__ -     f1 = 0.9074980031948882
+09/10/2020 11:36:10 - INFO - __main__ -     loss = 0.3729079481094114
+09/10/2020 11:36:10 - INFO - __main__ -     precision = 0.9066380729140692
+09/10/2020 11:36:10 - INFO - __main__ -     recall = 0.9083595662819167
+09/10/2020 11:40:36 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:40:37 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:40:37 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:40:37 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:41:09 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.99      0.92      0.95      2136
+             INVTOTALGW       0.97      0.92      0.94       427
+            INVCURRENCY       0.97      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.88      0.84      0.86      1228
+       INVCOMMODITY.QTY       0.90      0.92      0.91      1275
+       INVCOMMODITY.COO       0.96      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.98      0.98      0.98       708
+                INVDATE       0.92      0.94      0.93       664
+    INVCOMMODITY.HSCODE       0.99      0.97      0.98       508
+                  INVNO       0.97      0.97      0.97       741
+           INVCONSIGNEE       0.80      0.79      0.79      3097
+                INVPAGE       0.98      0.99      0.99       501
+            INVTERMTYPE       0.96      0.95      0.96       501
+     INVCOMMODITY.TOTAL       0.79      0.84      0.81      1235
+               INVTOTAL       0.84      0.85      0.84       682
+            INVTOTALQTY       0.83      0.88      0.85       432
+    INVCOMMODITY.ITEMNO       0.93      0.93      0.93       854
+             INVSHIPPER       0.94      0.96      0.95      2485
+              INVQTYUOM       0.98      0.93      0.95        85
+             INVTOTALNW       0.99      0.87      0.92        76
+        INVCOMMODITY.GW       0.56      0.85      0.67        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.91      0.90      0.91     20013
+              macro avg       0.91      0.90      0.91     20013
+
+09/10/2020 11:41:09 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:41:09 - INFO - __main__ -     f1 = 0.9060615915743127
+09/10/2020 11:41:09 - INFO - __main__ -     loss = 0.3784760537166749
+09/10/2020 11:41:09 - INFO - __main__ -     precision = 0.9072645290581163
+09/10/2020 11:41:09 - INFO - __main__ -     recall = 0.9048618398041273
+09/10/2020 11:45:36 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:45:36 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:45:36 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:45:36 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:46:08 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.98      0.93      0.95      2136
+             INVTOTALGW       0.94      0.95      0.95       427
+            INVCURRENCY       0.96      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.85      0.87      0.86      1228
+       INVCOMMODITY.QTY       0.89      0.93      0.91      1275
+       INVCOMMODITY.COO       0.96      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.97      0.98      0.98       708
+                INVDATE       0.92      0.95      0.94       664
+    INVCOMMODITY.HSCODE       0.99      0.98      0.98       508
+                  INVNO       0.96      0.98      0.97       741
+           INVCONSIGNEE       0.80      0.79      0.80      3097
+                INVPAGE       0.98      0.98      0.98       501
+            INVTERMTYPE       0.97      0.96      0.96       501
+     INVCOMMODITY.TOTAL       0.82      0.83      0.82      1235
+               INVTOTAL       0.85      0.85      0.85       682
+            INVTOTALQTY       0.85      0.88      0.86       432
+    INVCOMMODITY.ITEMNO       0.91      0.93      0.92       854
+             INVSHIPPER       0.93      0.96      0.95      2485
+              INVQTYUOM       0.98      0.93      0.95        85
+             INVTOTALNW       1.00      0.86      0.92        76
+        INVCOMMODITY.GW       0.58      0.78      0.67        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.91      0.91      0.91     20013
+              macro avg       0.91      0.91      0.91     20013
+
+09/10/2020 11:46:08 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:46:08 - INFO - __main__ -     f1 = 0.9080041838920158
+09/10/2020 11:46:08 - INFO - __main__ -     loss = 0.39648050238047877
+09/10/2020 11:46:08 - INFO - __main__ -     precision = 0.9051189116727074
+09/10/2020 11:46:08 - INFO - __main__ -     recall = 0.9109079098585919
+09/10/2020 11:50:35 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:50:36 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:50:36 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:50:36 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:51:08 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.97      0.95      0.96      2136
+             INVTOTALGW       0.95      0.94      0.94       427
+            INVCURRENCY       0.96      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.85      0.87      0.86      1228
+       INVCOMMODITY.QTY       0.90      0.91      0.91      1275
+       INVCOMMODITY.COO       0.96      0.96      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.97      0.98      0.98       708
+                INVDATE       0.91      0.96      0.93       664
+    INVCOMMODITY.HSCODE       0.99      0.98      0.98       508
+                  INVNO       0.96      0.97      0.97       741
+           INVCONSIGNEE       0.79      0.79      0.79      3097
+                INVPAGE       0.98      0.99      0.98       501
+            INVTERMTYPE       0.96      0.95      0.95       501
+     INVCOMMODITY.TOTAL       0.81      0.83      0.82      1235
+               INVTOTAL       0.85      0.84      0.85       682
+            INVTOTALQTY       0.86      0.86      0.86       432
+    INVCOMMODITY.ITEMNO       0.91      0.94      0.92       854
+             INVSHIPPER       0.94      0.95      0.95      2485
+              INVQTYUOM       0.98      0.93      0.95        85
+             INVTOTALNW       0.98      0.86      0.92        76
+        INVCOMMODITY.GW       0.55      0.82      0.66        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.90      0.91      0.91     20013
+              macro avg       0.90      0.91      0.91     20013
+
+09/10/2020 11:51:08 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:51:08 - INFO - __main__ -     f1 = 0.906370584281411
+09/10/2020 11:51:08 - INFO - __main__ -     loss = 0.3825697901268159
+09/10/2020 11:51:08 - INFO - __main__ -     precision = 0.9031553879738043
+09/10/2020 11:51:08 - INFO - __main__ -     recall = 0.9096087543096987
+09/10/2020 11:55:35 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 11:55:36 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 11:55:36 - INFO - __main__ -     Num examples = 857
+09/10/2020 11:55:36 - INFO - __main__ -     Batch size = 14
+09/10/2020 11:56:08 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.99      0.92      0.95      2136
+             INVTOTALGW       0.95      0.94      0.94       427
+            INVCURRENCY       0.96      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.85      0.86      0.86      1228
+       INVCOMMODITY.QTY       0.91      0.88      0.90      1275
+       INVCOMMODITY.COO       0.96      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.97      0.98      0.98       708
+                INVDATE       0.92      0.96      0.94       664
+    INVCOMMODITY.HSCODE       0.99      0.98      0.99       508
+                  INVNO       0.97      0.97      0.97       741
+           INVCONSIGNEE       0.80      0.80      0.80      3097
+                INVPAGE       0.97      0.99      0.98       501
+            INVTERMTYPE       0.95      0.96      0.96       501
+     INVCOMMODITY.TOTAL       0.81      0.80      0.81      1235
+               INVTOTAL       0.80      0.86      0.83       682
+            INVTOTALQTY       0.87      0.87      0.87       432
+    INVCOMMODITY.ITEMNO       0.92      0.94      0.93       854
+             INVSHIPPER       0.94      0.95      0.95      2485
+              INVQTYUOM       0.98      0.93      0.95        85
+             INVTOTALNW       0.98      0.86      0.92        76
+        INVCOMMODITY.GW       0.60      0.76      0.67        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.91      0.90      0.91     20013
+              macro avg       0.91      0.90      0.91     20013
+
+09/10/2020 11:56:08 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 11:56:08 - INFO - __main__ -     f1 = 0.9051704730219876
+09/10/2020 11:56:08 - INFO - __main__ -     loss = 0.397413615017168
+09/10/2020 11:56:08 - INFO - __main__ -     precision = 0.9062813063514326
+09/10/2020 11:56:08 - INFO - __main__ -     recall = 0.9040623594663468
+09/10/2020 12:00:35 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 12:00:36 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 12:00:36 - INFO - __main__ -     Num examples = 857
+09/10/2020 12:00:36 - INFO - __main__ -     Batch size = 14
+09/10/2020 12:01:08 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.98      0.94      0.96      2136
+             INVTOTALGW       0.93      0.94      0.94       427
+            INVCURRENCY       0.97      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.85      0.87      0.86      1228
+       INVCOMMODITY.QTY       0.90      0.90      0.90      1275
+       INVCOMMODITY.COO       0.96      0.96      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.94      0.99      0.96       708
+                INVDATE       0.92      0.96      0.94       664
+    INVCOMMODITY.HSCODE       0.99      0.98      0.99       508
+                  INVNO       0.96      0.97      0.97       741
+           INVCONSIGNEE       0.81      0.79      0.80      3097
+                INVPAGE       0.96      0.99      0.97       501
+            INVTERMTYPE       0.96      0.96      0.96       501
+     INVCOMMODITY.TOTAL       0.81      0.82      0.82      1235
+               INVTOTAL       0.85      0.84      0.85       682
+            INVTOTALQTY       0.81      0.88      0.85       432
+    INVCOMMODITY.ITEMNO       0.91      0.93      0.92       854
+             INVSHIPPER       0.94      0.96      0.95      2485
+              INVQTYUOM       0.96      0.94      0.95        85
+             INVTOTALNW       1.00      0.87      0.93        76
+        INVCOMMODITY.GW       0.54      0.76      0.63        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.90      0.91      0.91     20013
+              macro avg       0.91      0.91      0.91     20013
+
+09/10/2020 12:01:08 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 12:01:08 - INFO - __main__ -     f1 = 0.9060208510001496
+09/10/2020 12:01:08 - INFO - __main__ -     loss = 0.37470047199918377
+09/10/2020 12:01:08 - INFO - __main__ -     precision = 0.9044868283452019
+09/10/2020 12:01:08 - INFO - __main__ -     recall = 0.9075600859441363
+09/10/2020 12:05:35 - INFO - layoutlm.data.funsd -   Loading features from cached file data/cached_test_bert-base-uncased_512
+09/10/2020 12:05:36 - INFO - __main__ -   ***** Running evaluation  *****
+09/10/2020 12:05:36 - INFO - __main__ -     Num examples = 857
+09/10/2020 12:05:36 - INFO - __main__ -     Batch size = 14
+09/10/2020 12:06:08 - INFO - __main__ -   
+                         precision    recall  f1-score   support
+
+      INVCOMMODITY.DESC       0.97      0.94      0.96      2136
+             INVTOTALGW       0.93      0.95      0.94       427
+            INVCURRENCY       0.96      0.96      0.96       850
+     INVCOMMODITY.PRICE       0.86      0.87      0.86      1228
+       INVCOMMODITY.QTY       0.89      0.91      0.90      1275
+       INVCOMMODITY.COO       0.95      0.97      0.96      1066
+INVCOMMODITY.PARTNUMBER       0.98      0.98      0.98       708
+                INVDATE       0.94      0.96      0.95       664
+    INVCOMMODITY.HSCODE       0.99      0.98      0.99       508
+                  INVNO       0.95      0.98      0.96       741
+           INVCONSIGNEE       0.80      0.79      0.79      3097
+                INVPAGE       0.98      0.99      0.98       501
+            INVTERMTYPE       0.96      0.96      0.96       501
+     INVCOMMODITY.TOTAL       0.81      0.83      0.82      1235
+               INVTOTAL       0.87      0.82      0.84       682
+            INVTOTALQTY       0.86      0.86      0.86       432
+    INVCOMMODITY.ITEMNO       0.92      0.93      0.93       854
+             INVSHIPPER       0.95      0.95      0.95      2485
+              INVQTYUOM       0.96      0.94      0.95        85
+             INVTOTALNW       0.98      0.86      0.92        76
+        INVCOMMODITY.GW       0.64      0.66      0.65        68
+      INVCOMMODITY.UNIT       0.98      0.99      0.98       297
+ INVCOMMODITY.BOXNUMBER       1.00      1.00      1.00        37
+              INVWTUNIT       1.00      1.00      1.00        60
+
+              micro avg       0.91      0.91      0.91     20013
+              macro avg       0.91      0.91      0.91     20013
+
+09/10/2020 12:06:08 - INFO - __main__ -   ***** Eval results  *****
+09/10/2020 12:06:08 - INFO - __main__ -     f1 = 0.9072900553864578
+09/10/2020 12:06:08 - INFO - __main__ -     loss = 0.3700831203210738
+09/10/2020 12:06:08 - INFO - __main__ -     precision = 0.9060242164532364
+09/10/2020 12:06:08 - INFO - __main__ -     recall = 0.9085594363663618
