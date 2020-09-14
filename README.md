@@ -96,12 +96,24 @@
 - Training Set : 440 IN 183581 ITEMS -> 183141 ITEMS  
 - Testing Set : 108 IN 59673 ITEMS -> 59565 ITEMS  
 
+### Comparison on Sentence_Level_BERT & Token_Level_BERT
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEMoZAFplvIZRrRmRgea4*lZ0C0y57om70e4H*iQrKqc*6ktR40MgDulYKkylJPT9J4pk0jQfySNxZ8RdxRzRqis!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEJdead1OCubCJLy1UC6wj43fct5HXbuIroI1ZrbyCTSHJhU1k3WvxPjkv*daRUCFBpQmN71n*HevDOAufdmmnPo!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEORpmMT47zRvJ2WPxrpAFXNiXi8x3EBhOTcBi5tQwHo8ngmmLWIwWgkJpIOkqiEIYGeTAoy49BX4l9aaynccX6U!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEJhw3sgAQRcgCG9tVLmlxcVxPesp7mFkNnsbyd32N*N970WXxpvLrEEOfJ64YticyqfHC7GYcMwZ69qtiLh0Zhw!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEBIcqrxMw1p3I*iXwNeXyya9R71PE8CO0ZFWmPEaqPc.A04.BWvV3xFx11nQVa.5DvqN85NgryY573xrBDerATc!/r)
+
 ### Token_Level_BERT Feature Train in LayoutLM
 
-| ID | Name     | First Epoch | F1    | Epoch   |
-|:--:|:--------:|:-----------:|:-----:|:-------:|
-| 01 | BERT     | 82.51       | 90.80 | 54 / 59 |
-| 02 | LayoutLM | 94.98       | 98.40 | 37 / 72 |
+| ID | Name     | First Epoch | F1    | Epoch   | Hit Plateau      |
+|:--:|:--------:|:-----------:|:-----:|:-------:|:----------------:|
+| 01 | BERT     | 82.51       | 90.80 | 54 / 59 | 90.35 - 11 / 59  |
+| 02 | LayoutLM | 94.98       | 98.40 | 37 / 72 | 98.27 -  7 / 72  |
 
 #### Comparison
 
@@ -113,11 +125,11 @@
 
 ![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrENDXFe*BXhsx9Wun29518.WWEZUxh3OcL*EqFun3h.XI6UDNZTCFcRmwVSczcFa7Z4hiuK0ieCEluFr0nZCRQyY!/r)
 
-![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEJwWDznIdTnBHybu6Xjh2kCEQ9xS8MyZo18.n.gbDmM2FCU0GjqyKL.IhgfBtMGmn64xyJl.vmVmzqACnr4XLIk!/r)
-
 ![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEJuHIJwaByVGWcNWHBrFvJ8XehboriCBd6Yhn7SG2xePr3ipxWQvEhI*wBIk0hLc49Aeg*8fo0*PEhmqrfaD3OQ!/r)
 
 ![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEBCVUfAmyYY1YEn26sEVRprWXOBHgH.9EjiQzOAMGcj55gtODFXnYjPQLJ1XsLBjRzm8ePuzqn.aNsGlgK.jrUY!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEJwWDznIdTnBHybu6Xjh2kCEQ9xS8MyZo18.n.gbDmM2FCU0GjqyKL.IhgfBtMGmn64xyJl.vmVmzqACnr4XLIk!/r)
 
 #### LayoutLM
 
@@ -132,8 +144,18 @@
 
 ### Sentence_Level_BERT Feature Train in LayoutLM
 
-| ID | Name     | F1    | Epoch   |
-|:--:|:--------:|:-----:|:-------:|
-| 01 | BERT     |  |  |
-| 02 | LayoutLM |  |  |
+| ID | Name     | First Epoch | F1    | Epoch    | Hit Plateau      |
+|:--:|:--------:|:-----------:|:-----:|:--------:|:----------------:|
+| 01 | BERT     |  | | |  |
+| 02 | LayoutLM | 0.00        | 97.91 | 96 / 100 | 97.05 - 45 / 100 |
+
+#### LayoutLM
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrECgMT.imqg30q4Tgtu*IeNpmIMqyHv0q7Af.Z5rLOjWuyDlKma0O6ED62EwhLElynu*PkKrcp9LBZRws3AarDE8!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEM13bK1nPJIXnKdFPT9A2IfP4vv6C4QeO7PvdZGPZ4SeVdm6IcurQk0LFwVI3SjY7yRZhNDfRY6fgNtknkx3.no!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEFEork7REE1L4IwyRZrZCBHOBFlxs*31zS5DOy.3JojaJdM.5EnNwQCCJ2LlaNdfm5dbJDrO0RCfWSJOSzWQaQw!/r)
+
+![](http://r.photo.store.qq.com/psc?/V50VqFfH2A6OlZ2gWBDL0uxzNK4WmFgm/TmEUgtj9EK6.7V8ajmQrEL90ywx2FWsvHQVfs4o6I..c5iy*QdTOdWGeApdFlpYdnU2nwDJJK1LASaw.X5A6zG.qFb2bj4K43BYyNVYfgRY!/r)
 
