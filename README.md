@@ -4,6 +4,8 @@
 
 ## SGC-INVOICE Dataset
 
+In order to fill the blank of dataset with rich semantic categories and complex layout in the field of IEVrDs, this paper constructs a Customs Declaration Invoice VrDs dataset SGC-INVOICE. This paper realize the visual document annotation tool, and complete data annotation and data cleaning based on string pattern matching and multi-task learning. The dataset consists of 2596 invoices from 14 companies, including more than 240k text bounding-boxes belonging to 25 important semantic categories. The text and visual information of invoice documents are rich, and the structure and layout are complex. This dataset is of great significance to the extraction of key values of customs declaration invoices and pushes the development of VrDs Understanding. Based on this dataset, this paper carries out the research on IEVrDs based on multimodal feature fusion. As far as this paper knows, the scale and number of semantic categories of this dataset exceed the current public customs declaration invoice datasets.
+
 ### Sample
 
 ![](https://i.postimg.cc/qqk3hnLw/1.png)
@@ -51,6 +53,9 @@
 ![](https://i.postimg.cc/kMc8r1Jp/4.png)
 
 ### Download
+
+Please Contact zhangxuanrui.0515@foxmail.com for password.
+
 - [SG_Customs Dataset](https://bhpan.buaa.edu.cn:443/link/FBDE129815220D30CD8797512ACC5C5B)
 - [SG_Customs Dataset_Invoice](https://bhpan.buaa.edu.cn:443/link/79BD538BDBE5AA4164ED03C0491DA737)
 - [SG_Customs Dataset_Invoice [Splitted]](https://bhpan.buaa.edu.cn:443/link/A6D049B5ACF2CABA80E8F8B48AD39C4B)
