@@ -1,8 +1,8 @@
-# SGC-INVOICE
+# SGC-INVOICE Visually-rich Documents Dataset
 
 [Github Homepage of LayoutLM](https://github.com/microsoft/unilm/tree/master/layoutlm)
 
-## SGC-INVOICE Dataset
+## SGC-INVOICE VrDs Dataset
 
 > In order to fill the blank of dataset with rich semantic categories and complex layout in the field of IEVrDs, I construct a Customs Declaration Invoice VrDs dataset SGC-INVOICE. This paper realize the visual document annotation tool, and complete data annotation and data cleaning based on string pattern matching and multi-task learning. The dataset consists of 2596 invoices from 14 companies, including more than 240k text bounding-boxes belonging to 25 important semantic categories. The text and visual information of invoice documents are rich, and the structure and layout are complex. This dataset is of great significance to the extraction of key values of customs declaration invoices and pushes the development of VrDs Understanding. Based on this dataset, this paper carries out the research on IEVrDs based on multimodal feature fusion. As far as this paper knows, the scale and number of semantic categories of this dataset exceed the current public customs declaration invoice datasets.
 
@@ -46,7 +46,7 @@
 
 ![](https://i.postimg.cc/WzXJM3Yv/2.png)
 
-### Key-Value
+### Semantic Entities
 
 ![](https://i.postimg.cc/nchmn4Mc/3.png)
 
@@ -67,10 +67,31 @@ Please Contact zhangxuanrui.0515@foxmail.com for password.
 - [sen_level_bert_cached_train_layoutlm-base-uncased_512](https://bhpan.buaa.edu.cn:443/link/34CEFB49586B4EBBEA3C5301E2792636)
 - [sen_level_bert_cached_test_layoutlm-base-uncased_512](https://bhpan.buaa.edu.cn:443/link/F771EC9F11438E7A8F125D53CD26AE36)
 
-### Data Cleaning
+### Data Cleaning & Data Splitting
 
-- Training Set : 440 IN 183581 ITEMS -> 183141 ITEMS  
-- Testing Set : 108 IN 59673 ITEMS -> 59565 ITEMS  
+对该数据集进行文字检测识别后得到24万条文字行，对文档按照3：1的比例将整个数据集分为训练集和验证集，共1941张图片为训练集，655张图片为验证集。
+
+数据清洗包含以下两个步骤
+- 删除坐标位置关系不成立的文字框
+  - 在训练集中发现了440个错误文字检测框，经过过滤后剩余183141个文字框
+  - 在验证集中发现了108个错误文字检测框，经过过滤后剩余59565个文字框
+- 优化四边形文字框的坐标位置
+  - 将左上角与右上角纵坐标之差及左下角与右下角纵坐标之差的绝对值的均值作为四边形的纵坐标差。
+  - 训练集中有354个文字框的纵坐标之差超过50，有399个文字框的纵坐标之差介于30-50之间，有799个文字框的纵坐标之差小于30。
+  - 在验证集中，有86个文字框的纵坐标之差超过50，有70个文字框的纵坐标之差超过30，有244个文字框的纵坐标之差小于30。
+  - 对于纵坐标之差小于30的文字框，仍然取左上角与右下角坐标作为矩形的两顶点坐标；
+  - 对于纵坐标之差介于30到50之间的文字框，取左上角与右上角两点纵坐标的最小值作为矩形左上角纵坐标，取右下角与左下角两点纵坐标的最大值作为矩形右下角纵坐标。
+  - 对于纵坐标之差超过50的情况，剔除这些畸形过度的文字框。
+
+经过清洗后，最终剩余182015个训练集文字框，59085个测试集文字框。
+
+基于对海关报关发票的调研，共有13个重要的货单语义实体和11个重要的货物语义实体。
+
+这些实体能够极大程度上体现海关报关单据中的重要信息，通过这些信息我们就可以获得对货单详情的了解。
+
+根据语义实体类别的不同，这24个不同的语义类别分别是：
+
+Shipper, Consignee, No, Page, Date, Currency, TermType, QtyUom, TotalGW, TotalNW, TotalQty, Total, WtUnit, C.Desc, C.PartNumber, C.ItemNo, C.COO, C.Unit, C.HSCode, C.GW, C.Price, C.Qty, C.BoxNumber, C.Total. 
 
 ## FUNSD Dataset
 
